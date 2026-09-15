@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BookWise Myanmar</title>
+
+  <meta
+    name="description"
+    content="BookWise Myanmar - စာအုပ်တစ်အုပ်ကို 15–25 မိနစ်အတွင်း နားလည်ပါ"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================================
+       APP HEADER
+  ================================= -->
+
+  <header class="app-header">
+
+    <div class="brand">
+      <div class="brand-icon">📚</div>
+
+      <div>
+        <h1>BookWise Myanmar</h1>
+        <p>စာအုပ်အနှစ်ချုပ် Platform</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+
+      <button
+        class="icon-btn"
+        id="searchButton"
+        aria-label="Search"
+      >
+        🔎
+      </button>
+
+      <button
+        class="profile-btn"
+        id="profileButton"
+      >
+        👤
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================================
+       SEARCH PANEL
+  ================================= -->
+
+  <section
+    class="search-panel"
+    id="searchPanel"
+  >
+
+    <div class="search-box">
+
+      <span>🔎</span>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="စာအုပ်၊ Author ရှာရန်..."
+      >
+
+      <button id="closeSearch">
+        ✕
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================
+       MAIN APP
+  ================================= -->
+
+  <main class="main-content">
+
+
+    <!-- ================================
+         HOME
+    ================================= -->
+
+    <section
+      class="page active"
+      id="homePage"
+    >
+
+      <!-- HERO -->
+
+      <div class="hero">
+
+        <div class="hero-content">
+
+          <span class="hero-badge">
+            📖 Myanmar Book Summary
+          </span>
+
+          <h2>
+            စာအုပ်တစ်အုပ်ကို<br>
+            <span>15–25 မိနစ်</span> အတွင်း နားလည်ပါ
+          </h2>
+
+          <p>
+            နာမည်ကြီး စာအုပ်တွေရဲ့ အရေးကြီးဆုံး
+            အယူအဆတွေ၊ Business Lessons တွေ၊
+            လက်တွေ့အသုံးချနိုင်တဲ့ အချက်တွေကို
+            မြန်မာဘာသာနဲ့ လွယ်လွယ်ကူကူ ဖတ်ရှုနိုင်ပါသည်။
+          </p>
+
+          <button
+            class="primary-btn"
+            onclick="showPage('booksPage')"
+          >
+            📚 စာအုပ်များကြည့်မယ်
+          </button>
+
+        </div>
+
+        <div class="hero-visual">
+          <div class="book-stack">
+            📚
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- STATS -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <strong id="bookCount">0</strong>
+          <span>စာအုပ်</span>
+        </div>
+
+        <div class="stat-card">
+          <strong id="categoryCount">0</strong>
+          <span>Category</span>
+        </div>
+
+        <div class="stat-card">
+          <strong>15–25</strong>
+          <span>မိနစ် / စာအုပ်</span>
+        </div>
+
+        <div class="stat-card">
+          <strong>🇲🇲</strong>
+          <span>မြန်မာဘာသာ</span>
+        </div>
+
+      </div>
+
+
+      <!-- FEATURED BOOKS -->
+
+      <div class="section-heading">
+
+        <div>
+          <span>DISCOVER</span>
+          <h3>လူကြိုက်များသော စာအုပ်များ</h3>
+        </div>
+
+        <button
+          class="text-btn"
+          onclick="showPage('booksPage')"
+        >
+          အားလုံးကြည့်မယ် →
+        </button>
+
+      </div>
+
+      <div
+        class="book-grid"
+        id="featuredBooks"
+      ></div>
+
+
+      <!-- CATEGORIES -->
+
+      <div class="section-heading">
+
+        <div>
+          <span>EXPLORE</span>
+          <h3>စာအုပ်အမျိုးအစားများ</h3>
+        </div>
+
+      </div>
+
+      <div
+        class="category-grid"
+        id="homeCategories"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ================================
+         ALL BOOKS
+    ================================= -->
+
+    <section
+      class="page"
+      id="booksPage"
+    >
+
+      <div class="page-title">
+
+        <div>
+          <span>BOOK LIBRARY</span>
+          <h2>စာအုပ်များ</h2>
+        </div>
+
+        <button
+          class="secondary-btn"
+          onclick="showPage('homePage')"
+        >
+          ← Home
+        </button>
+
+      </div>
+
+
+      <!-- CATEGORY FILTER -->
+
+      <div
+        class="filter-row"
+        id="categoryFilters"
+      ></div>
+
+
+      <!-- BOOK LIST -->
+
+      <div
+        class="book-grid"
+        id="allBooks"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ================================
+         CATEGORIES
+    ================================= -->
+
+    <section
+      class="page"
+      id="categoriesPage"
+    >
+
+      <div class="page-title">
+
+        <div>
+          <span>EXPLORE</span>
+          <h2>Categories</h2>
+        </div>
+
+      </div>
+
+      <div
+        class="category-grid large"
+        id="allCategories"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ================================
+         FAVORITES
+    ================================= -->
+
+    <section
+      class="page"
+      id="favoritesPage"
+    >
+
+      <div class="page-title">
+
+        <div>
+          <span>MY LIBRARY</span>
+          <h2>❤️ Favorites</h2>
+        </div>
+
+      </div>
+
+      <div
+        class="book-grid"
+        id="favoriteBooks"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ================================
+         PROGRESS
+    ================================= -->
+
+    <section
+      class="page"
+      id="progressPage"
+    >
+
+      <div class="page-title">
+
+        <div>
+          <span>MY READING</span>
+          <h2>Reading Progress</h2>
+        </div>
+
+      </div>
+
+      <div
+        class="progress-container"
+        id="progressList"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ================================
+         LOGIN
+    ================================= -->
+
+    <section
+      class="page"
+      id="loginPage"
+    >
+
+      <div class="auth-container">
+
+        <div class="auth-card">
+
+          <div class="auth-logo">
+            📚
+          </div>
+
+          <h2>BookWise Myanmar</h2>
+
+          <p class="auth-subtitle">
+            သင့်ရဲ့ Knowledge Journey ကို စတင်ပါ
+          </p>
+
+          <form id="loginForm">
+
+            <label>Email</label>
+
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="your@email.com"
+              required
+            >
+
+            <label>Password</label>
+
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Password"
+              required
+            >
+
+            <button
+              type="submit"
+              class="primary-btn full"
+            >
+              Login
+            </button>
+
+          </form>
+
+          <p class="auth-switch">
+            Account မရှိသေးပါလား?
+            <button
+              onclick="showPage('signupPage')"
+            >
+              Sign Up
+            </button>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         SIGNUP
+    ================================= -->
+
+    <section
+      class="page"
+      id="signupPage"
+    >
+
+      <div class="auth-container">
+
+        <div class="auth-card">
+
+          <div class="auth-logo">
+            📚
+          </div>
+
+          <h2>Create Account</h2>
+
+          <p class="auth-subtitle">
+            BookWise Myanmar မှာ Account ဖန်တီးပါ
+          </p>
+
+          <form id="signupForm">
+
+            <label>Full Name</label>
+
+            <input
+              type="text"
+              id="signupName"
+              placeholder="Your Name"
+              required
+            >
+
+            <label>Email</label>
+
+            <input
+              type="email"
+              id="signupEmail"
+              placeholder="your@email.com"
+              required
+            >
+
+            <label>Password</label>
+
+            <input
+              type="password"
+              id="signupPassword"
+              placeholder="Create Password"
+              required
+            >
+
+            <button
+              type="submit"
+              class="primary-btn full"
+            >
+              Create Account
+            </button>
+
+          </form>
+
+          <p class="auth-switch">
+            Account ရှိပြီးသားလား?
+            <button
+              onclick="showPage('loginPage')"
+            >
+              Login
+            </button>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         BOOK READER
+    ================================= -->
+
+    <section
+      class="page"
+      id="readerPage"
+    >
+
+      <div
+        class="reader-container"
+        id="readerContent"
+      ></div>
+
+    </section>
+
+
+
+    <!-- ================================
+         ADMIN LOGIN
+    ================================= -->
+
+    <section
+      class="page"
+      id="adminLoginPage"
+    >
+
+      <div class="auth-container">
+
+        <div class="auth-card admin-card">
+
+          <div class="auth-logo">
+            🔐
+          </div>
+
+          <h2>Admin Login</h2>
+
+          <p class="auth-subtitle">
+            BookWise Management System
+          </p>
+
+          <form id="adminLoginForm">
+
+            <label>Admin Email</label>
+
+            <input
+              type="email"
+              id="adminEmail"
+              placeholder="admin@example.com"
+              required
+            >
+
+            <label>Password</label>
+
+            <input
+              type="password"
+              id="adminPassword"
+              placeholder="Password"
+              required
+            >
+
+            <button
+              type="submit"
+              class="primary-btn full"
+            >
+              🔐 Admin Login
+            </button>
+
+          </form>
+
+          <p class="demo-note">
+            Demo Mode — Firebase Auth မချိတ်ရသေးပါ။
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         ADMIN DASHBOARD
+    ================================= -->
+
+    <section
+      class="page"
+      id="adminPage"
+    >
+
+      <div class="page-title">
+
+        <div>
+          <span>ADMIN PANEL</span>
+          <h2>Book Management</h2>
+        </div>
+
+        <button
+          class="danger-btn"
+          onclick="adminLogout()"
+        >
+          Logout
+        </button>
+
+      </div>
+
+
+      <!-- ADMIN STATS -->
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <strong id="adminBookCount">0</strong>
+          <span>Total Books</span>
+        </div>
+
+        <div class="stat-card">
+          <strong id="adminFreeCount">0</strong>
+          <span>Free Books</span>
+        </div>
+
+        <div class="stat-card">
+          <strong id="adminPremiumCount">0</strong>
+          <span>Premium Books</span>
+        </div>
+
+        <div class="stat-card">
+          <strong id="adminCategoryCount">0</strong>
+          <span>Categories</span>
+        </div>
+
+      </div>
+
+
+      <!-- ADD BOOK -->
+
+      <div class="admin-form-card">
+
+        <div class="form-heading">
+
+          <div>
+            <span>CONTENT MANAGEMENT</span>
+            <h3>➕ Add New Book</h3>
+          </div>
+
+        </div>
+
+        <form id="bookForm">
+
+          <input
+            type="hidden"
+            id="editingBookId"
+          >
+
+          <div class="form-grid">
+
+            <div class="form-group">
+
+              <label>Book Title *</label>
+
+              <input
+                type="text"
+                id="bookTitle"
+                placeholder="ဥပမာ - Atomic Habits"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Author *</label>
+
+              <input
+                type="text"
+                id="bookAuthor"
+                placeholder="James Clear"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Category *</label>
+
+              <select
+                id="bookCategory"
+                required
+              ></select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Reading Time</label>
+
+              <select id="bookReadingTime">
+
+                <option value="15 min">
+                  15 Minutes
+                </option>
+
+                <option value="20 min" selected>
+                  20 Minutes
+                </option>
+
+                <option value="25 min">
+                  25 Minutes
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+              <label>Book Cover Photo</label>
+
+              <input
+                type="file"
+                id="bookCover"
+                accept="image/*"
+              >
+
+              <div
+                id="coverPreview"
+                class="cover-preview"
+              >
+                <span>🖼️ Cover Preview</span>
+              </div>
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+              <label>Book Description</label>
+
+              <textarea
+                id="bookDescription"
+                rows="4"
+                placeholder="ဒီစာအုပ်က ဘာအကြောင်းလဲ..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+              <label>Detailed Summary *</label>
+
+              <textarea
+                id="bookSummary"
+                rows="12"
+                placeholder="15–25 မိနစ်ဖတ်ရှုနိုင်သော အသေးစိတ်အနှစ်ချုပ်..."
+                required
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+              <label>Key Lessons</label>
+
+              <textarea
+                id="bookLessons"
+                rows="8"
+                placeholder="1. Lesson...
+2. Lesson...
+3. Lesson..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full-width">
+
+              <label>Action Plan</label>
+
+              <textarea
+                id="bookActionPlan"
+                rows="8"
+                placeholder="Day 1...
+Day 2...
+Day 3..."
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Access</label>
+
+              <select id="bookAccess">
+
+                <option value="free">
+                  🆓 Free
+                </option>
+
+                <option value="premium">
+                  ⭐ Premium
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>Status</label>
+
+              <select id="bookPublished">
+
+                <option value="true">
+                  Published
+                </option>
+
+                <option value="false">
+                  Draft
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="primary-btn"
+            >
+              💾 Save Book
+            </button>
+
+            <button
+              type="button"
+              class="secondary-btn"
+              onclick="resetBookForm()"
+            >
+              Clear
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+
+      <!-- ADMIN BOOK TABLE -->
+
+      <div class="admin-table-card">
+
+        <div class="form-heading">
+
+          <div>
+            <span>LIBRARY</span>
+            <h3>All Books</h3>
+          </div>
+
+        </div>
+
+        <div
+          class="admin-book-list"
+          id="adminBookList"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ================================
+       BOTTOM NAVIGATION
+  ================================= -->
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-item active"
+      data-page="homePage"
+      onclick="showPage('homePage')"
+    >
+      <span>🏠</span>
+      <small>Home</small>
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="booksPage"
+      onclick="showPage('booksPage')"
+    >
+      <span>📚</span>
+      <small>Books</small>
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="categoriesPage"
+      onclick="showPage('categoriesPage')"
+    >
+      <span>🗂️</span>
+      <small>Categories</small>
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="favoritesPage"
+      onclick="showPage('favoritesPage')"
+    >
+      <span>❤️</span>
+      <small>Favorites</small>
+    </button>
+
+
+    <button
+      class="nav-item"
+      data-page="progressPage"
+      onclick="showPage('progressPage')"
+    >
+      <span>📊</span>
+      <small>Progress</small>
+    </button>
+
+  </nav>
+
+
+
+  <!-- ================================
+       PROFILE MENU
+  ================================= -->
+
+  <div
+    class="profile-menu"
+    id="profileMenu"
+  >
+
+    <div class="profile-header">
+
+      <div class="profile-avatar">
+        👤
+      </div>
+
+      <div>
+        <strong id="profileName">
+          Guest User
+        </strong>
+
+        <small id="profileEmail">
+          Login to continue
+        </small>
+      </div>
+
+    </div>
+
+
+    <button
+      onclick="handleProfileAction()"
+      id="profileLoginButton"
+    >
+      🔐 Login
+    </button>
+
+
+    <button
+      onclick="showPage('favoritesPage')"
+    >
+      ❤️ My Favorites
+    </button>
+
+
+    <button
+      onclick="showPage('progressPage')"
+    >
+      📊 My Progress
+    </button>
+
+
+    <hr>
+
+
+    <button
+      onclick="showPage('adminLoginPage')"
+    >
+      ⚙️ Admin
+    </button>
+
+  </div>
+
+
+
+  <!-- ================================
+       TOAST
+  ================================= -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+
+  <!-- ================================
+       JAVASCRIPT
+  ================================= -->
+
+  <script src="app.js"></script>
+
+</body>
+</html>
