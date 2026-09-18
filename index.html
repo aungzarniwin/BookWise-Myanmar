@@ -2,8 +2,8 @@
 <html lang="my">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#f7f4ee">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#f6f2ea">
 <title>Aung Book Summary</title>
 
 <style>
@@ -14,14 +14,17 @@
 }
 
 :root{
-  --bg:#f7f4ee;
-  --card:#ffffff;
-  --text:#171717;
-  --muted:#77736d;
-  --line:#e8e3da;
-  --accent:#c99b55;
-  --dark:#181818;
-  --soft:#eee8dd;
+  --bg:#f6f2ea;
+  --surface:#fffdf9;
+  --surface2:#eee8dd;
+  --text:#171614;
+  --muted:#77716a;
+  --line:#e5ded2;
+  --gold:#b98a48;
+  --gold2:#d1aa70;
+  --dark:#191817;
+  --green:#536c59;
+  --danger:#a85b50;
 }
 
 html{
@@ -29,53 +32,82 @@ html{
 }
 
 body{
-  font-family:Arial,"Noto Sans Myanmar",sans-serif;
   background:var(--bg);
   color:var(--text);
+  font-family:
+    Arial,
+    "Noto Sans Myanmar",
+    "Myanmar Text",
+    sans-serif;
   min-height:100vh;
 }
 
-button{
+button,
+input{
   font:inherit;
 }
 
-.app{
-  min-height:100vh;
-  padding-bottom:85px;
-}
-
-/* TOP */
-
-.topbar{
-  padding:22px 18px 10px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-size:20px;
-  font-weight:800;
-  letter-spacing:-.5px;
-}
-
-.logo span{
-  color:var(--accent);
-}
-
-.icon-btn{
-  width:42px;
-  height:42px;
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+button{
   cursor:pointer;
 }
 
-/* PAGES */
+.hidden{
+  display:none!important;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+  min-height:100vh;
+  padding-bottom:92px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  padding:
+    calc(16px + env(safe-area-inset-top))
+    18px
+    12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.7px;
+}
+
+.brand span{
+  color:var(--gold);
+}
+
+.header-actions{
+  display:flex;
+  gap:8px;
+}
+
+.round-btn{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--surface);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:19px;
+}
+
+/* =========================
+   PAGE
+========================= */
 
 .page{
   display:none;
@@ -86,129 +118,168 @@ button{
   display:block;
 }
 
-/* HOME */
-
-.greeting{
-  padding:15px 0 20px;
+.container{
+  max-width:980px;
+  margin:auto;
 }
 
-.greeting small{
+/* =========================
+   HOME
+========================= */
+
+.welcome{
+  padding:15px 0 22px;
+}
+
+.welcome small{
   color:var(--muted);
   font-size:13px;
 }
 
-.greeting h1{
-  font-size:28px;
-  line-height:1.2;
-  margin-top:6px;
-  letter-spacing:-1px;
+.welcome h1{
+  margin-top:7px;
+  font-size:29px;
+  line-height:1.15;
+  letter-spacing:-1.1px;
 }
 
-.hero{
+/* =========================
+   HERO
+========================= */
+
+.continue-card{
   background:var(--dark);
   color:#fff;
-  border-radius:24px;
+  border-radius:25px;
   padding:22px;
   position:relative;
   overflow:hidden;
-  margin-bottom:27px;
+  box-shadow:0 15px 35px rgba(0,0,0,.10);
 }
 
-.hero:after{
+.continue-card:before{
   content:"";
   position:absolute;
-  width:160px;
-  height:160px;
+  width:210px;
+  height:210px;
+  border:1px solid rgba(255,255,255,.08);
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.12);
-  right:-55px;
-  top:-50px;
+  right:-90px;
+  top:-75px;
 }
 
-.hero-label{
-  color:#d9b276;
-  font-size:11px;
-  font-weight:700;
+.continue-card:after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:50%;
+  right:-30px;
+  top:-30px;
+}
+
+.eyebrow{
+  color:var(--gold2);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.5px;
   text-transform:uppercase;
-  letter-spacing:1px;
 }
 
-.hero h2{
-  font-size:24px;
-  margin:10px 0 8px;
+.continue-card h2{
+  font-size:25px;
+  margin-top:10px;
   line-height:1.2;
 }
 
-.hero p{
-  color:#c8c5bf;
+.continue-author{
+  color:#b9b5af;
+  font-size:12px;
+  margin-top:6px;
+}
+
+.continue-card p{
+  color:#d1cec8;
   font-size:13px;
   line-height:1.7;
+  margin-top:15px;
+  max-width:650px;
 }
 
-.progress{
-  margin-top:18px;
+.progress-area{
+  margin-top:20px;
 }
 
-.progress-top{
+.progress-row{
   display:flex;
   justify-content:space-between;
+  color:#aaa6a0;
   font-size:11px;
-  color:#aaa;
   margin-bottom:7px;
 }
 
-.progress-bar{
+.progress-track{
   height:5px;
-  background:#3a3a3a;
+  background:#383735;
   border-radius:10px;
   overflow:hidden;
 }
 
-.progress-fill{
+.progress-value{
   width:42%;
   height:100%;
-  background:#d1a25d;
+  background:var(--gold2);
 }
 
-.hero button{
-  margin-top:18px;
+.primary-btn{
   border:0;
   background:#fff;
-  color:#151515;
-  padding:12px 18px;
+  color:#171614;
   border-radius:12px;
-  font-weight:700;
-  cursor:pointer;
+  padding:12px 18px;
+  font-size:13px;
+  font-weight:800;
+  margin-top:18px;
 }
 
-/* SECTION */
+/* =========================
+   SECTION
+========================= */
 
-.section-head{
+.section{
+  margin-top:29px;
+}
+
+.section-header{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin:25px 0 14px;
+  justify-content:space-between;
+  margin-bottom:14px;
 }
 
-.section-head h2{
+.section-header h2{
   font-size:19px;
+  letter-spacing:-.3px;
 }
 
-.section-head button{
+.text-btn{
   background:none;
   border:0;
-  color:#a6783d;
+  color:#9a703d;
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
 }
 
-/* BOOK CARDS */
+/* =========================
+   BOOK ROW
+========================= */
 
 .book-row{
   display:flex;
-  gap:14px;
+  gap:15px;
   overflow-x:auto;
-  padding-bottom:7px;
+  padding-bottom:5px;
   scrollbar-width:none;
 }
 
@@ -217,98 +288,121 @@ button{
 }
 
 .book-card{
-  min-width:155px;
-  max-width:155px;
-  cursor:pointer;
+  min-width:156px;
+  width:156px;
 }
 
 .cover{
-  height:210px;
-  border-radius:15px;
-  overflow:hidden;
+  height:214px;
+  border-radius:16px;
   position:relative;
+  overflow:hidden;
+  color:#fff;
+  padding:15px;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
-  padding:15px;
-  color:#fff;
-  box-shadow:0 8px 22px rgba(0,0,0,.10);
-}
-
-.cover.one{
-  background:linear-gradient(145deg,#28352c,#6f806f);
-}
-
-.cover.two{
-  background:linear-gradient(145deg,#33251c,#ad7448);
-}
-
-.cover.three{
-  background:linear-gradient(145deg,#242633,#666d92);
-}
-
-.cover.four{
-  background:linear-gradient(145deg,#372b1d,#bd9a57);
+  box-shadow:0 9px 25px rgba(0,0,0,.12);
 }
 
 .cover:before{
-  content:"BOOK SUMMARY";
+  content:"AUNG BOOK SUMMARY";
   position:absolute;
-  top:14px;
   left:15px;
-  font-size:8px;
-  letter-spacing:1.5px;
-  opacity:.7;
+  top:14px;
+  font-size:7px;
+  letter-spacing:1.2px;
+  opacity:.65;
+}
+
+.cover:after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  right:-35px;
+  top:-20px;
+}
+
+.cover.green{
+  background:linear-gradient(145deg,#26352b,#718372);
+}
+
+.cover.brown{
+  background:linear-gradient(145deg,#33251d,#a66d43);
+}
+
+.cover.blue{
+  background:linear-gradient(145deg,#292b38,#707691);
+}
+
+.cover.gold{
+  background:linear-gradient(145deg,#3b3020,#b38d51);
+}
+
+.cover.red{
+  background:linear-gradient(145deg,#3a2423,#98605b);
+}
+
+.cover.purple{
+  background:linear-gradient(145deg,#30293a,#786486);
 }
 
 .cover-title{
   font-size:18px;
-  font-weight:800;
+  font-weight:900;
   line-height:1.1;
+  position:relative;
+  z-index:1;
 }
 
 .cover-author{
   font-size:10px;
   margin-top:8px;
   opacity:.75;
+  position:relative;
+  z-index:1;
 }
 
-.book-info{
+.book-meta{
   padding-top:10px;
 }
 
-.book-info h3{
+.book-meta h3{
   font-size:14px;
-  line-height:1.3;
+  line-height:1.35;
 }
 
-.book-info p{
-  color:var(--muted);
-  font-size:11px;
+.book-meta p{
   margin-top:4px;
+  font-size:11px;
+  color:var(--muted);
 }
 
-/* CATEGORY */
+/* =========================
+   CATEGORIES
+========================= */
 
-.categories{
+.category-row{
   display:flex;
   gap:9px;
   overflow-x:auto;
   scrollbar-width:none;
 }
 
-.categories::-webkit-scrollbar{
+.category-row::-webkit-scrollbar{
   display:none;
 }
 
 .category{
   white-space:nowrap;
+  padding:10px 15px;
   border:1px solid var(--line);
-  background:#fff;
-  padding:10px 14px;
   border-radius:30px;
+  background:var(--surface);
   font-size:12px;
-  cursor:pointer;
 }
 
 .category.active{
@@ -317,124 +411,206 @@ button{
   border-color:var(--dark);
 }
 
-/* EXPLORE */
+/* =========================
+   EXPLORE
+========================= */
 
-.search-box{
-  background:#fff;
+.page-title{
+  font-size:28px;
+  margin:15px 0 17px;
+  letter-spacing:-.8px;
+}
+
+.search{
+  height:51px;
   border:1px solid var(--line);
-  border-radius:15px;
-  padding:14px 16px;
+  background:var(--surface);
+  border-radius:16px;
   display:flex;
-  gap:10px;
   align-items:center;
-  margin:15px 0 20px;
+  gap:10px;
+  padding:0 15px;
+  margin-bottom:18px;
 }
 
-.search-box span{
-  color:#999;
+.search span{
+  color:#8c867f;
+  font-size:20px;
 }
 
-.search-box input{
+.search input{
+  width:100%;
   border:0;
   outline:0;
-  width:100%;
-  font-size:14px;
-  background:transparent;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px 14px;
-}
-
-.grid .book-card{
-  min-width:0;
-  max-width:none;
-}
-
-.grid .cover{
-  height:220px;
-}
-
-/* LIBRARY */
-
-.library-empty{
-  text-align:center;
-  padding:70px 25px;
-  color:var(--muted);
-}
-
-.library-empty .big{
-  font-size:42px;
-  margin-bottom:15px;
-}
-
-.library-empty h2{
+  background:none;
   color:var(--text);
-  font-size:20px;
-  margin-bottom:8px;
-}
-
-/* PROFILE */
-
-.profile{
-  text-align:center;
-  padding-top:30px;
-}
-
-.avatar{
-  width:82px;
-  height:82px;
-  border-radius:50%;
-  background:var(--dark);
-  color:#fff;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:27px;
-  font-weight:800;
-}
-
-.profile h2{
-  margin-top:15px;
-}
-
-.profile p{
-  color:var(--muted);
   font-size:13px;
-  margin-top:5px;
 }
 
-.profile-menu{
-  margin-top:30px;
-  background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid var(--line);
-}
-
-.profile-item{
-  padding:17px;
-  border-bottom:1px solid var(--line);
+.explore-categories{
   display:flex;
-  justify-content:space-between;
-  font-size:14px;
+  gap:8px;
+  overflow:auto;
+  scrollbar-width:none;
+  margin-bottom:22px;
 }
 
-.profile-item:last-child{
-  border:0;
-}
-
-/* READER */
-
-.reader{
+.explore-categories::-webkit-scrollbar{
   display:none;
+}
+
+.explore-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px 14px;
+}
+
+.explore-grid .book-card{
+  width:100%;
+  min-width:0;
+}
+
+.explore-grid .cover{
+  height:225px;
+}
+
+/* =========================
+   BOOK DETAIL
+========================= */
+
+.modal{
   position:fixed;
   inset:0;
-  background:var(--bg);
   z-index:100;
+  background:var(--bg);
+  overflow-y:auto;
+  display:none;
+}
+
+.modal.active{
+  display:block;
+}
+
+.modal-top{
+  position:sticky;
+  top:0;
+  z-index:3;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:
+    calc(12px + env(safe-area-inset-top))
+    18px
+    12px;
+  background:rgba(246,242,234,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line);
+}
+
+.modal-top button{
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:50%;
+}
+
+.detail{
+  max-width:800px;
+  margin:auto;
+  padding:25px 20px 60px;
+}
+
+.detail-hero{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.detail-cover{
+  width:145px;
+  min-width:145px;
+  height:200px;
+}
+
+.detail-info h1{
+  font-size:27px;
+  line-height:1.15;
+}
+
+.detail-info .author{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.detail-info .rating{
+  margin-top:13px;
+  font-size:12px;
+}
+
+.detail-tags{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:13px;
+}
+
+.tag{
+  padding:6px 9px;
+  background:var(--surface2);
+  border-radius:20px;
+  font-size:10px;
+  color:#635e57;
+}
+
+.detail-description{
+  margin-top:28px;
+}
+
+.detail-description h2{
+  font-size:20px;
+  margin-bottom:9px;
+}
+
+.detail-description p{
+  color:#5f5a54;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.detail-actions{
+  display:flex;
+  gap:10px;
+  margin-top:22px;
+}
+
+.detail-actions button{
+  flex:1;
+  padding:14px;
+  border-radius:13px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  font-weight:800;
+  font-size:12px;
+}
+
+.detail-actions .start{
+  background:var(--dark);
+  color:#fff;
+  border-color:var(--dark);
+}
+
+/* =========================
+   READER
+========================= */
+
+.reader{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:var(--bg);
+  display:none;
   overflow-y:auto;
 }
 
@@ -442,195 +618,497 @@ button{
   display:block;
 }
 
-.reader-top{
+.reader-head{
   position:sticky;
   top:0;
-  background:rgba(247,244,238,.94);
-  backdrop-filter:blur(10px);
-  padding:16px 18px;
+  z-index:4;
+  background:rgba(246,242,234,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+
+.reader-head-inner{
+  height:62px;
+  padding:0 17px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  border-bottom:1px solid var(--line);
-  z-index:2;
 }
 
-.reader-top button{
-  border:0;
-  background:none;
-  font-size:22px;
-  cursor:pointer;
+.reader-head button{
+  width:39px;
+  height:39px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:var(--surface);
+}
+
+.reader-title{
+  font-size:12px;
+  font-weight:800;
+  max-width:190px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .reader-progress{
-  width:100%;
   height:3px;
-  background:#e4dfd6;
+  background:#e2dbcf;
 }
 
 .reader-progress span{
   display:block;
+  width:12.5%;
   height:100%;
-  width:12%;
-  background:var(--accent);
+  background:var(--gold);
+  transition:.3s;
 }
 
-.reader-content{
-  max-width:700px;
+.reader-body{
+  max-width:730px;
   margin:auto;
-  padding:30px 22px 70px;
+  padding:35px 23px 100px;
 }
 
-.reader-category{
-  font-size:11px;
-  color:#a6783d;
-  font-weight:800;
-  letter-spacing:1px;
-  text-transform:uppercase;
+.reader-label{
+  font-size:10px;
+  color:#a0743c;
+  letter-spacing:1.5px;
+  font-weight:900;
 }
 
-.reader-content h1{
+.reader-body h1{
   font-size:34px;
   line-height:1.12;
-  margin:10px 0 8px;
+  margin-top:9px;
   letter-spacing:-1px;
 }
 
 .reader-author{
   color:var(--muted);
-  font-size:13px;
-  margin-bottom:32px;
-}
-
-.key-count{
   font-size:12px;
+  margin-top:7px;
+}
+
+.idea-number{
+  margin-top:36px;
   color:var(--muted);
-  margin-bottom:12px;
-}
-
-.reader-content h2{
-  font-size:25px;
-  line-height:1.25;
-  margin-bottom:16px;
-}
-
-.reader-content p{
-  font-size:16px;
-  line-height:1.9;
-  color:#373532;
-  margin-bottom:18px;
-}
-
-.insight{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:20px;
-  margin:28px 0;
-}
-
-.insight-label{
-  color:#a6783d;
   font-size:11px;
   font-weight:800;
-  letter-spacing:.8px;
-  margin-bottom:10px;
 }
 
-.action{
+.reader-body h2{
+  font-size:26px;
+  line-height:1.3;
+  margin-top:10px;
+}
+
+.reader-body p{
+  color:#3f3c38;
+  font-size:16px;
+  line-height:1.95;
+  margin-top:17px;
+}
+
+.reader-box{
+  margin-top:27px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--surface);
+}
+
+.box-label{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.8px;
+  color:#a0743c;
+  margin-bottom:9px;
+}
+
+.reader-box p{
+  margin-top:0;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.action-box{
+  margin-top:18px;
+  padding:20px;
+  border-radius:20px;
   background:var(--dark);
   color:#fff;
-  border-radius:20px;
-  padding:20px;
-  margin-top:25px;
 }
 
-.action .insight-label{
-  color:#d6aa67;
+.action-box .box-label{
+  color:var(--gold2);
 }
 
-.action p{
-  color:#ddd;
-  margin:0;
+.action-box p{
+  color:#ddd9d2;
+  margin-top:0;
+  font-size:14px;
+  line-height:1.8;
 }
 
-.reader-buttons{
+.reader-controls{
   display:flex;
-  gap:10px;
+  gap:9px;
   margin-top:30px;
 }
 
-.reader-buttons button{
+.reader-controls button{
   flex:1;
-  padding:14px;
+  padding:14px 8px;
   border-radius:13px;
   border:1px solid var(--line);
-  background:#fff;
-  cursor:pointer;
-  font-weight:700;
+  background:var(--surface);
+  font-size:12px;
+  font-weight:800;
 }
 
-.reader-buttons .next{
+.reader-controls .next{
   background:var(--dark);
   color:#fff;
   border-color:var(--dark);
 }
 
-/* BOTTOM NAV */
+/* AUDIO */
+
+.audio-player{
+  margin-top:22px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  border-radius:18px;
+  padding:13px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.play{
+  width:42px;
+  height:42px;
+  min-width:42px;
+  border-radius:50%;
+  border:0;
+  background:var(--dark);
+  color:#fff;
+}
+
+.audio-info{
+  flex:1;
+}
+
+.audio-info strong{
+  display:block;
+  font-size:12px;
+}
+
+.audio-info small{
+  color:var(--muted);
+  font-size:10px;
+}
+
+.audio-line{
+  margin-top:6px;
+  height:3px;
+  background:#ded8ce;
+  border-radius:5px;
+  overflow:hidden;
+}
+
+.audio-line span{
+  display:block;
+  width:28%;
+  height:100%;
+  background:var(--gold);
+}
+
+/* =========================
+   LIBRARY
+========================= */
+
+.library-tabs{
+  display:flex;
+  gap:8px;
+  margin:15px 0 20px;
+}
+
+.library-tab{
+  padding:9px 14px;
+  border-radius:25px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  font-size:11px;
+}
+
+.library-tab.active{
+  background:var(--dark);
+  color:#fff;
+}
+
+.empty{
+  text-align:center;
+  padding:70px 20px;
+}
+
+.empty-icon{
+  font-size:42px;
+}
+
+.empty h2{
+  margin-top:15px;
+  font-size:20px;
+}
+
+.empty p{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+  text-align:center;
+  padding-top:25px;
+}
+
+.avatar{
+  width:84px;
+  height:84px;
+  margin:auto;
+  border-radius:50%;
+  background:var(--dark);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  font-weight:900;
+}
+
+.profile h2{
+  margin-top:14px;
+  font-size:21px;
+}
+
+.profile > p{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-top:25px;
+}
+
+.stat{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:14px 5px;
+}
+
+.stat strong{
+  display:block;
+  font-size:19px;
+}
+
+.stat span{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  margin-top:4px;
+}
+
+.profile-menu{
+  margin-top:25px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  text-align:left;
+}
+
+.menu-item{
+  padding:17px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+}
+
+.menu-item:last-child{
+  border-bottom:0;
+}
+
+/* =========================
+   PREMIUM
+========================= */
+
+.premium{
+  margin-top:25px;
+  background:var(--dark);
+  color:#fff;
+  border-radius:22px;
+  padding:21px;
+  text-align:left;
+}
+
+.premium small{
+  color:var(--gold2);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.premium h2{
+  margin-top:8px;
+  font-size:20px;
+}
+
+.premium p{
+  color:#c8c4bd;
+  font-size:12px;
+  line-height:1.7;
+  margin-top:7px;
+}
+
+.premium button{
+  margin-top:15px;
+  border:0;
+  border-radius:11px;
+  padding:11px 16px;
+  font-size:11px;
+  font-weight:800;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
 
 .bottom-nav{
   position:fixed;
+  z-index:80;
   bottom:0;
   left:0;
   right:0;
-  height:72px;
+  height:76px;
+  padding-bottom:env(safe-area-inset-bottom);
   background:rgba(255,255,255,.95);
-  backdrop-filter:blur(15px);
+  backdrop-filter:blur(16px);
   border-top:1px solid var(--line);
   display:flex;
   justify-content:space-around;
   align-items:center;
-  z-index:50;
 }
 
 .nav-item{
   border:0;
   background:none;
-  color:#999;
-  font-size:10px;
+  color:#9b958d;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:5px;
-  cursor:pointer;
-  min-width:60px;
+  justify-content:center;
+  gap:4px;
+  font-size:9px;
+  min-width:58px;
 }
 
 .nav-icon{
   font-size:20px;
+  line-height:1;
 }
 
 .nav-item.active{
-  color:#171717;
-  font-weight:700;
+  color:var(--dark);
+  font-weight:800;
 }
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:95px;
+  transform:translateX(-50%) translateY(20px);
+  background:var(--dark);
+  color:#fff;
+  padding:11px 16px;
+  border-radius:12px;
+  font-size:11px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:500;
+  white-space:nowrap;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(min-width:700px){
 
   .page{
-    max-width:900px;
+    max-width:980px;
     margin:auto;
   }
 
-  .grid{
+  .explore-grid{
     grid-template-columns:repeat(4,1fr);
   }
 
   .bottom-nav{
-    max-width:700px;
+    max-width:720px;
     left:50%;
+    right:auto;
+    width:720px;
     transform:translateX(-50%);
     border-radius:22px 22px 0 0;
+  }
+}
+
+@media(max-width:390px){
+
+  .detail-hero{
+    gap:14px;
+  }
+
+  .detail-cover{
+    width:125px;
+    min-width:125px;
+    height:178px;
+  }
+
+  .detail-info h1{
+    font-size:23px;
+  }
+
+  .reader-body h1{
+    font-size:30px;
+  }
+
+  .reader-body h2{
+    font-size:23px;
   }
 }
 </style>
@@ -640,318 +1118,1134 @@ button{
 
 <div class="app">
 
-  <!-- HOME -->
-  <section class="page active" id="home">
+<!-- =========================
+     HOME
+========================= -->
 
-    <div class="topbar">
-      <div class="logo">AUNG <span>BOOKS</span></div>
-      <button class="icon-btn" onclick="openSearch()">⌕</button>
-    </div>
+<section class="page active" id="home">
 
-    <div class="greeting">
+  <div class="container">
+
+    <header class="header">
+      <div class="brand">
+        AUNG <span>BOOKS</span>
+      </div>
+
+      <div class="header-actions">
+        <button class="round-btn" onclick="openExploreSearch()">⌕</button>
+      </div>
+    </header>
+
+    <div class="welcome">
       <small>Welcome back 👋</small>
       <h1>Learn something<br>worth remembering</h1>
     </div>
 
-    <div class="hero">
-      <div class="hero-label">Continue Reading</div>
-      <h2>Atomic Habits</h2>
-      <p>Small changes, remarkable results — build better habits and improve your life one step at a time.</p>
+    <div class="continue-card">
 
-      <div class="progress">
-        <div class="progress-top">
-          <span>Key Idea 3 of 8</span>
-          <span>42%</span>
-        </div>
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
-        </div>
+      <div class="eyebrow">
+        Continue Reading
       </div>
 
-      <button onclick="openReader('Atomic Habits')">Continue Reading →</button>
+      <h2>Atomic Habits</h2>
+
+      <div class="continue-author">
+        James Clear
+      </div>
+
+      <p>
+        သေးငယ်တဲ့အလေ့အကျင့်တွေကနေ ရေရှည်ကြီးမားတဲ့
+        ပြောင်းလဲမှုတွေကို ဘယ်လိုတည်ဆောက်မလဲ
+      </p>
+
+      <div class="progress-area">
+
+        <div class="progress-row">
+          <span>Key Idea 03 of 08</span>
+          <span>42%</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-value"></div>
+        </div>
+
+      </div>
+
+      <button
+        class="primary-btn"
+        onclick="openBook('Atomic Habits')">
+        Continue Reading →
+      </button>
+
     </div>
 
-    <div class="section-head">
-      <h2>Popular Summaries</h2>
-      <button onclick="showPage('explore')">See all</button>
+
+    <div class="section">
+
+      <div class="section-header">
+        <h2>Popular Summaries</h2>
+        <button
+          class="text-btn"
+          onclick="showPage('explore')">
+          See all
+        </button>
+      </div>
+
+      <div class="book-row">
+
+        <div
+          class="book-card"
+          onclick="openBook('Atomic Habits')">
+
+          <div class="cover green">
+            <div class="cover-title">
+              Atomic<br>Habits
+            </div>
+            <div class="cover-author">
+              James Clear
+            </div>
+          </div>
+
+          <div class="book-meta">
+            <h3>Atomic Habits</h3>
+            <p>15 min • 8 ideas</p>
+          </div>
+
+        </div>
+
+
+        <div
+          class="book-card"
+          onclick="openBook('The Psychology of Money')">
+
+          <div class="cover brown">
+            <div class="cover-title">
+              The Psychology<br>of Money
+            </div>
+            <div class="cover-author">
+              Morgan Housel
+            </div>
+          </div>
+
+          <div class="book-meta">
+            <h3>The Psychology of Money</h3>
+            <p>18 min • 9 ideas</p>
+          </div>
+
+        </div>
+
+
+        <div
+          class="book-card"
+          onclick="openBook('Deep Work')">
+
+          <div class="cover blue">
+            <div class="cover-title">
+              Deep<br>Work
+            </div>
+            <div class="cover-author">
+              Cal Newport
+            </div>
+          </div>
+
+          <div class="book-meta">
+            <h3>Deep Work</h3>
+            <p>16 min • 8 ideas</p>
+          </div>
+
+        </div>
+
+
+        <div
+          class="book-card"
+          onclick="openBook('The 7 Habits')">
+
+          <div class="cover gold">
+            <div class="cover-title">
+              The 7 Habits
+            </div>
+            <div class="cover-author">
+              Stephen Covey
+            </div>
+          </div>
+
+          <div class="book-meta">
+            <h3>The 7 Habits</h3>
+            <p>20 min • 10 ideas</p>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
+
+    <div class="section">
+
+      <div class="section-header">
+        <h2>Topics</h2>
+      </div>
+
+      <div class="category-row">
+
+        <button class="category active">
+          All
+        </button>
+
+        <button class="category">
+          Business
+        </button>
+
+        <button class="category">
+          Money
+        </button>
+
+        <button class="category">
+          Leadership
+        </button>
+
+        <button class="category">
+          Psychology
+        </button>
+
+        <button class="category">
+          Productivity
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="section">
+
+      <div class="section-header">
+        <h2>For Business Leaders</h2>
+
+        <button
+          class="text-btn"
+          onclick="showPage('explore')">
+          Explore
+        </button>
+      </div>
+
+      <div class="book-row">
+
+        <div
+          class="book-card"
+          onclick="openBook('The 7 Habits')">
+
+          <div class="cover gold">
+            <div class="cover-title">
+              The 7 Habits
+            </div>
+            <div class="cover-author">
+              Stephen Covey
+            </div>
+          </div>
+
+          <div class="book-meta">
+            <h3>The 7 Habits</h3>
+            <p>Leadership • 20 min</p>
+          </div>
+
+        </div>
+
+
+        <div
+          class="book-card"
+          onclick="openBook('Deep Work')">
+
+          <div class="cover blue">
+            <div class="cover-title">
+              Deep<br>Work
+            </div>
+            <div class="cover-author">
+              Cal Newport
+            </div>
+          </div>
+
+          <div class="book-meta">
+            <h3>Deep Work</h3>
+            <p>Productivity • 16 min</p>
+          </div>
+
+        </div>
+
+
+        <div
+          class="book-card"
+          onclick="openBook('The Psychology of Money')">
+
+          <div class="cover brown">
+            <div class="cover-title">
+              Psychology<br>of Money
+            </div>
+            <div class="cover-author">
+              Morgan Housel
+            </div>
+          </div>
+
+          <div class="book-meta">
+            <h3>Psychology of Money</h3>
+            <p>Money • 18 min</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     EXPLORE
+========================= -->
+
+<section class="page" id="explore">
+
+  <div class="container">
+
+    <header class="header">
+      <div class="brand">
+        Explore
+      </div>
+    </header>
+
+    <h1 class="page-title">
+      Find your next idea
+    </h1>
+
+    <div class="search">
+
+      <span>⌕</span>
+
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Search books, authors, topics..."
+        oninput="filterBooks()">
+
+    </div>
+
+
+    <div class="explore-categories">
+
+      <button
+        class="category active"
+        onclick="filterCategory('all',this)">
+        All
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('business',this)">
+        Business
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('money',this)">
+        Money
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('leadership',this)">
+        Leadership
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('psychology',this)">
+        Psychology
+      </button>
+
+      <button
+        class="category"
+        onclick="filterCategory('productivity',this)">
+        Productivity
+      </button>
+
+    </div>
+
+
+    <div class="explore-grid" id="bookGrid">
+
+      <div
+        class="book-card"
+        data-title="Atomic Habits"
+        data-search="atomic habits james clear productivity business"
+        data-category="productivity business"
+        onclick="openBook('Atomic Habits')">
+
+        <div class="cover green">
+          <div class="cover-title">
+            Atomic<br>Habits
+          </div>
+          <div class="cover-author">
+            James Clear
+          </div>
+        </div>
+
+        <div class="book-meta">
+          <h3>Atomic Habits</h3>
+          <p>15 min • 8 ideas</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="book-card"
+        data-title="The Psychology of Money"
+        data-search="psychology money morgan housel finance money"
+        data-category="money psychology"
+        onclick="openBook('The Psychology of Money')">
+
+        <div class="cover brown">
+          <div class="cover-title">
+            The Psychology<br>of Money
+          </div>
+          <div class="cover-author">
+            Morgan Housel
+          </div>
+        </div>
+
+        <div class="book-meta">
+          <h3>The Psychology of Money</h3>
+          <p>18 min • 9 ideas</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="book-card"
+        data-title="Deep Work"
+        data-search="deep work cal newport productivity focus"
+        data-category="productivity"
+        onclick="openBook('Deep Work')">
+
+        <div class="cover blue">
+          <div class="cover-title">
+            Deep<br>Work
+          </div>
+          <div class="cover-author">
+            Cal Newport
+          </div>
+        </div>
+
+        <div class="book-meta">
+          <h3>Deep Work</h3>
+          <p>16 min • 8 ideas</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="book-card"
+        data-title="The 7 Habits"
+        data-search="7 habits stephen covey leadership business"
+        data-category="leadership business"
+        onclick="openBook('The 7 Habits')">
+
+        <div class="cover gold">
+          <div class="cover-title">
+            The 7 Habits
+          </div>
+          <div class="cover-author">
+            Stephen Covey
+          </div>
+        </div>
+
+        <div class="book-meta">
+          <h3>The 7 Habits</h3>
+          <p>20 min • 10 ideas</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="book-card"
+        data-title="Start With Why"
+        data-search="start with why simon sinek leadership business"
+        data-category="leadership business"
+        onclick="openBook('Start With Why')">
+
+        <div class="cover red">
+          <div class="cover-title">
+            Start<br>With Why
+          </div>
+          <div class="cover-author">
+            Simon Sinek
+          </div>
+        </div>
+
+        <div class="book-meta">
+          <h3>Start With Why</h3>
+          <p>17 min • 8 ideas</p>
+        </div>
+
+      </div>
+
+
+      <div
+        class="book-card"
+        data-title="Think and Grow Rich"
+        data-search="think grow rich napoleon hill money success"
+        data-category="money business"
+        onclick="openBook('Think and Grow Rich')">
+
+        <div class="cover purple">
+          <div class="cover-title">
+            Think &<br>Grow Rich
+          </div>
+          <div class="cover-author">
+            Napoleon Hill
+          </div>
+        </div>
+
+        <div class="book-meta">
+          <h3>Think and Grow Rich</h3>
+          <p>19 min • 9 ideas</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     LIBRARY
+========================= -->
+
+<section class="page" id="library">
+
+  <div class="container">
+
+    <header class="header">
+      <div class="brand">
+        My Library
+      </div>
+    </header>
+
+    <div class="library-tabs">
+
+      <button class="library-tab active">
+        All
+      </button>
+
+      <button class="library-tab">
+        In Progress
+      </button>
+
+      <button class="library-tab">
+        Completed
+      </button>
+
+    </div>
+
 
     <div class="book-row">
 
-      <div class="book-card" onclick="openReader('Atomic Habits')">
-        <div class="cover one">
-          <div class="cover-title">Atomic<br>Habits</div>
-          <div class="cover-author">James Clear</div>
+      <div
+        class="book-card"
+        onclick="openBook('Atomic Habits')">
+
+        <div class="cover green">
+          <div class="cover-title">
+            Atomic<br>Habits
+          </div>
+          <div class="cover-author">
+            James Clear
+          </div>
         </div>
-        <div class="book-info">
+
+        <div class="book-meta">
           <h3>Atomic Habits</h3>
-          <p>15 min • 8 ideas</p>
+          <p>42% completed</p>
         </div>
-      </div>
 
-      <div class="book-card" onclick="openReader('The Psychology of Money')">
-        <div class="cover two">
-          <div class="cover-title">The Psychology<br>of Money</div>
-          <div class="cover-author">Morgan Housel</div>
-        </div>
-        <div class="book-info">
-          <h3>The Psychology of Money</h3>
-          <p>18 min • 9 ideas</p>
-        </div>
-      </div>
-
-      <div class="book-card" onclick="openReader('Deep Work')">
-        <div class="cover three">
-          <div class="cover-title">Deep<br>Work</div>
-          <div class="cover-author">Cal Newport</div>
-        </div>
-        <div class="book-info">
-          <h3>Deep Work</h3>
-          <p>16 min • 8 ideas</p>
-        </div>
-      </div>
-
-      <div class="book-card" onclick="openReader('The 7 Habits')">
-        <div class="cover four">
-          <div class="cover-title">The 7 Habits<br>of Highly Effective People</div>
-          <div class="cover-author">Stephen Covey</div>
-        </div>
-        <div class="book-info">
-          <h3>The 7 Habits</h3>
-          <p>20 min • 10 ideas</p>
-        </div>
       </div>
 
     </div>
 
-    <div class="section-head">
-      <h2>Explore Topics</h2>
-    </div>
 
-    <div class="categories">
-      <button class="category active">All</button>
-      <button class="category">Business</button>
-      <button class="category">Money</button>
-      <button class="category">Leadership</button>
-      <button class="category">Psychology</button>
-      <button class="category">Productivity</button>
-    </div>
+    <div class="section">
 
-  </section>
+      <div class="empty">
 
-
-  <!-- EXPLORE -->
-  <section class="page" id="explore">
-
-    <div class="topbar">
-      <div class="logo">Explore</div>
-      <button class="icon-btn">⌕</button>
-    </div>
-
-    <div class="search-box">
-      <span>⌕</span>
-      <input id="searchInput" placeholder="Search books, authors, topics..." oninput="searchBooks()">
-    </div>
-
-    <div class="section-head">
-      <h2>All Summaries</h2>
-    </div>
-
-    <div class="grid" id="bookGrid">
-
-      <div class="book-card" data-search="atomic habits james clear business productivity" onclick="openReader('Atomic Habits')">
-        <div class="cover one">
-          <div class="cover-title">Atomic<br>Habits</div>
-          <div class="cover-author">James Clear</div>
+        <div class="empty-icon">
+          📚
         </div>
-        <div class="book-info">
-          <h3>Atomic Habits</h3>
-          <p>15 min • 8 ideas</p>
-        </div>
-      </div>
 
-      <div class="book-card" data-search="psychology money morgan housel money finance" onclick="openReader('The Psychology of Money')">
-        <div class="cover two">
-          <div class="cover-title">The Psychology<br>of Money</div>
-          <div class="cover-author">Morgan Housel</div>
-        </div>
-        <div class="book-info">
-          <h3>The Psychology of Money</h3>
-          <p>18 min • 9 ideas</p>
-        </div>
-      </div>
+        <h2>
+          Build your reading library
+        </h2>
 
-      <div class="book-card" data-search="deep work cal newport productivity" onclick="openReader('Deep Work')">
-        <div class="cover three">
-          <div class="cover-title">Deep<br>Work</div>
-          <div class="cover-author">Cal Newport</div>
-        </div>
-        <div class="book-info">
-          <h3>Deep Work</h3>
-          <p>16 min • 8 ideas</p>
-        </div>
-      </div>
+        <p>
+          စိတ်ဝင်စားတဲ့စာအုပ်တွေကို Save လုပ်ထားပြီး
+          နောက်မှ အလွယ်တကူ ပြန်ဖတ်နိုင်ပါတယ်
+        </p>
 
-      <div class="book-card" data-search="7 habits stephen covey leadership business" onclick="openReader('The 7 Habits')">
-        <div class="cover four">
-          <div class="cover-title">The 7 Habits</div>
-          <div class="cover-author">Stephen Covey</div>
-        </div>
-        <div class="book-info">
-          <h3>The 7 Habits</h3>
-          <p>20 min • 10 ideas</p>
-        </div>
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- LIBRARY -->
-  <section class="page" id="library">
+<!-- =========================
+     SAVED
+========================= -->
 
-    <div class="topbar">
-      <div class="logo">My Library</div>
+<section class="page" id="saved">
+
+  <div class="container">
+
+    <header class="header">
+      <div class="brand">
+        Saved Books
+      </div>
+    </header>
+
+    <div class="empty">
+
+      <div class="empty-icon">
+        ♡
+      </div>
+
+      <h2>
+        Your saved ideas
+      </h2>
+
+      <p>
+        စာအုပ်တွေကို Save လုပ်တဲ့အခါ
+        ဒီနေရာမှာ ပြန်တွေ့ရပါမယ်
+      </p>
+
     </div>
 
-    <div class="library-empty">
-      <div class="big">📚</div>
-      <h2>Your library is waiting</h2>
-      <p>Save books you want to read later and they will appear here</p>
-    </div>
+  </div>
 
-  </section>
+</section>
 
 
-  <!-- SAVED -->
-  <section class="page" id="saved">
+<!-- =========================
+     PROFILE
+========================= -->
 
-    <div class="topbar">
-      <div class="logo">Saved</div>
-    </div>
+<section class="page" id="profile">
 
-    <div class="library-empty">
-      <div class="big">♡</div>
-      <h2>No saved books yet</h2>
-      <p>Save your favorite summaries for quick access</p>
-    </div>
+  <div class="container">
 
-  </section>
-
-
-  <!-- PROFILE -->
-  <section class="page" id="profile">
-
-    <div class="topbar">
-      <div class="logo">Profile</div>
-    </div>
+    <header class="header">
+      <div class="brand">
+        Profile
+      </div>
+    </header>
 
     <div class="profile">
 
-      <div class="avatar">AZ</div>
+      <div class="avatar">
+        AZ
+      </div>
 
-      <h2>Aung Zar Ni Win</h2>
-      <p>Book Summary Member</p>
+      <h2>
+        Aung Zar Ni Win
+      </h2>
+
+      <p>
+        Book Summary Member
+      </p>
+
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong>12</strong>
+          <span>Books Read</span>
+        </div>
+
+        <div class="stat">
+          <strong>86</strong>
+          <span>Key Ideas</span>
+        </div>
+
+        <div class="stat">
+          <strong>4.2h</strong>
+          <span>Reading Time</span>
+        </div>
+
+      </div>
+
+
+      <div class="premium">
+
+        <small>
+          PREMIUM MEMBERSHIP
+        </small>
+
+        <h2>
+          Unlock the full library
+        </h2>
+
+        <p>
+          Premium books, full summaries,
+          audio learning and advanced reading features
+        </p>
+
+        <button onclick="showToast('Premium Membership မကြာမီ ဖွင့်ပေးပါမယ်')">
+          Explore Premium →
+        </button>
+
+      </div>
+
 
       <div class="profile-menu">
-        <div class="profile-item">
+
+        <div class="menu-item">
           <span>Reading History</span>
           <span>›</span>
         </div>
 
-        <div class="profile-item">
+        <div class="menu-item">
           <span>Reading Preferences</span>
           <span>›</span>
         </div>
 
-        <div class="profile-item">
+        <div class="menu-item">
+          <span>Audio Settings</span>
+          <span>›</span>
+        </div>
+
+        <div class="menu-item">
           <span>Dark Reading Mode</span>
           <span>›</span>
         </div>
 
-        <div class="profile-item">
-          <span>Premium Membership</span>
+        <div class="menu-item">
+          <span>Account Settings</span>
           <span>›</span>
         </div>
 
-        <div class="profile-item">
-          <span>Settings</span>
-          <span>›</span>
-        </div>
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 </div>
 
 
-<!-- READER -->
+<!-- =========================
+     BOTTOM NAV
+========================= -->
+
+<nav class="bottom-nav">
+
+  <button
+    class="nav-item active"
+    data-page="home"
+    onclick="showPage('home')">
+
+    <span class="nav-icon">⌂</span>
+    Home
+
+  </button>
+
+
+  <button
+    class="nav-item"
+    data-page="explore"
+    onclick="showPage('explore')">
+
+    <span class="nav-icon">⌕</span>
+    Explore
+
+  </button>
+
+
+  <button
+    class="nav-item"
+    data-page="library"
+    onclick="showPage('library')">
+
+    <span class="nav-icon">▣</span>
+    Library
+
+  </button>
+
+
+  <button
+    class="nav-item"
+    data-page="saved"
+    onclick="showPage('saved')">
+
+    <span class="nav-icon">♡</span>
+    Saved
+
+  </button>
+
+
+  <button
+    class="nav-item"
+    data-page="profile"
+    onclick="showPage('profile')">
+
+    <span class="nav-icon">●</span>
+    Profile
+
+  </button>
+
+</nav>
+
+
+<!-- =========================
+     BOOK DETAIL MODAL
+========================= -->
+
+<div class="modal" id="bookModal">
+
+  <div class="modal-top">
+
+    <button onclick="closeBook()">
+      ‹
+    </button>
+
+    <strong id="detailTopTitle">
+      Book
+    </strong>
+
+    <button onclick="toggleSave()">
+      ♡
+    </button>
+
+  </div>
+
+
+  <div class="detail">
+
+    <div class="detail-hero">
+
+      <div
+        id="detailCover"
+        class="cover green detail-cover">
+
+        <div
+          id="detailCoverTitle"
+          class="cover-title">
+          Atomic<br>Habits
+        </div>
+
+        <div
+          id="detailCoverAuthor"
+          class="cover-author">
+          James Clear
+        </div>
+
+      </div>
+
+
+      <div class="detail-info">
+
+        <h1 id="detailTitle">
+          Atomic Habits
+        </h1>
+
+        <div
+          class="author"
+          id="detailAuthor">
+          James Clear
+        </div>
+
+        <div class="rating">
+          ★ 4.8 • 15 min read
+        </div>
+
+        <div class="detail-tags">
+
+          <span class="tag">
+            8 Key Ideas
+          </span>
+
+          <span class="tag">
+            Business
+          </span>
+
+          <span class="tag">
+            Practical
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="detail-description">
+
+      <h2>
+        ဒီစာအုပ်က ဘာအကြောင်းလဲ
+      </h2>
+
+      <p id="detailDescription">
+
+        နေ့စဉ်ပြုလုပ်နေတဲ့ သေးငယ်တဲ့အလေ့အကျင့်တွေက
+        ရေရှည်မှာ ဘဝနဲ့အလုပ်ရဲ့ ရလဒ်တွေကို
+        ဘယ်လိုပြောင်းလဲပေးနိုင်သလဲဆိုတာကို
+        အဓိကရှင်းပြထားပါတယ်
+
+      </p>
+
+    </div>
+
+
+    <div class="audio-player">
+
+      <button
+        class="play"
+        onclick="toggleAudio()"
+        id="audioButton">
+        ▶
+      </button>
+
+      <div class="audio-info">
+
+        <strong>
+          Listen to Summary
+        </strong>
+
+        <small id="audioStatus">
+          Audio Preview • 15 min
+        </small>
+
+        <div class="audio-line">
+          <span id="audioLine"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="detail-actions">
+
+      <button onclick="toggleSave()">
+        ♡ Save
+      </button>
+
+      <button
+        class="start"
+        onclick="startReading()">
+        Start Reading →
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     READER
+========================= -->
 
 <div class="reader" id="reader">
 
-  <div class="reader-top">
-    <button onclick="closeReader()">‹</button>
-    <strong id="readerTitle">Book Summary</strong>
-    <button onclick="saveBook()">♡</button>
+  <div class="reader-head">
+
+    <div class="reader-head-inner">
+
+      <button onclick="closeReader()">
+        ‹
+      </button>
+
+      <div
+        class="reader-title"
+        id="readerTopTitle">
+        Atomic Habits
+      </div>
+
+      <button onclick="toggleReaderSave()">
+        ♡
+      </button>
+
+    </div>
+
+    <div class="reader-progress">
+      <span id="readerProgress"></span>
+    </div>
+
   </div>
 
-  <div class="reader-progress">
-    <span id="readerProgress"></span>
-  </div>
 
-  <article class="reader-content">
+  <article class="reader-body">
 
-    <div class="reader-category">15 MINUTE SUMMARY</div>
+    <div class="reader-label">
+      15 MINUTE BOOK SUMMARY
+    </div>
 
-    <h1 id="readerBookTitle">Atomic Habits</h1>
+    <h1 id="readerBookTitle">
+      Atomic Habits
+    </h1>
 
-    <div class="reader-author" id="readerAuthor">
+    <div
+      class="reader-author"
+      id="readerBookAuthor">
       James Clear
     </div>
 
-    <div class="key-count">
+
+    <div
+      class="audio-player">
+
+      <button
+        class="play"
+        onclick="toggleReaderAudio()"
+        id="readerAudioButton">
+        ▶
+      </button>
+
+      <div class="audio-info">
+
+        <strong>
+          Listen while reading
+        </strong>
+
+        <small id="readerAudioStatus">
+          15 min summary
+        </small>
+
+        <div class="audio-line">
+          <span id="readerAudioLine"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="idea-number" id="ideaNumber">
       KEY IDEA 01 / 08
     </div>
 
+
     <h2 id="ideaTitle">
-      သေးငယ်တဲ့ပြောင်းလဲမှုတွေက ကြီးမားတဲ့ရလဒ်ကို ဖန်တီးပေးတယ်
+      သေးငယ်တဲ့ပြောင်းလဲမှုတွေက
+      ကြီးမားတဲ့ရလဒ်ကို ဖန်တီးပေးတယ်
     </h2>
 
-    <p id="ideaText">
-      အောင်မြင်မှုဆိုတာ တစ်ရက်တည်းနဲ့ ဖြစ်ပေါ်လာတဲ့အရာမဟုတ်ပါဘူး။ နေ့စဉ်ပြုလုပ်နေတဲ့ သေးငယ်တဲ့အလေ့အကျင့်တွေက အချိန်ကြာလာတာနဲ့အမျှ စုပေါင်းပြီး ကြီးမားတဲ့ရလဒ်ကို ဖြစ်ပေါ်စေပါတယ်။
+
+    <p id="ideaParagraph1">
+
+      အောင်မြင်မှုဆိုတာ တစ်ရက်တည်းနဲ့
+      ဖြစ်ပေါ်လာတဲ့အရာမဟုတ်ပါဘူး
+      နေ့စဉ်ပြုလုပ်နေတဲ့ သေးငယ်တဲ့
+      လုပ်ဆောင်ချက်တွေက အချိန်ကြာလာတဲ့အခါ
+      စုပေါင်းပြီး ကြီးမားတဲ့ရလဒ်ကို ဖန်တီးပေးပါတယ်
+
     </p>
 
-    <p>
-      ဒါကြောင့် ရလဒ်ကိုသာ အာရုံစိုက်တာထက် ရလဒ်ကို ဖြစ်ပေါ်စေတဲ့ နေ့စဉ်စနစ်နဲ့ အလေ့အကျင့်တွေကို တည်ဆောက်ဖို့ ပိုအရေးကြီးပါတယ်။
+
+    <p id="ideaParagraph2">
+
+      ဒါကြောင့် ရလဒ်တစ်ခုကိုသာ
+      အာရုံစိုက်တာထက် အဲဒီရလဒ်ကို
+      နေ့စဉ်ဖြစ်ပေါ်စေမယ့် system နဲ့
+      အလေ့အကျင့်တွေကို တည်ဆောက်ဖို့
+      ပိုအရေးကြီးပါတယ်
+
     </p>
 
-    <div class="insight">
-      <div class="insight-label">💡 KEY INSIGHT</div>
-      <p>
-        တစ်နေ့ကို 1% လောက် တိုးတက်အောင်လုပ်နိုင်ရင် အချိန်ကြာလာတဲ့အခါ တိုးတက်မှုက သိသိသာသာ ကွာခြားလာနိုင်ပါတယ်။
+
+    <div class="reader-box">
+
+      <div class="box-label">
+        💡 KEY INSIGHT
+      </div>
+
+      <p id="keyInsight">
+
+        နေ့စဉ်တိုးတက်မှုသေးသေးလေးတွေကို
+        ရေရှည်ဆက်လုပ်နိုင်ခြင်းက
+        တစ်ခါတည်းကြီးမားတဲ့ကြိုးစားမှုထက်
+        ပိုမိုတည်ငြိမ်တဲ့ရလဒ်ကို ဖန်တီးပေးနိုင်ပါတယ်
+
       </p>
+
     </div>
 
-    <div class="insight">
-      <div class="insight-label">💼 BUSINESS APPLICATION</div>
-      <p>
-        Sales Manager တစ်ယောက်အနေနဲ့ Team Performance ကို တစ်ခါတည်းကြီးမားအောင်ပြောင်းဖို့ထက် Daily Coaching, Customer Visit Quality, Follow-up Discipline နဲ့ Reporting Accuracy လို သေးငယ်တဲ့လုပ်ဆောင်ချက်တွေကို နေ့စဉ်တိုးတက်အောင် စီမံနိုင်ပါတယ်။
+
+    <div class="reader-box">
+
+      <div class="box-label">
+        💼 BUSINESS APPLICATION
+      </div>
+
+      <p id="businessApplication">
+
+        Sales Manager တစ်ယောက်အနေနဲ့
+        Team Performance ကို တစ်ခါတည်း
+        ပြောင်းလဲဖို့ကြိုးစားတာထက်
+        Daily Coaching, Customer Visit Quality,
+        Follow-up Discipline နဲ့ Reporting Accuracy
+        တို့လို အချက်တွေကို နေ့စဉ်တိုးတက်အောင်
+        စီမံနိုင်ပါတယ်
+
       </p>
+
     </div>
 
-    <div class="action">
-      <div class="insight-label">✅ TODAY'S ACTION</div>
-      <p>
-        ဒီနေ့ တိုးတက်စေချင်တဲ့ အလေ့အကျင့်တစ်ခုကို ရွေးပြီး 5 မိနစ်စာ လုပ်ဆောင်ချက်တစ်ခုအဖြစ် သတ်မှတ်ပါ။
+
+    <div class="action-box">
+
+      <div class="box-label">
+        ✅ TODAY'S ACTION
+      </div>
+
+      <p id="todayAction">
+
+        ဒီနေ့တိုးတက်စေချင်တဲ့ အလေ့အကျင့်
+        တစ်ခုကိုရွေးပြီး 5 မိနစ်အတွင်း
+        စတင်လုပ်ဆောင်နိုင်မယ့်
+        action တစ်ခုသတ်မှတ်ပါ
+
       </p>
+
     </div>
 
-    <div class="reader-buttons">
-      <button>← Previous</button>
-      <button class="next" onclick="nextIdea()">Next Idea →</button>
+
+    <div class="reader-controls">
+
+      <button onclick="previousIdea()">
+        ← Previous
+      </button>
+
+      <button
+        class="next"
+        onclick="nextIdea()">
+        Next Idea →
+      </button>
+
     </div>
 
   </article>
@@ -959,187 +2253,798 @@ button{
 </div>
 
 
-<!-- NAV -->
-
-<nav class="bottom-nav">
-
-  <button class="nav-item active" data-page="home" onclick="showPage('home')">
-    <span class="nav-icon">⌂</span>
-    Home
-  </button>
-
-  <button class="nav-item" data-page="explore" onclick="showPage('explore')">
-    <span class="nav-icon">⌕</span>
-    Explore
-  </button>
-
-  <button class="nav-item" data-page="library" onclick="showPage('library')">
-    <span class="nav-icon">▣</span>
-    Library
-  </button>
-
-  <button class="nav-item" data-page="saved" onclick="showPage('saved')">
-    <span class="nav-icon">♡</span>
-    Saved
-  </button>
-
-  <button class="nav-item" data-page="profile" onclick="showPage('profile')">
-    <span class="nav-icon">●</span>
-    Profile
-  </button>
-
-</nav>
+<div class="toast" id="toast">
+  Saved
+</div>
 
 
 <script>
 
-const pages = ["home","explore","library","saved","profile"];
+/* =========================
+   DATA
+========================= */
+
+const books={
+
+  "Atomic Habits":{
+    author:"James Clear",
+    time:"15 min",
+    ideas:8,
+    category:"Business • Productivity",
+    cover:"green",
+    titleHtml:"Atomic<br>Habits",
+    description:
+      "နေ့စဉ်ပြုလုပ်နေတဲ့ သေးငယ်တဲ့အလေ့အကျင့်တွေက ရေရှည်မှာ ဘဝနဲ့အလုပ်ရဲ့ ရလဒ်တွေကို ဘယ်လိုပြောင်းလဲပေးနိုင်သလဲဆိုတာကို အဓိကရှင်းပြထားပါတယ်"
+  },
+
+  "The Psychology of Money":{
+    author:"Morgan Housel",
+    time:"18 min",
+    ideas:9,
+    category:"Money • Psychology",
+    cover:"brown",
+    titleHtml:"The Psychology<br>of Money",
+    description:
+      "ငွေကြေးနဲ့ပတ်သက်တဲ့ လူတွေရဲ့ အပြုအမူ၊ ဆုံးဖြတ်ချက်နဲ့ စိတ်ဓာတ်တွေက ငွေကြေးအောင်မြင်မှုအပေါ် ဘယ်လိုသက်ရောက်သလဲဆိုတာကို ရှင်းပြထားပါတယ်"
+  },
+
+  "Deep Work":{
+    author:"Cal Newport",
+    time:"16 min",
+    ideas:8,
+    category:"Productivity",
+    cover:"blue",
+    titleHtml:"Deep<br>Work",
+    description:
+      "အာရုံစူးစိုက်မှုကို တည်ဆောက်ပြီး အနှောင့်အယှက်နည်းတဲ့အခြေအနေမှာ အရေးကြီးတဲ့အလုပ်တွေကို ထိရောက်စွာလုပ်ဆောင်နိုင်ဖို့ အခြေခံအယူအဆတွေကို ရှင်းပြထားပါတယ်"
+  },
+
+  "The 7 Habits":{
+    author:"Stephen Covey",
+    time:"20 min",
+    ideas:10,
+    category:"Leadership • Business",
+    cover:"gold",
+    titleHtml:"The 7<br>Habits",
+    description:
+      "ကိုယ်ပိုင်ထိရောက်မှုနဲ့ ခေါင်းဆောင်မှုကို တိုးတက်စေဖို့ အခြေခံအလေ့အကျင့်တွေကို စနစ်တကျရှင်းပြထားတဲ့ စာအုပ်ဖြစ်ပါတယ်"
+  },
+
+  "Start With Why":{
+    author:"Simon Sinek",
+    time:"17 min",
+    ideas:8,
+    category:"Leadership • Business",
+    cover:"red",
+    titleHtml:"Start<br>With Why",
+    description:
+      "အဖွဲ့အစည်းနဲ့ ခေါင်းဆောင်တွေက ဘာလုပ်တယ်ဆိုတာထက် ဘာကြောင့်လုပ်တယ်ဆိုတဲ့ purpose ကို ရှင်းလင်းစွာဆက်သွယ်ခြင်းရဲ့ အရေးပါမှုကို အဓိကထားပါတယ်"
+  },
+
+  "Think and Grow Rich":{
+    author:"Napoleon Hill",
+    time:"19 min",
+    ideas:9,
+    category:"Money • Business",
+    cover:"purple",
+    titleHtml:"Think &<br>Grow Rich",
+    description:
+      "ရည်မှန်းချက်၊ ယုံကြည်ချက်၊ စီမံချက်နဲ့ အမြဲတမ်းကြိုးစားလုပ်ဆောင်ခြင်းတို့ရဲ့ ဆက်နွယ်မှုကို အောင်မြင်မှုရှုထောင့်ကနေ ဆွေးနွေးထားပါတယ်"
+  }
+
+};
+
+
+/* =========================
+   READER DATA
+========================= */
+
+const readerIdeas=[
+
+  {
+    title:"သေးငယ်တဲ့ပြောင်းလဲမှုတွေက ကြီးမားတဲ့ရလဒ်ကို ဖန်တီးပေးတယ်",
+
+    p1:
+      "အောင်မြင်မှုဆိုတာ တစ်ရက်တည်းနဲ့ ဖြစ်ပေါ်လာတဲ့အရာမဟုတ်ပါဘူး။ နေ့စဉ်ပြုလုပ်နေတဲ့ သေးငယ်တဲ့လုပ်ဆောင်ချက်တွေက အချိန်ကြာလာတဲ့အခါ စုပေါင်းပြီး ကြီးမားတဲ့ရလဒ်ကို ဖန်တီးပေးပါတယ်",
+
+    p2:
+      "ဒါကြောင့် ရလဒ်တစ်ခုကိုသာ အာရုံစိုက်တာထက် အဲဒီရလဒ်ကို နေ့စဉ်ဖြစ်ပေါ်စေမယ့် system နဲ့ အလေ့အကျင့်တွေကို တည်ဆောက်ဖို့ ပိုအရေးကြီးပါတယ်",
+
+    insight:
+      "နေ့စဉ်တိုးတက်မှုသေးသေးလေးတွေကို ရေရှည်ဆက်လုပ်နိုင်ခြင်းက တစ်ခါတည်းကြီးမားတဲ့ကြိုးစားမှုထက် ပိုမိုတည်ငြိမ်တဲ့ရလဒ်ကို ဖန်တီးပေးနိုင်ပါတယ်",
+
+    business:
+      "Sales Manager တစ်ယောက်အနေနဲ့ Team Performance ကို တစ်ခါတည်းပြောင်းလဲဖို့ကြိုးစားတာထက် Daily Coaching, Customer Visit Quality, Follow-up Discipline နဲ့ Reporting Accuracy တို့လို အချက်တွေကို နေ့စဉ်တိုးတက်အောင် စီမံနိုင်ပါတယ်",
+
+    action:
+      "ဒီနေ့တိုးတက်စေချင်တဲ့ အလေ့အကျင့်တစ်ခုကိုရွေးပြီး 5 မိနစ်အတွင်း စတင်လုပ်ဆောင်နိုင်မယ့် action တစ်ခုသတ်မှတ်ပါ"
+  },
+
+  {
+    title:"ရလဒ်ထက် System ကို တည်ဆောက်ပါ",
+
+    p1:
+      "ရလဒ်ကောင်းတစ်ခုရဖို့အတွက် goal တစ်ခုသတ်မှတ်ထားရုံနဲ့ မလုံလောက်ပါဘူး။ အဲဒီ goal ကို နေ့စဉ်ဘယ်လိုလုပ်ဆောင်မလဲဆိုတဲ့ system တစ်ခုလိုအပ်ပါတယ်",
+
+    p2:
+      "Goal က သွားချင်တဲ့နေရာကိုပြတယ်။ System က အဲဒီနေရာကို ရောက်အောင် နေ့တိုင်းဘာလုပ်ရမလဲဆိုတာ သတ်မှတ်ပေးပါတယ်",
+
+    insight:
+      "အောင်မြင်မှုကို ထိန်းသိမ်းနိုင်ဖို့ goal ထက် repeatable system တစ်ခုကို တည်ဆောက်ထားခြင်းက အရေးကြီးပါတယ်",
+
+    business:
+      "Sales Team အတွက် monthly target တစ်ခုတည်းထားမယ့်အစား Daily Call Plan, PJP, Follow-up, Collection Review နဲ့ Weekly Coaching system တွေကို တည်ဆောက်နိုင်ပါတယ်",
+
+    action:
+      "သင့်ရဲ့ အရေးကြီးဆုံး target တစ်ခုကို ရွေးပြီး အဲဒီ target ကိုရောက်ဖို့ နေ့တိုင်းပြန်လုပ်နိုင်မယ့် action 3 ခုရေးပါ"
+  },
+
+  {
+    title:"Identity က အလေ့အကျင့်ကို ပြောင်းလဲစေတယ်",
+
+    p1:
+      "အလေ့အကျင့်ပြောင်းလဲခြင်းမှာ ဘာလုပ်ချင်တယ်ဆိုတာထက် ကိုယ့်ကိုယ်ကို ဘယ်လိုလူတစ်ယောက်အဖြစ်မြင်သလဲဆိုတာကလည်း အရေးကြီးပါတယ်",
+
+    p2:
+      "ဥပမာ စာဖတ်ချင်တယ်ဆိုတာထက် 'ကျွန်တော်က စာဖတ်တဲ့လူတစ်ယောက်ပါ' ဆိုတဲ့ identity ကို တည်ဆောက်လိုက်ရင် လုပ်ဆောင်ချက်တွေက ပိုမိုတည်ငြိမ်လာနိုင်ပါတယ်",
+
+    insight:
+      "အလေ့အကျင့်က identity ကို အားပေးပြီး identity ကလည်း အလေ့အကျင့်ကို ထပ်မံခိုင်မာစေပါတယ်",
+
+    business:
+      "Manager တစ်ယောက်အနေနဲ့ 'target ရအောင်လုပ်မယ်' ဆိုတာထက် 'customer-focused manager တစ်ယောက်ဖြစ်မယ်' ဆိုတဲ့ identity ကို team culture ထဲမှာ တည်ဆောက်နိုင်ပါတယ်",
+
+    action:
+      "သင်ဖြစ်ချင်တဲ့ professional identity တစ်ခုကို စာတစ်ကြောင်းနဲ့ရေးပြီး အဲဒီ identity ကို သက်သေပြနိုင်မယ့် action တစ်ခု ဒီနေ့လုပ်ပါ"
+  },
+
+  {
+    title:"ကောင်းတဲ့အလေ့အကျင့်ကို ပိုမိုလွယ်ကူအောင်လုပ်ပါ",
+
+    p1:
+      "လူတွေဟာ အကျိုးရှိတဲ့အရာတွေကို လုပ်ချင်ပေမယ့် စတင်ဖို့ ခက်ခဲနေတဲ့အခါ အလေ့အကျင့်မတည်မြဲတတ်ပါတယ်",
+
+    p2:
+      "ဒါကြောင့် လုပ်ချင်တဲ့အရာကို စတင်ရလွယ်အောင် ကြိုတင်ပြင်ဆင်ထားခြင်းက လုပ်ဆောင်နိုင်ခြေကို တိုးစေပါတယ်",
+
+    insight:
+      "Good habits ကို easy ဖြစ်အောင် environment နဲ့ process ကို ပြင်ဆင်ပါ",
+
+    business:
+      "Sales Team အတွက် reporting form, customer list, daily target နဲ့ visit plan တွေကို ရှင်းလင်းပြီး အသင့်သုံးနိုင်အောင် ပြင်ဆင်ထားရင် execution quality တိုးလာနိုင်ပါတယ်",
+
+    action:
+      "သင်လုပ်ချင်တဲ့ good habit တစ်ခုကို ရွေးပြီး စတင်ဖို့လိုအပ်တဲ့ step တစ်ခုကို ဖယ်ရှားပါ"
+  },
+
+  {
+    title:"မကောင်းတဲ့အလေ့အကျင့်ကို ခက်ခဲအောင်လုပ်ပါ",
+
+    p1:
+      "မကောင်းတဲ့အလေ့အကျင့်ကို ရပ်ချင်ရင် willpower တစ်ခုတည်းကို အားကိုးတာထက် အဲဒီအလေ့အကျင့်ကို လုပ်ရခက်အောင် environment ကို ပြောင်းလဲနိုင်ပါတယ်",
+
+    p2:
+      "အပြုအမူကို ဖြစ်စေတဲ့ trigger ကို လျှော့ချနိုင်ရင် အလိုအလျောက်လုပ်ဆောင်မှုလည်း လျော့နည်းလာနိုင်ပါတယ်",
+
+    insight:
+      "မကောင်းတဲ့ behavior ကို စတင်ဖို့ friction တိုးပေးပါ",
+
+    business:
+      "အရေးမကြီးတဲ့ meeting, report duplication နဲ့ unnecessary approval steps တွေကို လျှော့ချပြီး team productivity ကို မြှင့်တင်နိုင်ပါတယ်",
+
+    action:
+      "သင့်အလုပ်မှာ အချိန်ဖြုန်းစေတဲ့ process တစ်ခုကို ရွေးပြီး friction တစ်ခုတိုးပါ သို့မဟုတ် ဖယ်ရှားပါ"
+  },
+
+  {
+    title:"Environment က သင့်အပြုအမူကို သက်ရောက်စေတယ်",
+
+    p1:
+      "အလေ့အကျင့်တွေဟာ ကိုယ့်စိတ်အားထက်သန်မှုတစ်ခုတည်းနဲ့ မတည်ဆောက်ပါဘူး။ ကိုယ်နေရတဲ့ environment ကလည်း အပြုအမူကို အားပေးနိုင်သလို တားဆီးနိုင်ပါတယ်",
+
+    p2:
+      "ဒါကြောင့် ကောင်းတဲ့လုပ်ဆောင်ချက်တွေကို သတိရစေမယ့် signal တွေကို မြင်သာအောင်ထားနိုင်ပါတယ်",
+
+    insight:
+      "Environment ကို ပြောင်းလဲခြင်းက behavior ကို ပြောင်းလဲဖို့ အသုံးဝင်တဲ့ lever တစ်ခုဖြစ်ပါတယ်",
+
+    business:
+      "Sales office မှာ daily KPI board, priority customer list နဲ့ action tracker တွေကို မြင်သာတဲ့နေရာမှာထားခြင်းက execution focus ကို တိုးစေနိုင်ပါတယ်",
+
+    action:
+      "သင့်ရဲ့ workspace မှာ အရေးကြီးတဲ့ daily priority တစ်ခုကို မြင်သာအောင်ထားပါ"
+  },
+
+  {
+    title:"Consistency က Motivation ထက် အရေးကြီးတယ်",
+
+    p1:
+      "Motivation က တစ်နေ့တစ်မျိုး ပြောင်းလဲနိုင်ပါတယ်။ ဒါပေမယ့် အလေ့အကျင့်တစ်ခုကို system တစ်ခုအဖြစ် တည်ဆောက်ထားရင် motivation နည်းတဲ့နေ့တွေမှာတောင် ဆက်လုပ်နိုင်ပါတယ်",
+
+    p2:
+      "အဓိကက perfect ဖြစ်ဖို့မဟုတ်ဘဲ ပြန်လည်စတင်နိုင်ဖို့ပါ",
+
+    insight:
+      "Consistency ကို အဓိကထားပြီး perfect execution ကို မလိုက်ပါနဲ့",
+
+    business:
+      "Team coaching ကို month-end မှာပဲလုပ်မယ့်အစား weekly coaching rhythm တစ်ခုအဖြစ်ထားရင် performance management ပိုမိုတည်ငြိမ်နိုင်ပါတယ်",
+
+    action:
+      "တစ်ပတ်မှာ အနည်းဆုံးတစ်ကြိမ် မပျက်မကွက်လုပ်မယ့် professional habit တစ်ခု သတ်မှတ်ပါ"
+  },
+
+  {
+    title:"နေ့စဉ်တိုးတက်မှုကို ရေရှည်ထိန်းသိမ်းပါ",
+
+    p1:
+      "အလေ့အကျင့်တစ်ခုရဲ့ တန်ဖိုးဟာ တစ်ကြိမ်လုပ်လိုက်တာမှာမဟုတ်ဘဲ အချိန်ကြာလာတဲ့အခါ ထပ်ခါထပ်ခါလုပ်နိုင်ခြင်းမှာ ရှိပါတယ်",
+
+    p2:
+      "ဒါကြောင့် အလွန်ကြီးမားတဲ့ plan တစ်ခုထက် ရေရှည်တည်တံ့နိုင်တဲ့ manageable routine တစ်ခုကို တည်ဆောက်ဖို့ ပိုအရေးကြီးပါတယ်",
+
+    insight:
+      "ရေရှည်တည်တံ့နိုင်တဲ့ pace နဲ့ ဆက်လက်လုပ်ဆောင်နိုင်ခြင်းက compound effect ကို ဖြစ်စေပါတယ်",
+
+    business:
+      "Sales Manager တစ်ယောက်အနေနဲ့ daily review, weekly coaching, monthly business review ဆိုတဲ့ rhythm ကို တည်ဆောက်ထားနိုင်ပါတယ်",
+
+    action:
+      "လာမယ့် 30 ရက်အတွင်း မပျက်မကွက်လုပ်မယ့် professional routine တစ်ခုကို စတင်ပါ"
+  }
+
+];
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+const pageNames=[
+  "home",
+  "explore",
+  "library",
+  "saved",
+  "profile"
+];
 
 function showPage(page){
 
-  pages.forEach(p=>{
-    const el=document.getElementById(p);
-    if(el) el.classList.toggle("active",p===page);
+  pageNames.forEach(name=>{
+
+    const element=
+      document.getElementById(name);
+
+    if(element){
+      element.classList.toggle(
+        "active",
+        name===page
+      );
+    }
+
   });
 
-  document.querySelectorAll(".nav-item").forEach(item=>{
-    item.classList.toggle(
-      "active",
-      item.dataset.page===page
-    );
-  });
+
+  document.querySelectorAll(".nav-item")
+    .forEach(item=>{
+
+      item.classList.toggle(
+        "active",
+        item.dataset.page===page
+      );
+
+    });
+
 
   window.scrollTo(0,0);
 }
 
-function openSearch(){
+
+/* =========================
+   SEARCH
+========================= */
+
+function openExploreSearch(){
+
   showPage("explore");
 
   setTimeout(()=>{
-    const input=document.getElementById("searchInput");
-    if(input) input.focus();
-  },100);
+
+    const input=
+      document.getElementById("searchInput");
+
+    if(input){
+      input.focus();
+    }
+
+  },150);
+
 }
 
-function searchBooks(){
+
+function filterBooks(){
 
   const value=
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase()
-    .trim();
+    document
+      .getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
 
-  document.querySelectorAll("#bookGrid .book-card")
+  document
+    .querySelectorAll("#bookGrid .book-card")
     .forEach(card=>{
 
-      const text=
-        card.dataset.search.toLowerCase();
+      const searchable=
+        (
+          card.dataset.search+
+          " "+
+          card.dataset.title
+        ).toLowerCase();
 
       card.style.display=
-        text.includes(value)
+        searchable.includes(value)
         ? ""
         : "none";
+
     });
+
 }
 
-function openReader(book){
 
-  const reader=document.getElementById("reader");
+function filterCategory(category,button){
 
-  const title=document.getElementById("readerBookTitle");
+  document
+    .querySelectorAll(".explore-categories .category")
+    .forEach(item=>{
+      item.classList.remove("active");
+    });
 
-  const authors={
-    "Atomic Habits":"James Clear",
-    "The Psychology of Money":"Morgan Housel",
-    "Deep Work":"Cal Newport",
-    "The 7 Habits":"Stephen Covey"
-  };
+  button.classList.add("active");
 
-  title.textContent=book;
 
-  document.getElementById("readerTitle").textContent=
-    book;
+  document
+    .querySelectorAll("#bookGrid .book-card")
+    .forEach(card=>{
 
-  document.getElementById("readerAuthor").textContent=
-    authors[book] || "Author";
+      if(category==="all"){
 
-  reader.classList.add("active");
+        card.style.display="";
+
+        return;
+
+      }
+
+      const cardCategory=
+        card.dataset.category || "";
+
+      card.style.display=
+        cardCategory.includes(category)
+        ? ""
+        : "none";
+
+    });
+
+}
+
+
+/* =========================
+   BOOK DETAIL
+========================= */
+
+let currentBook="Atomic Habits";
+
+function openBook(bookName){
+
+  currentBook=bookName;
+
+  const book=
+    books[bookName];
+
+  if(!book){
+    return;
+  }
+
+
+  document
+    .getElementById("detailTopTitle")
+    .textContent=bookName;
+
+  document
+    .getElementById("detailTitle")
+    .textContent=bookName;
+
+  document
+    .getElementById("detailAuthor")
+    .textContent=book.author;
+
+  document
+    .getElementById("detailCoverTitle")
+    .innerHTML=book.titleHtml;
+
+  document
+    .getElementById("detailCoverAuthor")
+    .textContent=book.author;
+
+  document
+    .getElementById("detailDescription")
+    .textContent=book.description;
+
+
+  const cover=
+    document.getElementById("detailCover");
+
+  cover.className=
+    "cover detail-cover "+
+    book.cover;
+
+
+  document
+    .getElementById("bookModal")
+    .classList.add("active");
+
+
+  document.body.style.overflow="hidden";
+
+}
+
+
+function closeBook(){
+
+  document
+    .getElementById("bookModal")
+    .classList.remove("active");
+
+  document.body.style.overflow="";
+
+}
+
+
+/* =========================
+   START READING
+========================= */
+
+function startReading(){
+
+  closeBook();
+
+  openReader(currentBook);
+
+}
+
+
+let currentIdea=1;
+
+function openReader(bookName){
+
+  currentBook=bookName;
+
+  currentIdea=1;
+
+  const book=
+    books[bookName] ||
+    books["Atomic Habits"];
+
+
+  document
+    .getElementById("readerTopTitle")
+    .textContent=bookName;
+
+  document
+    .getElementById("readerBookTitle")
+    .textContent=bookName;
+
+  document
+    .getElementById("readerBookAuthor")
+    .textContent=book.author;
+
+
+  updateReader();
+
+
+  document
+    .getElementById("reader")
+    .classList.add("active");
+
 
   document.body.style.overflow="hidden";
 
   window.scrollTo(0,0);
+
 }
+
 
 function closeReader(){
 
-  document.getElementById("reader")
+  document
+    .getElementById("reader")
     .classList.remove("active");
 
   document.body.style.overflow="";
+
 }
 
-let idea=1;
+
+/* =========================
+   READER CONTENT
+========================= */
+
+function updateReader(){
+
+  const item=
+    readerIdeas[currentIdea-1];
+
+  const total=
+    readerIdeas.length;
+
+
+  document
+    .getElementById("ideaNumber")
+    .textContent=
+      "KEY IDEA "+
+      String(currentIdea).padStart(2,"0")+
+      " / "+
+      String(total).padStart(2,"0");
+
+
+  document
+    .getElementById("ideaTitle")
+    .textContent=
+      item.title;
+
+  document
+    .getElementById("ideaParagraph1")
+    .textContent=
+      item.p1;
+
+  document
+    .getElementById("ideaParagraph2")
+    .textContent=
+      item.p2;
+
+  document
+    .getElementById("keyInsight")
+    .textContent=
+      item.insight;
+
+  document
+    .getElementById("businessApplication")
+    .textContent=
+      item.business;
+
+  document
+    .getElementById("todayAction")
+    .textContent=
+      item.action;
+
+
+  const percentage=
+    (currentIdea/total)*100;
+
+  document
+    .getElementById("readerProgress")
+    .style.width=
+      percentage+"%";
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
 
 function nextIdea(){
 
-  idea++;
+  if(currentIdea < readerIdeas.length){
 
-  if(idea>8){
-    idea=1;
-  }
+    currentIdea++;
 
-  document.querySelector(".key-count")
-    .textContent=
-    "KEY IDEA "+String(idea).padStart(2,"0")+" / 08";
+    updateReader();
 
-  document.getElementById("readerProgress")
-    .style.width=
-    ((idea/8)*100)+"%";
+  }else{
 
-  const ideas=[
-    "သေးငယ်တဲ့ပြောင်းလဲမှုတွေက ကြီးမားတဲ့ရလဒ်ကို ဖန်တီးပေးတယ်",
-    "ရလဒ်ထက် System ကို တည်ဆောက်ပါ",
-    "Identity က အလေ့အကျင့်ကို ပြောင်းလဲစေတယ်",
-    "ကောင်းတဲ့အလေ့အကျင့်ကို ပိုမိုလွယ်ကူအောင်လုပ်ပါ",
-    "မကောင်းတဲ့အလေ့အကျင့်ကို ခက်ခဲအောင်လုပ်ပါ",
-    "Environment က သင့်အပြုအမူကို သက်ရောက်စေတယ်",
-    "Consistency က Motivation ထက် အရေးကြီးတယ်",
-    "နေ့စဉ်တိုးတက်မှုကို ရေရှည်ထိန်းသိမ်းပါ"
-  ];
-
-  document.getElementById("ideaTitle")
-    .textContent=ideas[idea-1];
-
-  document.querySelector(".reader-content")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-}
-
-function saveBook(){
-
-  const button=
-    document.querySelector(
-      ".reader-top button:last-child"
+    showToast(
+      "Summary ပြီးပါပြီ 🎉"
     );
 
-  button.textContent="♥";
+  }
 
-  setTimeout(()=>{
-    button.textContent="♡";
-  },1200);
 }
 
-document.querySelectorAll(".category")
-.forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    document.querySelectorAll(".category")
-      .forEach(x=>x.classList.remove("active"));
 
-    btn.classList.add("active");
+function previousIdea(){
+
+  if(currentIdea > 1){
+
+    currentIdea--;
+
+    updateReader();
+
+  }
+
+}
+
+
+/* =========================
+   SAVE
+========================= */
+
+let saved=false;
+
+function toggleSave(){
+
+  saved=!saved;
+
+  showToast(
+    saved
+      ? "စာအုပ်ကို Saved လုပ်ပြီးပါပြီ"
+      : "Saved မှ ဖယ်ရှားပြီးပါပြီ"
+  );
+
+}
+
+
+function toggleReaderSave(){
+
+  saved=!saved;
+
+  showToast(
+    saved
+      ? "စာအုပ်ကို Saved လုပ်ပြီးပါပြီ"
+      : "Saved မှ ဖယ်ရှားပြီးပါပြီ"
+  );
+
+}
+
+
+/* =========================
+   AUDIO UI
+========================= */
+
+let audioPlaying=false;
+
+function toggleAudio(){
+
+  audioPlaying=!audioPlaying;
+
+  const button=
+    document.getElementById("audioButton");
+
+  const status=
+    document.getElementById("audioStatus");
+
+  const line=
+    document.getElementById("audioLine");
+
+
+  if(audioPlaying){
+
+    button.textContent="Ⅱ";
+
+    status.textContent=
+      "Playing Preview...";
+
+    line.style.width="52%";
+
+  }else{
+
+    button.textContent="▶";
+
+    status.textContent=
+      "Audio Preview • 15 min";
+
+    line.style.width="28%";
+
+  }
+
+}
+
+
+let readerAudioPlaying=false;
+
+function toggleReaderAudio(){
+
+  readerAudioPlaying=
+    !readerAudioPlaying;
+
+  const button=
+    document.getElementById(
+      "readerAudioButton"
+    );
+
+  const status=
+    document.getElementById(
+      "readerAudioStatus"
+    );
+
+  const line=
+    document.getElementById(
+      "readerAudioLine"
+    );
+
+
+  if(readerAudioPlaying){
+
+    button.textContent="Ⅱ";
+
+    status.textContent=
+      "Playing • Key Idea "+
+      currentIdea;
+
+    line.style.width=
+      Math.min(
+        90,
+        20+(currentIdea*8)
+      )+"%";
+
+  }else{
+
+    button.textContent="▶";
+
+    status.textContent=
+      "15 min summary";
+
+    line.style.width="28%";
+
+  }
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function showToast(message){
+
+  const toast=
+    document.getElementById("toast");
+
+  toast.textContent=message;
+
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer=setTimeout(()=>{
+
+    toast.classList.remove("show");
+
+  },1800);
+
+}
+
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+document
+  .querySelectorAll(".category-row .category")
+  .forEach(button=>{
+
+    button.addEventListener(
+      "click",
+      ()=>{
+
+        document
+          .querySelectorAll(
+            ".category-row .category"
+          )
+          .forEach(item=>{
+            item.classList.remove("active");
+          });
+
+        button.classList.add("active");
+
+      }
+    );
+
   });
-});
 
 </script>
 
