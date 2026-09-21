@@ -4,2374 +4,3787 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#111111">
-<title>AUNG BOOKS — V7</title>
+<title>AUNG BOOKS — Premium Reading</title>
+
 <style>
 :root{
-  --bg:#f4f1e9;
+  --bg:#f5f1e8;
   --card:#ffffff;
   --text:#111111;
-  --muted:#737373;
-  --line:#e6e2d9;
-  --dark:#111111;
+  --muted:#707070;
+  --line:#e8e4da;
   --accent:#c8ff38;
-  --soft:#eef5d8;
-  --danger:#ff5c5c;
-  --shadow:0 12px 35px rgba(0,0,0,.07);
-  --radius:22px;
+  --dark:#111111;
+  --soft:#f0ede5;
+  --shadow:0 12px 35px rgba(0,0,0,.08);
+  --radius:24px;
 }
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
+
+*{box-sizing:border-box}
+
 html,body{
   margin:0;
   padding:0;
   background:var(--bg);
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Myanmar",Arial,sans-serif;
 }
+
 body{
   min-height:100vh;
-  padding-bottom:86px;
+  padding-bottom:88px;
 }
+
 button,input{
   font:inherit;
 }
+
 button{
   border:0;
   cursor:pointer;
 }
-img{
-  display:block;
-  max-width:100%;
+
+button:active{
+  transform:scale(.98);
 }
-.hidden{
-  display:none!important;
+
+.app{
+  width:100%;
+  max-width:1180px;
+  margin:auto;
 }
-/* TOPBAR */
+
+/* ================= HEADER ================= */
+
 .topbar{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(244,241,233,.94);
+  background:rgba(245,241,232,.94);
   backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(0,0,0,.04);
+  border-bottom:1px solid rgba(0,0,0,.05);
 }
+
 .topbar-inner{
-  max-width:1100px;
+  max-width:1180px;
   margin:auto;
-  height:68px;
+  min-height:72px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
+  gap:14px;
+  padding:12px 18px;
 }
-.brand{
-  font-weight:900;
-  letter-spacing:-1px;
-  font-size:21px;
+
+.logo{
+  font-size:20px;
+  font-weight:950;
+  letter-spacing:-.7px;
+  white-space:nowrap;
 }
-.brand span{
+
+.logo span{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  background:var(--accent);
-  width:34px;
-  height:34px;
-  border-radius:11px;
+  width:30px;
+  height:30px;
   margin-right:7px;
-  font-size:17px;
+  background:var(--accent);
+  border-radius:9px;
 }
-.top-actions{
-  display:flex;
-  gap:8px;
+
+.header-search{
+  flex:1;
+  position:relative;
 }
-.icon-btn{
+
+.header-search input{
+  width:100%;
+  height:44px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:0 16px 0 42px;
+  outline:none;
+  background:#fff;
+}
+
+.search-icon{
+  position:absolute;
+  left:15px;
+  top:12px;
+  color:#777;
+}
+
+.profile-btn{
   width:42px;
   height:42px;
   border-radius:50%;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 3px 14px rgba(0,0,0,.05);
+  background:var(--dark);
+  color:#fff;
+  font-weight:800;
 }
-/* MAIN */
+
+/* ================= MAIN ================= */
+
 main{
-  max-width:1100px;
-  margin:auto;
-  padding:18px;
+  padding:22px 18px 40px;
 }
+
 .page{
   display:none;
 }
+
 .page.active{
   display:block;
 }
-/* HERO */
+
+/* ================= HERO ================= */
+
 .hero{
-  background:var(--dark);
+  background:#111;
   color:#fff;
-  border-radius:28px;
-  padding:28px 22px;
+  border-radius:30px;
+  padding:30px;
   position:relative;
   overflow:hidden;
-  margin-bottom:24px;
+  box-shadow:var(--shadow);
 }
+
 .hero:after{
   content:"";
   position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  background:var(--accent);
-  right:-70px;
+  width:220px;
+  height:220px;
+  right:-80px;
   top:-80px;
-  opacity:.9;
+  background:var(--accent);
+  border-radius:50%;
+  opacity:.85;
 }
-.hero-label{
-  color:var(--accent);
-  font-size:12px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:1.2px;
+
+.hero-content{
   position:relative;
   z-index:2;
+  max-width:720px;
 }
+
+.eyebrow{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.12em;
+  opacity:.65;
+  text-transform:uppercase;
+}
+
 .hero h1{
-  font-size:34px;
+  margin:12px 0;
+  font-size:clamp(30px,6vw,54px);
   line-height:1.08;
   letter-spacing:-1.7px;
-  margin:13px 0 10px;
-  max-width:650px;
-  position:relative;
-  z-index:2;
 }
+
 .hero p{
-  color:#d0d0d0;
-  line-height:1.7;
-  font-size:14px;
-  max-width:650px;
   margin:0;
-  position:relative;
-  z-index:2;
+  color:#d1d1d1;
+  line-height:1.75;
+  max-width:650px;
 }
+
 .hero-stats{
   display:flex;
-  gap:9px;
   flex-wrap:wrap;
-  margin-top:22px;
-  position:relative;
-  z-index:2;
+  gap:10px;
+  margin-top:24px;
 }
-.hero-stat{
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:15px;
-  padding:10px 13px;
-  min-width:90px;
-}
-.hero-stat strong{
-  display:block;
-  font-size:18px;
-}
-.hero-stat span{
-  color:#bdbdbd;
-  font-size:11px;
-}
-/* SECTION */
-.section{
-  margin:28px 0;
-}
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:13px;
-}
-.section-title{
-  font-size:21px;
-  font-weight:900;
-  letter-spacing:-.6px;
-}
-.section-link{
-  color:#555;
+
+.stat-pill{
+  padding:9px 13px;
+  background:#202020;
+  border:1px solid #333;
+  border-radius:999px;
   font-size:13px;
   font-weight:700;
-  background:none;
 }
-/* BOOK CARDS */
-.books-grid{
+
+/* ================= SECTION ================= */
+
+.section{
+  margin-top:30px;
+}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.section-title{
+  margin:0;
+  font-size:22px;
+  letter-spacing:-.5px;
+}
+
+.see-all{
+  background:transparent;
+  color:#555;
+  font-weight:800;
+  font-size:13px;
+}
+
+/* ================= CONTINUE ================= */
+
+.continue-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  box-shadow:0 7px 20px rgba(0,0,0,.04);
+}
+
+.book-mini-cover{
+  width:64px;
+  height:84px;
+  border-radius:12px;
+  background:#111;
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:11px;
+  font-weight:950;
+  padding:7px;
+  flex-shrink:0;
+}
+
+.continue-info{
+  flex:1;
+  min-width:0;
+}
+
+.continue-info h3{
+  margin:0 0 5px;
+  font-size:16px;
+}
+
+.continue-info p{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.progress{
+  height:7px;
+  background:#ebe8df;
+  border-radius:99px;
+  overflow:hidden;
+}
+
+.progress i{
+  display:block;
+  height:100%;
+  background:#111;
+  border-radius:99px;
+}
+
+/* ================= BOOK GRID ================= */
+
+.book-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:15px;
 }
+
 .book-card{
-  background:var(--card);
+  background:#fff;
   border:1px solid var(--line);
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 4px 20px rgba(0,0,0,.035);
-  transition:.2s ease;
+  border-radius:22px;
+  padding:12px;
+  cursor:pointer;
+  transition:.2s;
+  min-width:0;
 }
-.book-card:active{
-  transform:scale(.98);
+
+.book-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow);
 }
-.cover-wrap{
-  position:relative;
-  background:#ddd;
-  aspect-ratio:2/3;
-  overflow:hidden;
-}
-.cover-wrap img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.cover-fallback{
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  text-align:center;
-  font-weight:900;
-  font-size:17px;
-  background:#202020;
+
+.cover{
+  aspect-ratio:3/4;
+  border-radius:16px;
+  background:#171717;
   color:#fff;
-}
-.save-mini{
-  position:absolute;
-  top:9px;
-  right:9px;
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  background:rgba(255,255,255,.92);
-  z-index:3;
-}
-.book-info{
-  padding:13px;
-}
-.book-title{
-  font-weight:850;
-  font-size:15px;
-  line-height:1.3;
-}
-.book-author{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:5px;
-}
-.book-meta{
+  position:relative;
+  overflow:hidden;
+  padding:16px;
   display:flex;
+  flex-direction:column;
   justify-content:space-between;
-  gap:6px;
-  margin-top:10px;
+}
+
+.cover:after{
+  content:"";
+  position:absolute;
+  width:90px;
+  height:90px;
+  right:-35px;
+  bottom:-35px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+.cover-category{
+  position:relative;
+  z-index:2;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.08em;
+  opacity:.7;
+}
+
+.cover-title{
+  position:relative;
+  z-index:2;
+  font-size:18px;
+  line-height:1.1;
+  font-weight:950;
+  max-width:95%;
+}
+
+.cover-author{
+  position:relative;
+  z-index:2;
   font-size:10px;
-  color:#777;
+  opacity:.72;
 }
-.tag{
-  background:#f1f1ef;
-  padding:5px 7px;
-  border-radius:8px;
-  white-space:nowrap;
+
+.book-meta{
+  padding:11px 3px 3px;
 }
-/* FEATURE */
-.feature-card{
+
+.book-meta h3{
+  margin:0 0 4px;
+  font-size:14px;
+  line-height:1.25;
+}
+
+.book-meta p{
+  margin:0;
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* ================= FEATURED ================= */
+
+.featured{
   background:#fff;
   border:1px solid var(--line);
   border-radius:25px;
-  padding:15px;
-  display:grid;
-  grid-template-columns:145px 1fr;
-  gap:20px;
-  box-shadow:var(--shadow);
-}
-.feature-cover{
-  border-radius:17px;
-  overflow:hidden;
-  aspect-ratio:2/3;
-}
-.feature-cover img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.feature-content{
+  padding:18px;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
+  gap:20px;
+  align-items:center;
 }
-.feature-content .eyebrow{
-  color:#777;
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
+
+.featured .cover{
+  width:150px;
+  flex-shrink:0;
 }
-.feature-content h2{
-  font-size:27px;
-  line-height:1.05;
-  letter-spacing:-1px;
-  margin:9px 0 7px;
+
+.featured-content{
+  flex:1;
 }
-.feature-content p{
-  color:#6e6e6e;
-  font-size:13px;
-  line-height:1.6;
+
+.featured-content .tag{
+  display:inline-block;
+  background:#f0f0ed;
+  padding:6px 9px;
+  border-radius:99px;
+  font-size:10px;
+  font-weight:900;
 }
-.primary-btn{
-  background:var(--dark);
+
+.featured-content h2{
+  font-size:28px;
+  margin:10px 0 4px;
+  letter-spacing:-.8px;
+}
+
+.featured-content p{
+  color:var(--muted);
+  line-height:1.65;
+  font-size:14px;
+}
+
+.primary{
+  background:#111;
   color:#fff;
+  padding:12px 17px;
   border-radius:13px;
-  padding:12px 16px;
-  font-weight:800;
-  margin-top:8px;
+  font-weight:850;
 }
-.secondary-btn{
-  background:#f1f1ee;
+
+.secondary{
+  background:#f0ede5;
   color:#111;
+  padding:12px 17px;
   border-radius:13px;
-  padding:12px 16px;
-  font-weight:800;
-  margin-top:8px;
+  font-weight:850;
 }
-/* CATEGORIES */
-.categories{
+
+/* ================= CATEGORIES ================= */
+
+.category-row{
   display:flex;
   gap:9px;
   overflow-x:auto;
+  padding-bottom:4px;
   scrollbar-width:none;
-  padding-bottom:3px;
 }
-.categories::-webkit-scrollbar{
+
+.category-row::-webkit-scrollbar{
   display:none;
 }
-.category-btn{
-  flex:0 0 auto;
+
+.category{
+  flex-shrink:0;
+  padding:10px 15px;
   background:#fff;
   border:1px solid var(--line);
   border-radius:999px;
-  padding:9px 14px;
   font-size:12px;
-  font-weight:750;
+  font-weight:800;
 }
-.category-btn.active{
+
+.category.active{
   background:#111;
   color:#fff;
-  border-color:#111;
 }
-/* SEARCH */
-.search-box{
-  display:flex;
-  align-items:center;
-  gap:10px;
+
+/* ================= SEARCH ================= */
+
+.search-panel{
   background:#fff;
   border:1px solid var(--line);
-  border-radius:16px;
-  padding:12px 14px;
-  margin-bottom:18px;
+  border-radius:22px;
+  padding:15px;
+  margin-bottom:20px;
 }
-.search-box input{
+
+.search-panel input{
   width:100%;
-  border:0;
-  outline:0;
-  background:transparent;
-  color:#111;
-  font-size:14px;
+  height:48px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:0 15px;
+  outline:none;
 }
-/* CONTINUE */
-.continue-card{
-  background:#111;
-  color:#fff;
+
+/* ================= EMPTY ================= */
+
+.empty{
+  background:#fff;
+  border:1px dashed #d8d3c8;
   border-radius:20px;
-  padding:17px;
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
-.continue-cover{
-  width:58px;
-  height:78px;
-  flex:0 0 auto;
-  border-radius:10px;
-  overflow:hidden;
-}
-.continue-cover img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.continue-content{
-  min-width:0;
-  flex:1;
-}
-.continue-content small{
-  color:#aaa;
-}
-.continue-content strong{
-  display:block;
-  margin:4px 0 8px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.progress-track{
-  height:6px;
-  background:#333;
-  border-radius:99px;
-  overflow:hidden;
-}
-.progress-fill{
-  height:100%;
-  width:0;
-  background:var(--accent);
-  border-radius:99px;
-}
-/* PROFILE */
-.profile-card{
-  background:#111;
-  color:#fff;
-  border-radius:25px;
-  padding:25px;
+  padding:35px 20px;
   text-align:center;
+  color:var(--muted);
 }
-.avatar{
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  background:var(--accent);
-  color:#111;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 12px;
-  font-weight:900;
-  font-size:25px;
-}
-.profile-name{
-  font-size:22px;
-  font-weight:900;
-}
-.profile-sub{
-  color:#aaa;
-  font-size:13px;
-  margin-top:4px;
-}
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:20px;
-}
-.stat-box{
-  background:rgba(255,255,255,.08);
-  border-radius:15px;
-  padding:13px 5px;
-}
-.stat-box strong{
-  display:block;
-  font-size:19px;
-}
-.stat-box span{
-  color:#aaa;
-  font-size:10px;
-}
-/* BOTTOM NAV */
+
+/* ================= BOTTOM NAV ================= */
+
 .bottom-nav{
   position:fixed;
   z-index:80;
-  left:0;
-  right:0;
-  bottom:0;
-  height:76px;
-  padding-bottom:env(safe-area-inset-bottom);
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(18px);
-  border-top:1px solid #e8e5de;
-}
-.bottom-inner{
-  height:100%;
-  max-width:650px;
-  margin:auto;
+  left:50%;
+  bottom:12px;
+  transform:translateX(-50%);
+  width:min(calc(100% - 22px),560px);
+  background:rgba(17,17,17,.96);
+  border-radius:22px;
+  padding:8px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
+  box-shadow:0 12px 40px rgba(0,0,0,.25);
+  backdrop-filter:blur(15px);
 }
+
 .nav-btn{
-  background:none;
-  color:#8a8a8a;
+  background:transparent;
+  color:#888;
+  padding:9px 5px;
+  border-radius:15px;
   font-size:10px;
-  font-weight:700;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
+  font-weight:800;
 }
-.nav-btn b{
-  font-size:20px;
-  line-height:1;
+
+.nav-btn strong{
+  display:block;
+  font-size:17px;
+  margin-bottom:2px;
 }
+
 .nav-btn.active{
+  background:#fff;
   color:#111;
 }
-.nav-btn.active b{
-  background:var(--accent);
-  border-radius:10px;
-  padding:5px 9px;
-}
-/* OVERLAY */
+
+/* ================= OVERLAY ================= */
+
 .overlay{
   position:fixed;
   inset:0;
   z-index:200;
-  background:rgba(0,0,0,.48);
+  background:rgba(0,0,0,.55);
   display:none;
+  align-items:flex-end;
 }
+
 .overlay.open{
-  display:block;
+  display:flex;
 }
-.detail-panel{
-  position:absolute;
-  inset:auto 0 0;
+
+.sheet{
+  width:100%;
   max-height:94vh;
-  background:var(--bg);
+  background:#f7f4ed;
   border-radius:28px 28px 0 0;
   overflow:auto;
-  padding:18px;
-  padding-bottom:35px;
+  animation:sheetUp .22s ease;
 }
-.drag{
-  width:45px;
-  height:5px;
-  background:#ccc;
-  border-radius:99px;
-  margin:0 auto 18px;
+
+@keyframes sheetUp{
+  from{transform:translateY(30px);opacity:0}
+  to{transform:translateY(0);opacity:1}
 }
-.detail-hero{
-  display:grid;
-  grid-template-columns:135px 1fr;
-  gap:17px;
+
+.sheet-inner{
+  max-width:900px;
+  margin:auto;
+  padding:22px 18px 35px;
 }
+
+.close-row{
+  display:flex;
+  justify-content:flex-end;
+}
+
+.close-btn{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#fff;
+  font-size:22px;
+}
+
+.detail-head{
+  display:flex;
+  gap:22px;
+  align-items:flex-start;
+  margin:5px 0 25px;
+}
+
 .detail-cover{
-  aspect-ratio:2/3;
-  border-radius:17px;
-  overflow:hidden;
+  width:150px;
+  flex-shrink:0;
 }
-.detail-cover img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+
+.detail-info{
+  flex:1;
 }
-.detail-info h2{
-  margin:0;
-  font-size:25px;
+
+.detail-info h1{
+  font-size:32px;
   line-height:1.05;
+  margin:10px 0 5px;
+  letter-spacing:-1px;
 }
-.detail-info p{
-  color:#777;
-  font-size:13px;
-  line-height:1.5;
+
+.detail-info .author{
+  color:var(--muted);
 }
+
 .detail-actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:flex;
+  flex-wrap:wrap;
   gap:8px;
-  margin-top:12px;
+  margin-top:17px;
 }
-.detail-section{
-  margin-top:25px;
-}
-.detail-section h3{
-  margin:0 0 10px;
-  font-size:19px;
-}
-.overall-box{
+
+/* ================= OVERVIEW ================= */
+
+.info-box{
   background:#fff;
   border:1px solid var(--line);
-  border-radius:17px;
-  padding:16px;
-  line-height:1.8;
-  color:#444;
-  font-size:14px;
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:15px;
 }
+
+.info-box h3{
+  margin:0 0 10px;
+  font-size:17px;
+}
+
+.info-box p{
+  margin:0;
+  line-height:1.85;
+  color:#444;
+  white-space:pre-line;
+}
+
 .chapter-list{
   display:grid;
-  gap:8px;
+  gap:9px;
 }
+
 .chapter-item{
+  width:100%;
+  text-align:left;
   background:#fff;
   border:1px solid var(--line);
-  border-radius:14px;
-  padding:13px;
-  text-align:left;
+  border-radius:17px;
+  padding:15px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
 }
-.chapter-item strong{
-  display:block;
-  font-size:13px;
-}
-.chapter-item span{
-  display:block;
-  color:#777;
+
+.chapter-num{
+  width:30px;
+  height:30px;
+  border-radius:10px;
+  background:#111;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-size:11px;
-  line-height:1.5;
-  margin-top:4px;
+  font-weight:900;
+  flex-shrink:0;
 }
-/* READER */
+
+.chapter-item h4{
+  margin:0 0 4px;
+  font-size:14px;
+}
+
+.chapter-item p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+
+/* ================= READER ================= */
+
 .reader{
   position:fixed;
   inset:0;
   z-index:500;
-  background:var(--bg);
+  background:#f7f4ed;
   display:none;
   flex-direction:column;
 }
+
 .reader.open{
   display:flex;
 }
-.reader.dark{
-  --bg:#111;
-  --card:#1b1b1b;
-  --text:#eee;
-  --muted:#aaa;
-  --line:#303030;
-}
+
 .reader-top{
-  flex:0 0 auto;
-  padding:12px 15px;
-  padding-top:calc(12px + env(safe-area-inset-top));
-  background:var(--bg);
+  flex-shrink:0;
+  background:rgba(247,244,237,.96);
+  backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
+  padding:10px 14px;
+  padding-top:max(10px,env(safe-area-inset-top));
+}
+
+.reader-top-inner{
+  max-width:900px;
+  margin:auto;
   display:flex;
   align-items:center;
   gap:10px;
 }
-.reader-top button{
-  background:var(--card);
-  color:var(--text);
+
+.reader-back{
   width:40px;
   height:40px;
-  border-radius:12px;
+  border-radius:13px;
+  background:#fff;
+  font-size:20px;
 }
-.reader-heading{
+
+.reader-title{
   flex:1;
   min-width:0;
 }
-.reader-heading strong{
+
+.reader-title strong{
   display:block;
-  white-space:nowrap;
   overflow:hidden;
+  white-space:nowrap;
   text-overflow:ellipsis;
   font-size:13px;
 }
-.reader-heading span{
+
+.reader-title span{
   display:block;
   color:var(--muted);
   font-size:10px;
   margin-top:2px;
 }
-.reader-progress{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:4px;
-  background:#ddd;
+
+.reader-bookmark{
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:#fff;
 }
-.reader-progress div{
-  height:100%;
-  width:0;
-  background:var(--accent);
-}
+
 .reader-body{
   flex:1;
   overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  padding:25px 20px 130px;
+  overscroll-behavior:contain;
 }
+
 .reader-content{
-  max-width:750px;
+  max-width:780px;
   margin:auto;
+  padding:30px 20px 140px;
 }
-.reader-content .reader-cover{
-  width:125px;
-  aspect-ratio:2/3;
-  margin:0 auto 20px;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
+
+.reader-category{
+  color:#777;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
 }
-.reader-cover img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+
 .reader-content h1{
-  font-size:31px;
-  line-height:1.05;
-  letter-spacing:-1.2px;
-  margin:10px 0 5px;
+  font-size:clamp(29px,7vw,48px);
+  line-height:1.08;
+  margin:9px 0 8px;
+  letter-spacing:-1.4px;
 }
+
 .reader-author{
-  color:var(--muted);
+  color:#777;
+  font-size:13px;
   margin-bottom:28px;
 }
-.reader-content h2{
-  font-size:23px;
-  line-height:1.15;
-  margin:35px 0 13px;
+
+.reading-progress{
+  height:5px;
+  background:#e3dfd5;
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  z-index:10;
 }
-.reader-content h3{
-  font-size:16px;
-  margin:23px 0 7px;
+
+.reading-progress i{
+  display:block;
+  height:100%;
+  width:0;
+  background:#111;
 }
-.reader-content p{
+
+.reader-section{
+  margin:0 0 42px;
+}
+
+.reader-section h2{
+  font-size:25px;
+  line-height:1.2;
+  margin:0 0 18px;
+  letter-spacing:-.6px;
+}
+
+.reader-label{
+  font-size:11px;
+  font-weight:950;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  color:#666;
+  margin:24px 0 8px;
+}
+
+.reader-section p{
   font-size:16px;
   line-height:1.95;
-  margin:0 0 15px;
-  color:var(--text);
+  margin:0 0 14px;
+  color:#242424;
 }
-.reader-content .example,
-.reader-content .action,
-.reader-content .key{
-  background:var(--card);
+
+.example{
+  background:#fff;
   border:1px solid var(--line);
-  border-radius:17px;
-  padding:15px;
-  margin:16px 0;
+  border-radius:19px;
+  padding:17px;
+  margin:18px 0;
 }
-.reader-content .example strong,
-.reader-content .action strong,
-.reader-content .key strong{
+
+.example strong{
   display:block;
-  margin-bottom:6px;
+  font-size:13px;
+  margin-bottom:8px;
 }
+
+.example p{
+  font-size:14px;
+  line-height:1.8;
+  margin:0;
+}
+
+.action-box{
+  background:#111;
+  color:#fff;
+  border-radius:20px;
+  padding:18px;
+  margin-top:20px;
+}
+
+.action-box strong{
+  display:block;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.action-box p{
+  color:#eee;
+  font-size:14px;
+  margin:0;
+}
+
+.key-box{
+  background:var(--accent);
+  color:#111;
+  border-radius:20px;
+  padding:18px;
+  margin-top:20px;
+}
+
+.key-box strong{
+  display:block;
+  margin-bottom:8px;
+}
+
+.key-box p{
+  margin:0;
+  font-size:15px;
+  line-height:1.75;
+}
+
+/* ================= READER FOOT ================= */
+
 .reader-bottom{
-  position:absolute;
-  z-index:10;
+  position:fixed;
   left:0;
   right:0;
   bottom:0;
-  background:rgba(244,241,233,.96);
-  backdrop-filter:blur(18px);
+  z-index:20;
+  background:rgba(247,244,237,.96);
+  backdrop-filter:blur(14px);
   border-top:1px solid var(--line);
-  padding:10px 15px;
-  padding-bottom:calc(10px + env(safe-area-inset-bottom));
+  padding:9px 14px;
+  padding-bottom:max(9px,env(safe-area-inset-bottom));
 }
-.reader.dark .reader-bottom{
-  background:rgba(17,17,17,.96);
-}
-.reader-controls{
-  max-width:750px;
+
+.reader-bottom-inner{
+  max-width:780px;
   margin:auto;
   display:flex;
-  align-items:center;
-  justify-content:space-between;
   gap:8px;
+  align-items:center;
 }
-.reader-controls button{
-  background:var(--card);
-  color:var(--text);
-  border:1px solid var(--line);
-  border-radius:12px;
-  min-height:42px;
-  padding:0 13px;
-  font-weight:700;
-}
+
 .chapter-select{
   flex:1;
   min-width:0;
-  background:var(--card);
-  color:var(--text);
+  height:43px;
   border:1px solid var(--line);
-  border-radius:12px;
-  min-height:42px;
-  padding:0 8px;
-  outline:none;
+  border-radius:13px;
+  background:#fff;
+  padding:0 10px;
+  font-size:12px;
+  font-weight:750;
 }
-/* TOAST */
+
+.reader-control{
+  height:43px;
+  padding:0 13px;
+  border-radius:13px;
+  background:#111;
+  color:#fff;
+  font-size:12px;
+  font-weight:850;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-card{
+  background:#111;
+  color:#fff;
+  border-radius:27px;
+  padding:25px;
+}
+
+.profile-avatar{
+  width:65px;
+  height:65px;
+  border-radius:20px;
+  background:var(--accent);
+  color:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  font-weight:950;
+}
+
+.profile-card h1{
+  margin:15px 0 4px;
+}
+
+.profile-card p{
+  margin:0;
+  color:#aaa;
+}
+
+.profile-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-top:20px;
+}
+
+.profile-stat{
+  background:#202020;
+  border-radius:15px;
+  padding:14px;
+}
+
+.profile-stat strong{
+  display:block;
+  font-size:21px;
+}
+
+.profile-stat span{
+  font-size:10px;
+  color:#aaa;
+}
+
+/* ================= TOAST ================= */
+
 .toast{
   position:fixed;
-  z-index:1000;
+  z-index:700;
   left:50%;
-  bottom:94px;
+  bottom:95px;
   transform:translateX(-50%) translateY(15px);
   background:#111;
   color:#fff;
-  padding:11px 16px;
-  border-radius:999px;
+  padding:12px 16px;
+  border-radius:13px;
   font-size:12px;
+  font-weight:750;
   opacity:0;
   pointer-events:none;
   transition:.25s;
+  white-space:nowrap;
 }
+
 .toast.show{
   opacity:1;
   transform:translateX(-50%) translateY(0);
 }
-/* EMPTY */
-.empty{
-  text-align:center;
-  padding:45px 15px;
-  color:#777;
-}
-/* RESPONSIVE */
-@media(max-width:800px){
-  .books-grid{
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:850px){
+  .book-grid{
     grid-template-columns:repeat(3,1fr);
   }
 }
-@media(max-width:560px){
-  .hero h1{
-    font-size:29px;
+
+@media(max-width:650px){
+  main{
+    padding:15px 14px 35px;
   }
-  .books-grid{
+
+  .topbar-inner{
+    padding:10px 14px;
+  }
+
+  .logo{
+    font-size:17px;
+  }
+
+  .header-search{
+    display:none;
+  }
+
+  .hero{
+    padding:25px 20px;
+    border-radius:25px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .book-grid{
     grid-template-columns:repeat(2,1fr);
     gap:11px;
   }
-  .book-info{
-    padding:11px;
+
+  .featured{
+    align-items:flex-start;
+    padding:13px;
   }
-  .book-title{
-    font-size:14px;
+
+  .featured .cover{
+    width:105px;
   }
-  .feature-card{
-    grid-template-columns:115px 1fr;
-    gap:14px;
-  }
-  .feature-content h2{
-    font-size:22px;
-  }
-  .detail-hero{
-    grid-template-columns:110px 1fr;
-  }
-  .detail-info h2{
+
+  .featured-content h2{
     font-size:21px;
   }
-  .reader-content h1{
-    font-size:28px;
+
+  .featured-content p{
+    font-size:12px;
+    line-height:1.5;
   }
-  .reader-content p{
-    font-size:15px;
+
+  .featured-content .secondary{
+    display:none;
+  }
+
+  .detail-head{
+    flex-direction:column;
+  }
+
+  .detail-cover{
+    width:130px;
+  }
+
+  .detail-info h1{
+    font-size:29px;
+  }
+
+  .reader-content{
+    padding:25px 18px 135px;
+  }
+
+  .reader-section p{
+    font-size:15.5px;
+    line-height:1.9;
+  }
+
+  .reader-control{
+    padding:0 10px;
+  }
+}
+
+@media(max-width:390px){
+  .book-grid{
+    gap:8px;
+  }
+
+  .book-card{
+    padding:9px;
+    border-radius:18px;
+  }
+
+  .cover{
+    border-radius:13px;
   }
 }
 </style>
 </head>
+
 <body>
+
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand">
-      <span>📚</span>AUNG BOOKS
+
+    <div class="logo">
+      <span>📖</span>AUNG BOOKS
     </div>
-    <div class="top-actions">
-      <button class="icon-btn" onclick="focusSearch()">⌕</button>
-      <button class="icon-btn" onclick="showPage('profile')">●</button>
-    </div>
-  </div>
-</header>
-<main>
-<!-- HOME -->
-<section id="homePage" class="page active">
-  <div class="hero">
-    <div class="hero-label">AUNG BOOKS • READING EXPERIENCE</div>
-    <h1>စာဖတ်ချိန်ကို အကျိုးရှိတဲ့အချိန်အဖြစ် ပြောင်းလဲပါ</h1>
-    <p>
-      ကမ္ဘာတစ်ဝှမ်းက တန်ဖိုးရှိတဲ့စာအုပ်တွေရဲ့ အဓိကသင်ခန်းစာတွေကို
-      တစ်နေရာတည်းမှာ လေ့လာနိုင်ပါတယ်
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <strong id="bookCount">30</strong>
-        <span>Books</span>
-      </div>
-      <div class="hero-stat">
-        <strong>10</strong>
-        <span>Chapters</span>
-      </div>
-      <div class="hero-stat">
-        <strong id="readCount">0</strong>
-        <span>Completed</span>
-      </div>
-    </div>
-  </div>
-  <div id="continueSection" class="section hidden">
-    <div class="section-head">
-      <div class="section-title">ဆက်ဖတ်ရန်</div>
-    </div>
-    <div id="continueCard"></div>
-  </div>
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">Featured Book</div>
-      <button class="section-link" onclick="openDetail(1)">ဖတ်မယ်</button>
-    </div>
-    <div id="featured"></div>
-  </div>
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">Categories</div>
-    </div>
-    <div class="categories" id="homeCategories"></div>
-  </div>
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">Popular Reading</div>
-      <button class="section-link" onclick="showPage('explore')">အားလုံးကြည့်မယ်</button>
-    </div>
-    <div class="books-grid" id="homeBooks"></div>
-  </div>
-</section>
-<!-- EXPLORE -->
-<section id="explorePage" class="page">
-  <div class="section">
-    <div class="section-title" style="font-size:29px;margin-bottom:16px">
-      Explore
-    </div>
-    <div class="search-box" id="searchBox">
-      <span>⌕</span>
+
+    <div class="header-search">
+      <span class="search-icon">⌕</span>
       <input
-        id="searchInput"
+        id="headerSearch"
         type="search"
-        placeholder="စာအုပ်၊ စာရေးသူ ရှာရန်"
-        oninput="renderExplore()"
+        placeholder="စာအုပ်ရှာရန်..."
+        oninput="globalSearch(this.value)"
       >
     </div>
-    <div class="categories" id="exploreCategories"></div>
+
+    <button class="profile-btn" onclick="showPage('profile')">AZ</button>
+
   </div>
-  <div class="section">
-    <div class="books-grid" id="exploreBooks"></div>
-  </div>
-</section>
-<!-- LIBRARY -->
-<section id="libraryPage" class="page">
-  <div class="section">
-    <div class="section-title" style="font-size:29px">
-      My Library
-    </div>
-    <p style="color:#777;font-size:13px;line-height:1.6">
-      သိမ်းထားတဲ့စာအုပ်တွေနဲ့ ဖတ်ပြီးတဲ့စာအုပ်တွေကို ဒီနေရာမှာကြည့်နိုင်ပါတယ်
-    </p>
-  </div>
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">Saved Books</div>
-    </div>
-    <div class="books-grid" id="savedBooks"></div>
-  </div>
-</section>
-<!-- PROFILE -->
-<section id="profilePage" class="page">
-  <div class="profile-card">
-    <div class="avatar">AZ</div>
-    <div class="profile-name">Aung Zar Ni Win</div>
-    <div class="profile-sub">AUNG BOOKS Reader</div>
-    <div class="stats-grid">
-      <div class="stat-box">
-        <strong id="profileRead">0</strong>
-        <span>Completed</span>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+
+<section id="homePage" class="page active">
+
+  <div class="hero">
+    <div class="hero-content">
+
+      <div class="eyebrow">AUNG BOOKS · READING EXPERIENCE</div>
+
+      <h1>
+        စာဖတ်ချိန်ကို အကျိုးရှိတဲ့အချိန်အဖြစ် ပြောင်းလဲပါ
+      </h1>
+
+      <p>
+        ကမ္ဘာတစ်ဝှမ်းက တန်ဖိုးရှိတဲ့စာအုပ်တွေရဲ့ အဓိကသင်ခန်းစာတွေကို
+        တစ်နေရာတည်းမှာ လေ့လာနိုင်ပါတယ်
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-pill">📚 30 Books</div>
+        <div class="stat-pill">🧠 300 Chapters</div>
+        <div class="stat-pill">✨ Premium Ready</div>
       </div>
-      <div class="stat-box">
+
+    </div>
+  </div>
+
+  <div class="section" id="continueSection"></div>
+
+  <div class="section">
+
+    <div class="section-head">
+      <h2 class="section-title">Featured Book</h2>
+      <button class="see-all" onclick="openBook(1)">Read →</button>
+    </div>
+
+    <div id="featured"></div>
+
+  </div>
+
+  <div class="section">
+
+    <div class="section-head">
+      <h2 class="section-title">Categories</h2>
+    </div>
+
+    <div class="category-row" id="homeCategories"></div>
+
+  </div>
+
+  <div class="section">
+
+    <div class="section-head">
+      <h2 class="section-title">Popular Books</h2>
+      <button class="see-all" onclick="showPage('explore')">See all →</button>
+    </div>
+
+    <div class="book-grid" id="homeBooks"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= EXPLORE ================= -->
+
+<section id="explorePage" class="page">
+
+  <div class="section-head">
+    <h1 class="section-title">Explore Books</h1>
+  </div>
+
+  <div class="search-panel">
+    <input
+      id="exploreSearch"
+      type="search"
+      placeholder="စာအုပ်နာမည်၊ စာရေးသူ၊ category ရှာရန်..."
+      oninput="renderExplore()"
+    >
+  </div>
+
+  <div class="category-row" id="exploreCategories"></div>
+
+  <div class="section">
+    <div class="book-grid" id="exploreBooks"></div>
+  </div>
+
+</section>
+
+
+<!-- ================= LIBRARY ================= -->
+
+<section id="libraryPage" class="page">
+
+  <div class="section-head">
+    <h1 class="section-title">My Library</h1>
+  </div>
+
+  <div id="libraryBooks"></div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profilePage" class="page">
+
+  <div class="profile-card">
+
+    <div class="profile-avatar">AZ</div>
+
+    <h1>Aung Zar Ni Win</h1>
+
+    <p>AUNG BOOKS Reader</p>
+
+    <div class="profile-stats">
+
+      <div class="profile-stat">
+        <strong id="profileRead">0</strong>
+        <span>Read</span>
+      </div>
+
+      <div class="profile-stat">
         <strong id="profileSaved">0</strong>
         <span>Saved</span>
       </div>
-      <div class="stat-box">
+
+      <div class="profile-stat">
         <strong id="profileProgress">0%</strong>
         <span>Progress</span>
       </div>
+
     </div>
+
   </div>
+
   <div class="section">
-    <div class="section-title">Reading System</div>
-    <div class="overall-box" style="margin-top:12px">
-      AUNG BOOKS V7 ကို စာအုပ်ဖတ်ခြင်း၊ chapter progress၊
-      bookmark နဲ့ personal library ကို တစ်နေရာတည်းမှာ စီမံနိုင်အောင်
-      mobile-first reading system အဖြစ် တည်ဆောက်ထားပါတယ်
+
+    <div class="info-box">
+
+      <h3>📚 AUNG BOOKS</h3>
+
+      <p>
+        စာအုပ်တွေရဲ့ အဓိကအယူအဆတွေကို
+        original Burmese explanation နဲ့
+        practical reading experience အဖြစ် လေ့လာနိုင်အောင်
+        တည်ဆောက်ထားတဲ့ reading app ဖြစ်ပါတယ်
+      </p>
+
     </div>
+
+    <div class="info-box">
+
+      <h3>✨ Premium</h3>
+
+      <p>
+        နောက်ပိုင်း Premium version မှာ
+        ပိုမိုနက်ရှိုင်းတဲ့ reading content,
+        practical frameworks,
+        action plans နဲ့ အခြား learning features တွေကို
+        ထပ်မံတိုးချဲ့နိုင်အောင် architecture ကို ပြင်ဆင်ထားပါတယ်
+      </p>
+
+    </div>
+
   </div>
+
 </section>
+
 </main>
-<!-- BOTTOM NAV -->
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
 <nav class="bottom-nav">
-  <div class="bottom-inner">
-    <button class="nav-btn active" id="nav-home" onclick="showPage('home')">
-      <b>⌂</b>
-      Home
-    </button>
-    <button class="nav-btn" id="nav-explore" onclick="showPage('explore')">
-      <b>⌕</b>
-      Explore
-    </button>
-    <button class="nav-btn" id="nav-library" onclick="showPage('library')">
-      <b>♡</b>
-      Library
-    </button>
-    <button class="nav-btn" id="nav-profile" onclick="showPage('profile')">
-      <b>●</b>
-      Profile
-    </button>
-  </div>
+
+  <button class="nav-btn active" data-page="home" onclick="showPage('home')">
+    <strong>⌂</strong>
+    Home
+  </button>
+
+  <button class="nav-btn" data-page="explore" onclick="showPage('explore')">
+    <strong>⌕</strong>
+    Explore
+  </button>
+
+  <button class="nav-btn" data-page="library" onclick="showPage('library')">
+    <strong>♡</strong>
+    Library
+  </button>
+
+  <button class="nav-btn" data-page="profile" onclick="showPage('profile')">
+    <strong>◉</strong>
+    Profile
+  </button>
+
 </nav>
-<!-- DETAIL OVERLAY -->
-<div class="overlay" id="detailOverlay" onclick="overlayBackground(event)">
-  <div class="detail-panel">
-    <div class="drag"></div>
-    <div id="detailContent"></div>
-  </div>
-</div>
-<!-- READER -->
-<div class="reader" id="reader">
-  <div class="reader-top">
-    <button onclick="closeReader()">←</button>
-    <div class="reader-heading">
-      <strong id="readerBookTitle">AUNG BOOKS</strong>
-      <span id="readerChapterTitle">Reading</span>
+
+
+<!-- ================= DETAIL OVERLAY ================= -->
+
+<div class="overlay" id="detailOverlay">
+
+  <div class="sheet">
+
+    <div class="sheet-inner">
+
+      <div class="close-row">
+        <button class="close-btn" onclick="closeDetail()">×</button>
+      </div>
+
+      <div id="detailContent"></div>
+
     </div>
-    <button onclick="toggleReaderSave()" id="readerSave">♡</button>
-    <button onclick="toggleReaderTheme()" id="themeBtn">☾</button>
+
   </div>
-  <div class="reader-progress">
-    <div id="readerProgressBar"></div>
+
+</div>
+
+
+<!-- ================= READER ================= -->
+
+<div class="reader" id="reader">
+
+  <div class="reading-progress">
+    <i id="readerProgress"></i>
   </div>
-  <div class="reader-body" id="readerBody">
+
+  <div class="reader-top">
+
+    <div class="reader-top-inner">
+
+      <button class="reader-back" onclick="closeReader()">‹</button>
+
+      <div class="reader-title">
+        <strong id="readerBookTitle"></strong>
+        <span id="readerChapterTitle"></span>
+      </div>
+
+      <button class="reader-bookmark" id="readerBookmark" onclick="toggleReaderSave()">
+        ♡
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="reader-body" id="readerBody" onscroll="updateReaderProgress()">
+
     <article class="reader-content" id="readerContent"></article>
+
   </div>
+
   <div class="reader-bottom">
-    <div class="reader-controls">
-      <button onclick="previousChapter()">‹</button>
+
+    <div class="reader-bottom-inner">
+
       <select
         class="chapter-select"
         id="chapterSelect"
-        onchange="changeChapter(this.value)"
+        onchange="jumpChapter(this.value)"
       ></select>
-      <button onclick="changeFont(-1)">A−</button>
-      <button onclick="changeFont(1)">A+</button>
-      <button onclick="nextChapter()">›</button>
+
+      <button class="reader-control" onclick="previousChapter()">‹</button>
+
+      <button class="reader-control" onclick="nextChapter()">›</button>
+
     </div>
+
   </div>
+
 </div>
+
+
 <div class="toast" id="toast"></div>
+
+
 <script>
-/* =========================================================
+
+/* ============================================================
    AUNG BOOKS V7
-   ========================================================= */
-/*
-  Cover system
-  Open Library public cover format:
-  https://covers.openlibrary.org/b/isbn/ISBN-L.jpg
-  We intentionally keep the ISBN in the data so editions can
-  be changed later without changing the UI architecture
-*/
-const books = [
-  {
-    id:1,
-    title:"Atomic Habits",
-    author:"James Clear",
-    category:"Personal Growth",
-    isbn:"9780735211292",
-    time:"20 min",
-    premium:false,
-    overall:
-      "နေ့စဉ်သေးငယ်တဲ့အလေ့အကျင့်တွေကို စနစ်တကျတည်ဆောက်ပြီး ရေရှည်မှာ ကြီးမားတဲ့တိုးတက်မှုရအောင် ဘယ်လိုလုပ်မလဲဆိုတာကို လက်တွေ့ကျကျရှင်းပြထားတဲ့စာအုပ်ပါ",
-    chapters:[
-      ["System ကိုစဉ်းစားခြင်း","Goal ထက် နေ့စဉ်လုပ်ဆောင်နေတဲ့ system က ရလဒ်ကို တည်ဆောက်ပေးပါတယ်"],
-      ["Identity နဲ့ Habit","ကိုယ်ဘယ်လိုလူဖြစ်ချင်လဲဆိုတဲ့ identity က habit တည်ဆောက်ရာမှာ အရေးကြီးပါတယ်"],
-      ["သေးငယ်တဲ့တိုးတက်မှု","နည်းနည်းစီတိုးတက်တာတွေဟာ အချိန်နဲ့အမျှ စုပေါင်းလာပါတယ်"],
-      ["Habit ကို ထင်ရှားအောင်လုပ်ခြင်း","Environment ကိုပြင်ဆင်ပြီး ကောင်းတဲ့ habit ကို မြင်လွယ်အောင်လုပ်ပါ"],
-      ["Habit ကို ဆွဲဆောင်မှုရှိအောင်လုပ်ခြင်း","စိတ်ဝင်စားဖို့ကောင်းအောင်ပြောင်းလဲခြင်းက repetition ကို အားပေးပါတယ်"],
-      ["Habit ကို လွယ်ကူအောင်လုပ်ခြင်း","စတင်ဖို့ friction နည်းလေလေ habit တည်ဆောက်ဖို့ လွယ်လေလေပါ"],
-      ["သေးငယ်စွာစတင်ခြင်း","အလုပ်ကြီးကို စတင်နိုင်တဲ့အရွယ်အစားအထိ လျှော့ချပါ"],
-      ["မကောင်းတဲ့ Habit ကို ဖြတ်ခြင်း","Willpower တစ်ခုတည်းထက် environment နဲ့ cue ကို ပြောင်းပါ"],
-      ["Consistency","တစ်ကြိမ်ပျက်သွားတာထက် ပြန်စနိုင်တဲ့အမြန်နှုန်းက ပိုအရေးကြီးပါတယ်"],
-      ["Business Application","Habit system ကို Sales, Management နဲ့ Team Execution ထဲ အသုံးချနိုင်ပါတယ်"]
-    ]
-  },
-  {
-    id:2,
-    title:"The Psychology of Money",
-    author:"Morgan Housel",
-    category:"Money",
-    isbn:"9780857197689",
-    time:"20 min",
-    premium:false,
-    overall:
-      "ငွေကြေးအောင်မြင်မှုဟာ သင်္ချာတစ်ခုတည်းမဟုတ်ဘဲ လူတွေရဲ့ အတွေ့အကြုံ၊ စိတ်ခံစားချက်၊ အပြုအမူနဲ့ ဆုံးဖြတ်ချက်တွေနဲ့ နက်နက်ရှိုင်းရှိုင်းဆက်နွယ်နေတယ်ဆိုတာကို ရှင်းပြထားပါတယ်",
-    chapters:[
-      ["Money နဲ့ Behavior","ငွေကြေးဆုံးဖြတ်ချက်တွေမှာ လူတစ်ယောက်ချင်းစီရဲ့ အတွေ့အကြုံက သက်ရောက်ပါတယ်"],
-      ["Luck နဲ့ Risk","ရလဒ်တိုင်းကို ကိုယ့်စွမ်းရည်တစ်ခုတည်းနဲ့ မရှင်းပြသင့်ပါ"],
-      ["Compounding","အချိန်ကြာရှည်စွာ တည်ငြိမ်စွာ ဆက်လုပ်နိုင်ခြင်းက အရေးကြီးပါတယ်"],
-      ["အမြတ်ထက် Survival","ကြီးမားတဲ့အမြတ်ထက် မကွဲမပျက် ဆက်ရှိနေနိုင်ခြင်းက အရေးကြီးပါတယ်"],
-      ["ချမ်းသာခြင်းနဲ့ ချမ်းသာပုံရခြင်း","ဝင်ငွေ၊ ပိုင်ဆိုင်မှုနဲ့ အသုံးစရိတ်ကို ခွဲခြားစဉ်းစားပါ"],
-      ["Saving","အနာဂတ်အတွက် ရွေးချယ်စရာတွေကို သိမ်းဆည်းထားခြင်းဟာ အရေးကြီးပါတယ်"],
-      ["Reasonable vs Rational","လက်တွေ့ဘဝမှာ ကိုယ်တိုင်လိုက်နာနိုင်တဲ့ strategy က ပိုအသုံးဝင်နိုင်ပါတယ်"],
-      ["Long-term Thinking","အချိန်ရှည်ကို စဉ်းစားနိုင်ခြင်းက financial decision ကို တည်ငြိမ်စေပါတယ်"],
-      ["Enough","လိုအပ်ချက်နဲ့ လောဘကြားက ကန့်သတ်ချက်ကို သိထားဖို့လိုပါတယ်"],
-      ["Personal Money System","ကိုယ့်ဘဝနဲ့ကိုက်ညီတဲ့ money rules တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:3,
-    title:"Deep Work",
-    author:"Cal Newport",
-    category:"Productivity",
-    isbn:"9781455586691",
-    time:"20 min",
-    premium:false,
-    overall:
-      "အာရုံစူးစိုက်မှုအပြည့်နဲ့ တန်ဖိုးမြင့်အလုပ်ကို distraction နည်းနည်းနဲ့ လုပ်နိုင်စွမ်းတည်ဆောက်ခြင်းအကြောင်း ဖြစ်ပါတယ်",
-    chapters:[
-      ["Deep Work ရဲ့တန်ဖိုး","အာရုံစူးစိုက်နိုင်စွမ်းဟာ knowledge work မှာ အရေးကြီးတဲ့ skill ဖြစ်ပါတယ်"],
-      ["Distraction Economy","Notification နဲ့ context switching တွေက concentration ကို လျော့စေပါတယ်"],
-      ["Focus Training","အာရုံစူးစိုက်မှုကို လေ့ကျင့်ရတဲ့ skill တစ်ခုအဖြစ် သတ်မှတ်ပါ"],
-      ["Work Ritual","ဘယ်အချိန်၊ ဘယ်နေရာ၊ ဘာကိုလုပ်မလဲဆိုတာ ကြိုသတ်မှတ်ပါ"],
-      ["Time Blocking","အချိန်ကို task အလိုက် ကြိုတင်ခွဲဝေပါ"],
-      ["Shallow Work","Meeting, message နဲ့ routine task တွေကို စနစ်တကျကန့်သတ်ပါ"],
-      ["Digital Minimalism","အသုံးမဝင်တဲ့ digital input ကို လျှော့ချပါ"],
-      ["Rest","အနားယူချိန်က productivity system ရဲ့ တစ်စိတ်တစ်ပိုင်းပါ"],
-      ["Manager Focus","Manager တွေအတွက် uninterrupted thinking time ထားပါ"],
-      ["Deep Work System","နေ့စဉ်၊ အပတ်စဉ် concentration routine တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:4,
-    title:"The 7 Habits of Highly Effective People",
-    author:"Stephen R. Covey",
-    category:"Leadership",
-    isbn:"9781982137274",
-    time:"20 min",
-    premium:false,
-    overall:
-      "ကိုယ့်ကိုယ်ကို စီမံခန့်ခွဲခြင်းကနေ လူတွေနဲ့ပူးပေါင်းဆောင်ရွက်ခြင်းအထိ effectiveness တည်ဆောက်ဖို့ framework တစ်ခု ပေးထားပါတယ်",
-    chapters:[
-      ["Proactive","ကိုယ့်တုံ့ပြန်မှုနဲ့ ဆုံးဖြတ်ချက်ကို ကိုယ်တိုင်တာဝန်ယူပါ"],
-      ["Begin With the End","ရလဒ်ကို အရင်သတ်မှတ်ပြီး နောက်ပြန်စီမံပါ"],
-      ["First Things First","အရေးကြီးတာကို အရေးပေါ်အရာထက် ဦးစားပေးပါ"],
-      ["Win-Win","ပူးပေါင်းဆောင်ရွက်ရာမှာ နှစ်ဖက်အကျိုးရှိစေမယ့် solution ရှာပါ"],
-      ["Seek to Understand","ပြန်ပြောမယ့်အစား အရင်နားထောင်ပါ"],
-      ["Synergy","မတူညီမှုကို ပေါင်းစပ်ပြီး ပိုကောင်းတဲ့ရလဒ်ရအောင်လုပ်ပါ"],
-      ["Sharpen the Saw","ကိုယ်ပိုင်စွမ်းရည်ကို ပုံမှန်ပြန်လည်တိုးတက်ပါ"],
-      ["Manager Application","Leadership ကို daily behavior အဖြစ်ပြောင်းပါ"],
-      ["Team System","Team habit တွေတည်ဆောက်ပါ"],
-      ["Personal Review","ကိုယ့် effectiveness ကို ပုံမှန်ပြန်သုံးသပ်ပါ"]
-    ]
-  },
-  {
-    id:5,
-    title:"Start With Why",
-    author:"Simon Sinek",
-    category:"Leadership",
-    isbn:"9781591846444",
-    time:"20 min",
-    premium:false,
-    overall:
-      "လူတွေက ဘာလုပ်တယ်ဆိုတာထက် ဘာကြောင့်လုပ်တယ်ဆိုတဲ့ purpose ကို နားလည်တဲ့အခါ leadership နဲ့ communication က ပိုအားကောင်းလာနိုင်ပါတယ်",
-    chapters:[
-      ["Why","လုပ်ငန်းရဲ့အကြောင်းရင်းကို ရှင်းလင်းပါ"],
-      ["How","ကိုယ့်ရဲ့ ထူးခြားတဲ့လုပ်ဆောင်ပုံကို ဖော်ပြပါ"],
-      ["What","နောက်ဆုံးမှာ product နဲ့ service ကို ရှင်းပြပါ"],
-      ["Leadership","Purpose က လူတွေကို ပေါင်းစည်းနိုင်ပါတယ်"],
-      ["Customer Connection","Product ထက် အဓိပ္ပာယ်ကို ဆက်သွယ်ပါ"],
-      ["Team Purpose","Team member တွေက ဘာကြောင့်လုပ်နေလဲ သိအောင်လုပ်ပါ"],
-      ["Communication","Message ကို purpose ကနေ စတင်ပါ"],
-      ["Brand","Brand promise နဲ့ behavior ကို ကိုက်ညီအောင်လုပ်ပါ"],
-      ["Sales","Feature မဟုတ်ဘဲ customer ရဲ့ reason ကို နားလည်ပါ"],
-      ["Business Application","Why ကို strategy နဲ့ execution ထဲ ချိတ်ဆက်ပါ"]
-    ]
-  },
-  {
-    id:6,
-    title:"The ONE Thing",
-    author:"Gary Keller & Jay Papasan",
-    category:"Productivity",
-    isbn:"9781885167774",
-    time:"20 min",
-    premium:false,
-    overall:"အရေးအကြီးဆုံးအလုပ်ကို ရှာဖွေပြီး အာရုံစူးစိုက်မှုကို ဖြန့်ကျက်မထားဘဲ အဓိကရလဒ်ပေါ် စုစည်းဖို့ သင်ပေးပါတယ်",
-    chapters:[
-      ["One Thing","အဓိကအရာတစ်ခုကို ရှာပါ"],
-      ["Priority","အရေးကြီးဆုံးကို အရင်လုပ်ပါ"],
-      ["Domino Effect","သေးငယ်တဲ့ အဓိကလုပ်ဆောင်ချက်က နောက်ထပ်အရာတွေကို လှုံ့ဆော်နိုင်ပါတယ်"],
-      ["Multitasking Myth","အာရုံခွဲခြင်းရဲ့ကုန်ကျစရိတ်ကို နားလည်ပါ"],
-      ["Time Blocking","အဓိကအလုပ်အတွက် အချိန်ကို ကာကွယ်ပါ"],
-      ["Goal Setting","ရေရှည် goal ကို ယနေ့လုပ်စရာနဲ့ ချိတ်ပါ"],
-      ["Energy","အရေးကြီးတဲ့အလုပ်အတွက် စွမ်းအင်ကို ထိန်းပါ"],
-      ["Distraction","မလိုအပ်တဲ့အရာတွေကို ဖယ်ပါ"],
-      ["Business Focus","Team ရဲ့ priority ကို ရှင်းလင်းပါ"],
-      ["Daily Question","ယနေ့ အရေးအကြီးဆုံးလုပ်ဆောင်ချက်ကို ရွေးပါ"]
-    ]
-  },
-  {
-    id:7,
-    title:"Essentialism",
-    author:"Greg McKeown",
-    category:"Productivity",
-    isbn:"9780804137386",
-    time:"20 min",
-    premium:false,
-    overall:"အရာအားလုံးကိုလုပ်ဖို့ကြိုးစားခြင်းထက် အမှန်တကယ်အရေးကြီးတဲ့အရာတွေကို ရွေးချယ်ပြီး အားစိုက်မှုကို စုစည်းဖို့ သင်ပေးပါတယ်",
-    chapters:[
-      ["ရွေးချယ်ခြင်း","ကိုယ်တိုင်ရွေးချယ်နိုင်စွမ်းကို ပြန်ယူပါ"],
-      ["Less but Better","နည်းနည်းလုပ်ပြီး ပိုကောင်းအောင်လုပ်ပါ"],
-      ["Explore","မဆုံးဖြတ်ခင် စဉ်းစားချိန်ပေးပါ"],
-      ["Eliminate","မလိုအပ်တာကို ဖြုတ်ပါ"],
-      ["Boundaries","ကိုယ့်အချိန်ကို ကာကွယ်ပါ"],
-      ["Trade-offs","တစ်ခုရွေးရင် တစ်ခုကို စွန့်လွှတ်ရနိုင်ပါတယ်"],
-      ["Routine","အရေးကြီးတာတွေကို system ထဲ ထည့်ပါ"],
-      ["Execution","ရွေးထားတာကို လွယ်ကူအောင်လုပ်ပါ"],
-      ["Manager Application","Team priority ကို လျှော့ချပြီး ရှင်းလင်းပါ"],
-      ["Essentialist Review","ပုံမှန်ပြန်စစ်ပြီး မလိုအပ်တာဖယ်ပါ"]
-    ]
-  },
-  {
-    id:8,
-    title:"Mindset",
-    author:"Carol S. Dweck",
-    category:"Personal Growth",
-    isbn:"9780345472328",
-    time:"20 min",
-    premium:false,
-    overall:"လူတစ်ယောက်ရဲ့ စွမ်းရည်တွေကို ပြောင်းလဲတိုးတက်နိုင်တယ်လို့ မြင်တဲ့ mindset နဲ့ မပြောင်းလဲနိုင်ဘူးလို့ မြင်တဲ့ mindset ကြားက ကွာခြားချက်ကို ရှင်းပြပါတယ်",
-    chapters:[
-      ["Fixed Mindset","စွမ်းရည်ကို အတည်ပြုထားတဲ့အရာလို မြင်ခြင်း"],
-      ["Growth Mindset","လေ့ကျင့်မှုနဲ့ တိုးတက်နိုင်တယ်လို့ မြင်ခြင်း"],
-      ["Failure","အမှားကို identity မဟုတ်ဘဲ feedback အဖြစ်ကြည့်ပါ"],
-      ["Effort","ကြိုးစားမှုကို သင်ယူမှုရဲ့ အစိတ်အပိုင်းအဖြစ် မြင်ပါ"],
-      ["Feedback","ဝေဖန်ချက်ကနေ တိုးတက်ဖို့ သင်ယူပါ"],
-      ["Leadership","Manager mindset က Team culture ကို သက်ရောက်စေပါတယ်"],
-      ["Talent","Talent တစ်ခုတည်းကို မမှီခိုပါနဲ့"],
-      ["Learning","Challenge ကို learning opportunity အဖြစ်အသုံးချပါ"],
-      ["Team Culture","အမှားပြောနိုင်တဲ့ environment တည်ဆောက်ပါ"],
-      ["Daily Practice","Growth mindset ကို နေ့စဉ် behavior အဖြစ်ပြောင်းပါ"]
-    ]
-  },
-  {
-    id:9,
-    title:"How to Win Friends and Influence People",
-    author:"Dale Carnegie",
-    category:"Communication",
-    isbn:"9780671027032",
-    time:"20 min",
-    premium:false,
-    overall:"လူတွေနဲ့ ဆက်ဆံရေးကောင်းတည်ဆောက်ခြင်း၊ နားထောင်ခြင်း၊ တန်ဖိုးထားခြင်းနဲ့ communication ကို လက်တွေ့ကျကျ လေ့လာစေတဲ့ classic ဖြစ်ပါတယ်",
-    chapters:[
-      ["Criticism","တိုက်ခိုက်ဝေဖန်ခြင်းထက် နားလည်ဖို့ကြိုးစားပါ"],
-      ["Appreciation","အမှန်တကယ်တန်ဖိုးရှိတဲ့ appreciation ပေးပါ"],
-      ["Interest","လူတစ်ယောက်ရဲ့ စိတ်ဝင်စားရာကို နားထောင်ပါ"],
-      ["Listening","ပြောတာထက် နားထောင်တာကို အလေးပေးပါ"],
-      ["Names","လူတစ်ယောက်ရဲ့ identity ကို လေးစားပါ"],
-      ["Arguments","အနိုင်ရဖို့ထက် relationship ကို ထိန်းပါ"],
-      ["Mistakes","ကိုယ့်အမှားကို ဝန်ခံနိုင်ပါ"],
-      ["Leadership","လူတွေကို တိုးတက်အောင် အားပေးပါ"],
-      ["Sales","Customer ရဲ့လိုအပ်ချက်ကို အရင်နားလည်ပါ"],
-      ["Relationship System","Communication habit တွေကို နေ့စဉ်အသုံးချပါ"]
-    ]
-  },
-  {
-    id:10,
-    title:"The Lean Startup",
-    author:"Eric Ries",
-    category:"Business",
-    isbn:"9780307887894",
-    time:"20 min",
-    premium:false,
-    overall:"မသေချာတဲ့ business environment ထဲမှာ အမြန်စမ်းသပ်ခြင်း၊ customer feedback နဲ့ data ကို အသုံးပြုပြီး product ကို တဖြည်းဖြည်းတိုးတက်အောင်လုပ်တဲ့ framework ဖြစ်ပါတယ်",
-    chapters:[
-      ["Startup Reality","မသေချာမှုကို လက်ခံပါ"],
-      ["Validated Learning","အယူအဆကို စမ်းသပ်ပြီး သင်ယူပါ"],
-      ["MVP","အခြေခံတန်ဖိုးကို အမြန်စမ်းပါ"],
-      ["Build-Measure-Learn","တည်ဆောက်၊ တိုင်းတာ၊ သင်ယူ"],
-      ["Metrics","vanity metric ထက် useful metric ကိုကြည့်ပါ"],
-      ["Experiment","အယူအဆတစ်ခုချင်းစီကို စမ်းသပ်ပါ"],
-      ["Pivot","လိုအပ်ရင် direction ပြောင်းပါ"],
-      ["Customer","Customer behavior ကို လေ့လာပါ"],
-      ["Growth","စနစ်တကျ growth engine တည်ဆောက်ပါ"],
-      ["Business Application","SME တွေမှာ test-and-learn system အသုံးချပါ"]
-    ]
-  },
-  {
-    id:11,
-    title:"The 48 Laws of Power",
-    author:"Robert Greene",
-    category:"Leadership",
-    isbn:"9780140280197",
-    time:"20 min",
-    premium:false,
-    overall:"အာဏာ၊ influence နဲ့ လူမှုဆက်ဆံရေးအတွင်း power dynamics ကို လေ့လာတဲ့စာအုပ်ဖြစ်ပြီး အယူအဆတွေကို လက်တွေ့အသုံးချရာမှာ ethical boundary နဲ့ context ကို ထည့်စဉ်းစားသင့်ပါတယ်",
-    chapters:[
-      ["Power Dynamics","အဖွဲ့အစည်းအတွင်း influence ဘယ်လိုဖြစ်လာသလဲ"],
-      ["Reputation","ယုံကြည်မှုနဲ့ reputation ရဲ့တန်ဖိုး"],
-      ["Communication","စကားပြောပုံက perception ကို ဘယ်လိုသက်ရောက်သလဲ"],
-      ["Visibility","အလုပ်ကောင်းတာနဲ့ မြင်သာအောင်ဆက်သွယ်တာကို ချိန်ညှိပါ"],
-      ["Relationships","Stakeholder relationship ကို နားလည်ပါ"],
-      ["Timing","အချိန်ရွေးချယ်မှုက ဆုံးဖြတ်ချက်အပေါ် သက်ရောက်ပါတယ်"],
-      ["Adaptation","အခြေအနေပြောင်းရင် strategy လည်း ပြောင်းပါ"],
-      ["Influence","လူတွေကို ဖိအားပေးတာထက် trust တည်ဆောက်ပါ"],
-      ["Ethical Power","Power ကို တာဝန်ယူမှုနဲ့ အသုံးချပါ"],
-      ["Manager Application","Office politics ကို နားလည်ပြီး professional ဖြစ်အောင် စီမံပါ"]
-    ]
-  },
-  {
-    id:12,
-    title:"The Power of Now",
-    author:"Eckhart Tolle",
-    category:"Personal Growth",
-    isbn:"9781577314806",
-    time:"20 min",
-    premium:false,
-    overall:"လက်ရှိအချိန်ကို သတိထားနေထိုင်ခြင်း၊ အတွေးတွေကို observation လုပ်ခြင်းနဲ့ unnecessary mental noise ကို လျှော့ချခြင်းအကြောင်း ရှင်းပြပါတယ်",
-    chapters:[
-      ["Present Moment","လက်ရှိအချိန်ကို သတိထားပါ"],
-      ["Thoughts","အတွေးနဲ့ ကိုယ့်ကိုယ်ကို ခွဲမြင်ပါ"],
-      ["Ego","Identity နဲ့ ego ရဲ့ သက်ရောက်မှု"],
-      ["Acceptance","လက်ရှိအခြေအနေကို သိရှိလက်ခံပါ"],
-      ["Emotional Patterns","စိတ်ခံစားချက်ကို observation လုပ်ပါ"],
-      ["Time","အတိတ်နဲ့ အနာဂတ်အတွေးကို စီမံပါ"],
-      ["Relationships","ဆက်ဆံရေးထဲမှာ presence တည်ဆောက်ပါ"],
-      ["Body Awareness","ကိုယ်ခန္ဓာအခြေအနေကို သတိထားပါ"],
-      ["Surrender","မပြောင်းလဲနိုင်တာနဲ့ တိုက်ခိုက်နေခြင်းကို လျှော့ပါ"],
-      ["Daily Practice","နေ့စဉ် short awareness practice တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:13,
-    title:"Think and Grow Rich",
-    author:"Napoleon Hill",
-    category:"Money",
-    isbn:"9781585424337",
-    time:"20 min",
-    premium:false,
-    overall:"ရည်မှန်းချက်၊ ယုံကြည်မှု၊ စီမံကိန်း၊ ဇွဲနဲ့ ပူးပေါင်းဆောင်ရွက်မှုတို့ကို အောင်မြင်မှုတည်ဆောက်ရေး framework အဖြစ် တင်ပြထားပါတယ်",
-    chapters:[
-      ["Desire","တိကျတဲ့ရည်မှန်းချက်ထားပါ"],
-      ["Faith","ကိုယ်လုပ်နိုင်မယ်ဆိုတဲ့ ယုံကြည်မှုတည်ဆောက်ပါ"],
-      ["Autosuggestion","ကိုယ့်အတွေးနဲ့ focus ကို ထိန်းပါ"],
-      ["Knowledge","လိုအပ်တဲ့ specialized knowledge ရှာပါ"],
-      ["Imagination","အခွင့်အလမ်းကို စိတ်ကူးပုံဖော်ပါ"],
-      ["Planning","အကောင်အထည်ဖော်မယ့် plan ရေးပါ"],
-      ["Decision","ဆုံးဖြတ်ချက်ကို နှောင့်နှေးမထားပါ"],
-      ["Persistence","အခက်အခဲမှာ ဆက်လက်လုပ်ဆောင်ပါ"],
-      ["Mastermind","အရည်အချင်းမတူသူတွေနဲ့ ပူးပေါင်းပါ"],
-      ["Action","အတွေးကို execution အဖြစ်ပြောင်းပါ"]
-    ]
-  },
-  {
-    id:14,
-    title:"Rich Dad Poor Dad",
-    author:"Robert T. Kiyosaki",
-    category:"Money",
-    isbn:"9781612681139",
-    time:"20 min",
-    premium:false,
-    overall:"ဝင်ငွေရှာခြင်း၊ asset နဲ့ liability ကို ခွဲခြားစဉ်းစားခြင်း၊ financial education နဲ့ cash flow ကို နားလည်စေဖို့ အလေးပေးထားပါတယ်",
-    chapters:[
-      ["Financial Education","ငွေကိုနားလည်ဖို့ financial literacy လိုပါတယ်"],
-      ["Assets vs Liabilities","ပိုင်ဆိုင်မှုနဲ့ ကုန်ကျစေတဲ့အရာကို ခွဲပါ"],
-      ["Cash Flow","ငွေဝင်ငွေထွက်ကို မြင်အောင်လုပ်ပါ"],
-      ["Pay Yourself","Saving နဲ့ investment ကို စနစ်တကျထားပါ"],
-      ["Work to Learn","အလုပ်ကနေ skill စုဆောင်းပါ"],
-      ["Fear","ငွေကြေးဆုံးဖြတ်ချက်မှာ စိတ်ခံစားချက်ကို သတိထားပါ"],
-      ["Opportunity","အခွင့်အလမ်းကို လေ့လာသုံးသပ်ပါ"],
-      ["Financial Intelligence","Numbers ကို နားလည်ပါ"],
-      ["Business Mindset","ဝင်ငွေတစ်ခုတည်းမဟုတ်ဘဲ system ကို စဉ်းစားပါ"],
-      ["Personal Plan","ကိုယ့် financial system ကို တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:15,
-    title:"The Millionaire Fastlane",
-    author:"MJ DeMarco",
-    category:"Business",
-    isbn:"9780984358106",
-    time:"20 min",
-    premium:false,
-    overall:"အချိန်နဲ့ ဝင်ငွေကို တိုက်ရိုက်လဲလှယ်တဲ့ model ထက် control, scale နဲ့ value creation ပါတဲ့ business model ကို စဉ်းစားဖို့ တိုက်တွန်းထားပါတယ်",
-    chapters:[
-      ["Mindset","အောင်မြင်မှုအပေါ်ထားတဲ့ အမြင်ကို ပြောင်းပါ"],
-      ["Control","ကိုယ့်ရဲ့ value chain ထဲမှာ control ရှာပါ"],
-      ["Scale","လူအများကို ဝန်ဆောင်မှုပေးနိုင်တဲ့ model စဉ်းစားပါ"],
-      ["Time","အချိန်ဟာ ပြန်မရနိုင်တဲ့ resource ဖြစ်ပါတယ်"],
-      ["Need","ဈေးကွက်လိုအပ်ချက်ကို ရှာပါ"],
-      ["Entry","Market entry ကို သေချာလေ့လာပါ"],
-      ["Execution","အကြံကောင်းထက် execution အရေးကြီးပါတယ်"],
-      ["Value","Customer အတွက် တန်ဖိုးဖန်တီးပါ"],
-      ["Wealth System","အမြတ်၊ scale နဲ့ control ကို ချိတ်ပါ"],
-      ["Business Action","Idea တစ်ခုကို စမ်းသပ်နိုင်တဲ့ plan ပြုလုပ်ပါ"]
-    ]
-  },
-  {
-    id:16,
-    title:"Good to Great",
-    author:"Jim Collins",
-    category:"Business",
-    isbn:"9780066620992",
-    time:"20 min",
-    premium:false,
-    overall:"ကောင်းမွန်တဲ့ကုမ္ပဏီတစ်ခုက ရေရှည်ထူးချွန်တဲ့အဖွဲ့အစည်းဖြစ်လာဖို့ leadership, people, discipline, focus နဲ့ execution ကို ဘယ်လိုတည်ဆောက်ရမလဲဆိုတာ လေ့လာထားပါတယ်",
-    chapters:[
-      ["Level 5 Leadership","ကိုယ်ပိုင်အောင်မြင်မှုထက် အဖွဲ့အစည်းရဲ့ရလဒ်ကို ဦးစားပေးပါ"],
-      ["First Who","မှန်ကန်တဲ့လူကို အရင်ရွေးပါ"],
-      ["Confront Reality","အခက်အခဲကို တိတိကျကျ ရင်ဆိုင်ပါ"],
-      ["Hedgehog Concept","ကိုယ့်အဓိက focus ကို ရှင်းလင်းပါ"],
-      ["Discipline","စည်းကမ်းရှိတဲ့ execution တည်ဆောက်ပါ"],
-      ["Technology","Technology ကို accelerator အဖြစ်အသုံးချပါ"],
-      ["Flywheel","သေးငယ်တဲ့အောင်မြင်မှုတွေကို စုပေါင်းပါ"],
-      ["Culture","တန်ဖိုးနဲ့ behavior ကို ချိတ်ပါ"],
-      ["Stop Doing","မလိုအပ်တဲ့အရာကို ရပ်ပါ"],
-      ["Manager Application","Team execution ကို system တစ်ခုအဖြစ် တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:17,
-    title:"Built to Last",
-    author:"Jim Collins & Jerry I. Porras",
-    category:"Business",
-    isbn:"9780201409297",
-    time:"20 min",
-    premium:false,
-    overall:"ရေရှည်တည်တံ့တဲ့ အဖွဲ့အစည်းတွေဟာ vision တစ်ခုတည်းမဟုတ်ဘဲ core values နဲ့ continuous progress ကို တစ်ပြိုင်နက်ထိန်းထားနိုင်ကြတယ်ဆိုတာကို လေ့လာထားပါတယ်",
-    chapters:[
-      ["Visionary Companies","ရေရှည်ကို စဉ်းစားတဲ့အဖွဲ့အစည်း"],
-      ["Core Ideology","မပြောင်းလဲသင့်တဲ့ အဓိကတန်ဖိုးတွေ"],
-      ["Preserve and Progress","Core ကိုထိန်းပြီး နည်းလမ်းကို တိုးတက်ပါ"],
-      ["BHAG","ကြီးမားတဲ့ ရေရှည်ရည်မှန်းချက်"],
-      ["Culture","အဖွဲ့အစည်းရဲ့ behavior system"],
-      ["Experimentation","စမ်းသပ်ပြီး အလုပ်ဖြစ်တာကို တိုးချဲ့ပါ"],
-      ["Leadership","ခေါင်းဆောင်တစ်ဦးထက် system တည်ဆောက်ပါ"],
-      ["Alignment","Strategy နဲ့ culture ကို ကိုက်ညီအောင်လုပ်ပါ"],
-      ["Clock Building","လူတစ်ယောက်မရှိလည်း ဆက်လည်နိုင်တဲ့ system"],
-      ["Enduring Business","ရေရှည်တည်တံ့ဖို့ framework"]
-    ]
-  },
-  {
-    id:18,
-    title:"Blue Ocean Strategy",
-    author:"W. Chan Kim & Renée Mauborgne",
-    category:"Business",
-    isbn:"9781591396192",
-    time:"20 min",
-    premium:false,
-    overall:"ပြိုင်ဘက်များတဲ့ market ထဲမှာ တိုက်ရိုက်ပြိုင်တာထက် customer အတွက် value အသစ်ဖန်တီးပြီး market space အသစ်ရှာဖို့ framework ပေးထားပါတယ်",
-    chapters:[
-      ["Red vs Blue Ocean","ပြိုင်ဆိုင်မှုနဲ့ market creation ကို ခွဲပါ"],
-      ["Value Innovation","Customer value နဲ့ cost ကို တစ်ပြိုင်နက်စဉ်းစားပါ"],
-      ["Strategy Canvas","ပြိုင်ဘက်တွေနဲ့ ဘာကွာလဲ မြင်အောင်လုပ်ပါ"],
-      ["Eliminate","မလိုအပ်တဲ့အရာကို ဖယ်ပါ"],
-      ["Reduce","အလွန်အကျွံလုပ်ထားတာကို လျှော့ပါ"],
-      ["Raise","Customer အတွက် တန်ဖိုးရှိတာကို မြှင့်ပါ"],
-      ["Create","အသစ်ဖန်တီးနိုင်တာကို ရှာပါ"],
-      ["Buyer Utility","Customer experience တစ်လျှောက်ကြည့်ပါ"],
-      ["Execution","Strategy ကို operation ထဲ ထည့်ပါ"],
-      ["SME Application","မြန်မာ SME တွေအတွက် market gap ရှာပါ"]
-    ]
-  },
-  {
-    id:19,
-    title:"Zero to One",
-    author:"Peter Thiel",
-    category:"Business",
-    isbn:"9780804139298",
-    time:"20 min",
-    premium:false,
-    overall:"ရှိပြီးသားအရာကို အနည်းငယ်တိုးတက်စေတာထက် မရှိသေးတဲ့ value အသစ်တစ်ခုဖန်တီးနိုင်ဖို့ innovation နဲ့ durable advantage ကို စဉ်းစားစေပါတယ်",
-    chapters:[
-      ["Zero to One","အသစ်ဖန်တီးခြင်းရဲ့ အဓိပ္ပာယ်"],
-      ["Competition","ပြိုင်ဆိုင်မှုကို ဘယ်လိုကြည့်မလဲ"],
-      ["Monopoly","ထူးခြားတဲ့ market position ရဲ့တန်ဖိုး"],
-      ["Definite Optimism","အနာဂတ်ကို ရည်ရွယ်ချက်ရှိရှိတည်ဆောက်ပါ"],
-      ["Secrets","လူအများမမြင်သေးတဲ့ အခွင့်အလမ်းရှာပါ"],
-      ["Founders","Founder decisions ရဲ့ သက်ရောက်မှု"],
-      ["Distribution","Product ကောင်းရုံနဲ့ မလုံလောက်ပါ"],
-      ["Seven Questions","Business တစ်ခုကို စစ်ဆေးဖို့ မေးခွန်းများ"],
-      ["Durability","ရေရှည် competitive advantage"],
-      ["Business Application","အသစ်ဖန်တီးနိုင်တဲ့ SME idea ရှာပါ"]
-    ]
-  },
-  {
-    id:20,
-    title:"The Hard Thing About Hard Things",
-    author:"Ben Horowitz",
-    category:"Leadership",
-    isbn:"9780062273208",
-    time:"20 min",
-    premium:false,
-    overall:"Business တည်ဆောက်ရာမှာ အလွယ်တကူဖြေရှင်းလို့မရတဲ့ ပြဿနာတွေ၊ difficult decisions, people management နဲ့ CEO responsibilities တွေကို လက်တွေ့ကျကျ ဆွေးနွေးထားပါတယ်",
-    chapters:[
-      ["No Easy Answers","Management မှာ အဖြေမရှိတဲ့အခြေအနေတွေ ရှိပါတယ်"],
-      ["CEO Job","CEO ရဲ့အဓိကတာဝန်"],
-      ["Wartime vs Peacetime","အခြေအနေအလိုက် leadership style ပြောင်းပါ"],
-      ["Difficult Conversations","ခက်ခဲတဲ့စကားပြောမှုကို ရှောင်မနေပါနဲ့"],
-      ["Layoffs","People decision ကို တာဝန်ယူစွာ စီမံပါ"],
-      ["Management Debt","မပြင်ထားတဲ့ management problem တွေ စုပေါင်းလာနိုင်ပါတယ်"],
-      ["One-on-One","Manager နဲ့ Team member communication"],
-      ["Scaling","အဖွဲ့ကြီးလာတဲ့အခါ system ပြောင်းပါ"],
-      ["Culture","အခက်အခဲထဲမှာ culture ကို ထိန်းပါ"],
-      ["Decision Framework","မသေချာတဲ့အခြေအနေမှာ ဆုံးဖြတ်ချက်ချနည်း"]
-    ]
-  },
-  {
-    id:21,
-    title:"Never Split the Difference",
-    author:"Chris Voss",
-    category:"Communication",
-    isbn:"9780062407801",
-    time:"20 min",
-    premium:false,
-    overall:"Negotiation မှာ တစ်ဖက်လူရဲ့လိုအပ်ချက်ကို နားလည်ပြီး tactical empathy, calibrated questions နဲ့ conversation ကို စီမံဖို့ သင်ပေးပါတယ်",
-    chapters:[
-      ["Tactical Empathy","တစ်ဖက်လူရဲ့ခံစားချက်နဲ့အမြင်ကို နားလည်ပါ"],
-      ["Mirroring","အရေးကြီးတဲ့စကားလုံးကို ပြန်အသုံးပြုပါ"],
-      ["Labeling","မြင်ရတဲ့ခံစားချက်ကို သတ်မှတ်ပြောပါ"],
-      ["Calibrated Questions","ဘယ်လိုမေးခွန်းမျိုးက conversation ကို ဖွင့်ပေးသလဲ"],
-      ["No","No ကို အဆုံးမဟုတ်ဘဲ စိတ်ချမှုအဖြစ်နားလည်ပါ"],
-      ["Accusation Audit","တစ်ဖက်က စိုးရိမ်နိုင်တာကို ကြိုတင်ထည့်စဉ်းစားပါ"],
-      ["Voice","အသံနေအသံထားရဲ့ သက်ရောက်မှု"],
-      ["Loss Aversion","လူတွေက ဆုံးရှုံးမှုကို ဘယ်လိုတုံ့ပြန်သလဲ"],
-      ["Black Swans","မမြင်ရသေးတဲ့အချက်တွေ ရှာပါ"],
-      ["Negotiation Plan","Meeting မတိုင်ခင် preparation လုပ်ပါ"]
-    ]
-  },
-  {
-    id:22,
-    title:"Influence",
-    author:"Robert B. Cialdini",
-    category:"Communication",
-    isbn:"9780061241895",
-    time:"20 min",
-    premium:false,
-    overall:"လူတွေရဲ့ decision-making မှာ persuasion principles တွေ ဘယ်လိုအလုပ်လုပ်သလဲဆိုတာကို လေ့လာစေပြီး ethical communication အတွက် အသုံးချနိုင်ပါတယ်",
-    chapters:[
-      ["Reciprocity","ပြန်လည်ပေးဆပ်လိုစိတ်"],
-      ["Commitment","ကိုယ်ပြောထားတာနဲ့ ကိုက်ညီချင်စိတ်"],
-      ["Social Proof","အခြားသူတွေရဲ့အပြုအမူကို ကိုးကားခြင်း"],
-      ["Liking","သဘောကျမှုနဲ့ relationship"],
-      ["Authority","ကျွမ်းကျင်မှုနဲ့ ယုံကြည်စိတ်ချမှု"],
-      ["Scarcity","ရှားပါးမှုရဲ့ သက်ရောက်မှု"],
-      ["Unity","အဖွဲ့ဝင်ဖြစ်မှုရဲ့ သက်ရောက်မှု"],
-      ["Ethics","Persuasion ကို မလှည့်စားဘဲ အသုံးချပါ"],
-      ["Defense","ကိုယ်တိုင် မလှည့်စားခံရအောင် သိထားပါ"],
-      ["Sales Application","Customer communication ထဲ ethical application"]
-    ]
-  },
-  {
-    id:23,
-    title:"The 5 AM Club",
-    author:"Robin Sharma",
-    category:"Productivity",
-    isbn:"9781443456623",
-    time:"20 min",
-    premium:false,
-    overall:"မနက်ခင်းအချိန်ကို စနစ်တကျအသုံးချပြီး exercise, reflection နဲ့ learning ကို routine တစ်ခုအဖြစ် တည်ဆောက်ဖို့ အလေးပေးထားပါတယ်",
-    chapters:[
-      ["Victory Hour","နေ့ရဲ့အစကို ကိုယ်တိုင်ထိန်းချုပ်ပါ"],
-      ["20/20/20","Exercise, reflection, learning ကို ခွဲပါ"],
-      ["Mindset","နေ့စဉ်စိတ်နေစိတ်ထား"],
-      ["Focus","အရေးကြီးတာကို အရင်လုပ်ပါ"],
-      ["Exercise","ခန္ဓာကိုယ်စွမ်းအင်ကို ထိန်းပါ"],
-      ["Reflection","ကိုယ့်ကိုယ်ကို ပြန်သုံးသပ်ပါ"],
-      ["Learning","နေ့စဉ်လေ့လာပါ"],
-      ["Distraction","မနက်ခင်း distraction ကို ကာကွယ်ပါ"],
-      ["Routine","အလေ့အကျင့်ကို တည်ငြိမ်အောင်လုပ်ပါ"],
-      ["Adaptation","ကိုယ့်ဘဝနဲ့ကိုက်အောင် routine ကို ပြင်ပါ"]
-    ]
-  },
-  {
-    id:24,
-    title:"The Compound Effect",
-    author:"Darren Hardy",
-    category:"Personal Growth",
-    isbn:"9781593157241",
-    time:"20 min",
-    premium:false,
-    overall:"သေးငယ်တဲ့ရွေးချယ်မှုတွေကို အချိန်ကြာကြာ တည်ငြိမ်စွာလုပ်ဆောင်တဲ့အခါ compound effect ဖြစ်လာနိုင်တာကို ရှင်းပြပါတယ်",
-    chapters:[
-      ["Small Choices","သေးငယ်တဲ့ဆုံးဖြတ်ချက်တွေကို သတိထားပါ"],
-      ["Habits","အလေ့အကျင့်က ရလဒ်ကို တည်ဆောက်ပါတယ်"],
-      ["Momentum","စတင်ပြီးနောက် momentum ကို ထိန်းပါ"],
-      ["Tracking","လုပ်ဆောင်မှုကို တိုင်းတာပါ"],
-      ["Influence","ပတ်ဝန်းကျင်က ကိုယ့်အပြုအမူကို သက်ရောက်စေပါတယ်"],
-      ["Environment","ကောင်းတဲ့ environment တည်ဆောက်ပါ"],
-      ["Goals","ရည်မှန်းချက်ကို daily action နဲ့ချိတ်ပါ"],
-      ["Consistency","တည်ငြိမ်မှုက အရေးကြီးပါတယ်"],
-      ["Recovery","ပျက်သွားရင် ပြန်စပါ"],
-      ["System","Compound ဖြစ်စေမယ့် personal system တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:25,
-    title:"Make Time",
-    author:"Jake Knapp & John Zeratsky",
-    category:"Productivity",
-    isbn:"9780525522235",
-    time:"20 min",
-    premium:false,
-    overall:"နေ့စဉ်ဘဝမှာ အရေးကြီးတဲ့အရာအတွက် အချိန်ကို ပြန်ရအောင် attention, energy နဲ့ environment ကို ဒီဇိုင်းလုပ်ဖို့ အကြံပြုထားပါတယ်",
-    chapters:[
-      ["Highlight","နေ့တိုင်း အဓိကအရာတစ်ခုရွေးပါ"],
-      ["Laser","အာရုံစူးစိုက်မှုကို ကာကွယ်ပါ"],
-      ["Energize","Energy ကို အခြေခံအဖြစ် ထိန်းပါ"],
-      ["Reflect","နေ့ကုန်မှာ ပြန်သုံးသပ်ပါ"],
-      ["Phone Design","ဖုန်းကို ကိုယ်လိုချင်သလို သုံးနိုင်အောင်ပြင်ပါ"],
-      ["Notifications","မလိုအပ်တဲ့ notification ဖယ်ပါ"],
-      ["Defaults","Default setting တွေကို ပြန်စီပါ"],
-      ["Energy Management","အိပ်စက်ခြင်း၊ အစားအသောက်၊ လှုပ်ရှားမှုကို ဂရုစိုက်ပါ"],
-      ["Daily Reset","နေ့စဉ် reset routine ထားပါ"],
-      ["Weekly System","အပတ်စဉ် review system တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:26,
-    title:"Eat That Frog!",
-    author:"Brian Tracy",
-    category:"Productivity",
-    isbn:"9781576754221",
-    time:"20 min",
-    premium:false,
-    overall:"အရေးကြီးပြီး မလုပ်ချင်ဆုံးအလုပ်ကို ဦးစားပေးပြီး procrastination ကို လျှော့ချဖို့ productivity framework ပေးထားပါတယ်",
-    chapters:[
-      ["Biggest Task","အရေးကြီးဆုံးအလုပ်ကို အရင်ရှာပါ"],
-      ["ABCDE","Task priority ခွဲပါ"],
-      ["80/20","အနည်းငယ်သောအလုပ်က အများကြီးသောရလဒ်ပေးနိုင်တာကို ရှာပါ"],
-      ["Planning","မနက်မစခင် plan လုပ်ပါ"],
-      ["Single Handling","တစ်ခုပြီးမှ တစ်ခုလုပ်ပါ"],
-      ["Key Results","အဓိကရလဒ်ကို ရှင်းလင်းပါ"],
-      ["Procrastination","နောက်ကျစေတဲ့အကြောင်းရင်းကို သိပါ"],
-      ["Focus","အာရုံမခွဲဘဲ လုပ်ပါ"],
-      ["Discipline","Motivation မရှိတဲ့နေ့မှာလည်း system နဲ့လုပ်ပါ"],
-      ["Daily Workflow","နေ့စဉ် execution routine တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:27,
-    title:"The Power of Habit",
-    author:"Charles Duhigg",
-    category:"Personal Growth",
-    isbn:"9780812981605",
-    time:"20 min",
-    premium:false,
-    overall:"Cue, routine, reward ဆိုတဲ့ habit loop နဲ့ လူတစ်ဦးချင်း၊ အဖွဲ့အစည်းတွေရဲ့ habit တွေ ဘယ်လိုဖြစ်လာသလဲဆိုတာ ရှင်းပြပါတယ်",
-    chapters:[
-      ["Habit Loop","Cue, Routine, Reward ကို နားလည်ပါ"],
-      ["Craving","Habit ကို ပြန်လုပ်ချင်စေတဲ့အရာ"],
-      ["Keystone Habits","တစ်ခုက အခြားအလေ့အကျင့်တွေကို လှုံ့ဆော်နိုင်ပါတယ်"],
-      ["Organizations","Company ထဲက habit တွေ"],
-      ["Changing Routine","Cue နဲ့ reward ကို နားလည်ပြီး routine ပြောင်းပါ"],
-      ["Willpower","Self-control ကို လေ့ကျင့်နိုင်တဲ့ resource အဖြစ်ကြည့်ပါ"],
-      ["Marketing","Customer behavior နဲ့ habit"],
-      ["Social Habits","လူမှုအဖွဲ့အစည်းထဲက routine"],
-      ["Responsibility","ကိုယ့်အပြုအမူအပေါ် တာဝန်ယူပါ"],
-      ["Habit Design","ကောင်းတဲ့ habit ကို intentionally design လုပ်ပါ"]
-    ]
-  },
-  {
-    id:28,
-    title:"Rework",
-    author:"Jason Fried & David Heinemeier Hansson",
-    category:"Business",
-    isbn:"9780307463746",
-    time:"20 min",
-    premium:false,
-    overall:"Business တစ်ခုစဖို့ အလွန်ရှုပ်ထွေးတဲ့ plan တွေမလိုဘဲ ရိုးရှင်းစွာစတင်ပြီး တန်ဖိုးရှိတဲ့အရာကို customer ထံပေးပို့ဖို့ အလေးပေးပါတယ်",
-    chapters:[
-      ["Less","မလိုအပ်တာတွေကို ဖယ်ပါ"],
-      ["Start Now","အမြဲပြင်ဆင်နေမယ့်အစား စတင်ပါ"],
-      ["Small Team","Team size ကို လိုအပ်သလောက်ထားပါ"],
-      ["Constraints","ကန့်သတ်ချက်ကို အားသာချက်အဖြစ်အသုံးချပါ"],
-      ["Meetings","Meeting ကို လိုအပ်သလောက်ပဲလုပ်ပါ"],
-      ["Hiring","လိုအပ်တဲ့အခါမှ လူထပ်ခန့်ပါ"],
-      ["Marketing","Product ကို ကိုယ်တိုင်အသုံးချပြီး ပြောပါ"],
-      ["Product","Customer အတွက် အသုံးဝင်တဲ့အရာကို တည်ဆောက်ပါ"],
-      ["Competition","ပြိုင်ဘက်နောက်ကို မလိုက်ဘဲ ကိုယ့်လမ်းကို ရှာပါ"],
-      ["Sustainable Business","ရေရှည်ထိန်းနိုင်တဲ့ business model တည်ဆောက်ပါ"]
-    ]
-  },
-  {
-    id:29,
-    title:"Shoe Dog",
-    author:"Phil Knight",
-    category:"Business",
-    isbn:"9781501135910",
-    time:"20 min",
-    premium:false,
-    overall:"Nike ရဲ့အစောပိုင်းကာလကို founder journey အနေနဲ့ ပြန်လည်ဖော်ပြထားပြီး uncertainty, persistence, partnerships, brand နဲ့ business growth ရဲ့အခက်အခဲတွေကို မြင်တွေ့နိုင်ပါတယ်",
-    chapters:[
-      ["The Beginning","စိတ်ကူးကနေ လုပ်ငန်းစတင်ခြင်း"],
-      ["Uncertainty","မသေချာတဲ့အခြေအနေမှာ ဆက်လက်လုပ်ခြင်း"],
-      ["Customers","Product-market fit ကို ရှာခြင်း"],
-      ["Brand","Brand identity တည်ဆောက်ခြင်း"],
-      ["Distribution","Distribution system ရဲ့ အရေးပါမှု"],
-      ["Persistence","အခက်အခဲများကြား ဆက်လက်လုပ်ခြင်း"],
-      ["Cash Flow","Growth အတွက် cash လိုအပ်ချက်"],
-      ["Partners","မှန်ကန်တဲ့လူတွေနဲ့ ပူးပေါင်းခြင်း"],
-      ["Culture","အဖွဲ့အစည်းယဉ်ကျေးမှု"],
-      ["Entrepreneurial Lessons","Founder journey ကနေ သင်ယူနိုင်တဲ့အချက်များ"]
-    ]
-  },
-  {
-    id:30,
-    title:"The Personal MBA",
-    author:"Josh Kaufman",
-    category:"Business",
-    isbn:"9781591845572",
-    time:"20 min",
-    premium:false,
-    overall:"MBA ရဲ့ အခြေခံ business concepts တွေကို value creation, marketing, sales, finance, operations နဲ့ systems အဖြစ် ကိုယ်တိုင်လေ့လာနိုင်အောင် စုစည်းထားပါတယ်",
-    chapters:[
-      ["Value Creation","Customer အတွက် တန်ဖိုးဖန်တီးပါ"],
-      ["Marketing","Customer ရှာပြီး message ပေးပို့ပါ"],
-      ["Sales","Value ကို customer ဆုံးဖြတ်ချက်နဲ့ ချိတ်ပါ"],
-      ["Value Delivery","ကတိပေးထားတဲ့တန်ဖိုးကို ပေးပို့ပါ"],
-      ["Finance","Revenue, cost, profit ကို နားလည်ပါ"],
-      ["Systems","Business ကို system အဖြစ်မြင်ပါ"],
-      ["People","လူတွေနဲ့ အလုပ်လုပ်နိုင်စွမ်း"],
-      ["Operations","နေ့စဉ်လုပ်ငန်းစဉ်ကို တည်ငြိမ်အောင်လုပ်ပါ"],
-      ["Decision Making","မသေချာမှုအောက်မှာ ဆုံးဖြတ်ပါ"],
-      ["Business Model","Business တစ်ခုလုံးကို ချိတ်ဆက်ပြီး ကြည့်ပါ"]
-    ]
-  }
-];
-/* =========================================================
-   STORAGE
-   ========================================================= */
+   Original Reading App
+   Myanmar Voice / TTS removed
+   ============================================================ */
+
 const STORAGE = {
-  saved:"aung_books_v7_saved",
-  read:"aung_books_v7_read",
-  progress:"aung_books_v7_progress",
-  font:"aung_books_v7_font",
-  theme:"aung_books_v7_theme"
+  saved:"aung_books_saved_v7",
+  read:"aung_books_read_v7",
+  progress:"aung_books_progress_v7"
 };
-function loadJSON(key,fallback){
-  try{
-    const value=localStorage.getItem(key);
-    return value ? JSON.parse(value) : fallback;
-  }catch(e){
-    return fallback;
-  }
-}
-function saveJSON(key,value){
-  try{
-    localStorage.setItem(key,JSON.stringify(value));
-  }catch(e){}
-}
-let savedBooks=loadJSON(STORAGE.saved,[]);
-let readBooks=loadJSON(STORAGE.read,[]);
-let progressData=loadJSON(STORAGE.progress,{});
-let currentBookId=null;
-let currentChapter=0;
-let currentFont=parseInt(localStorage.getItem(STORAGE.font)||"16",10);
-let selectedCategory="All";
-/* =========================================================
+
+let savedBooks = loadJSON(STORAGE.saved,[]);
+let readBooks = loadJSON(STORAGE.read,[]);
+let progressData = loadJSON(STORAGE.progress,{});
+
+let currentBookId = null;
+let currentChapter = 0;
+
+
+/* ============================================================
    HELPERS
-   ========================================================= */
-function getBook(id){
-  return books.find(b=>b.id===Number(id));
-}
-function coverURL(book,size="L"){
-  if(!book || !book.isbn){
-    return "";
+   ============================================================ */
+
+function loadJSON(key,fallback){
+
+  try{
+    const value = JSON.parse(localStorage.getItem(key));
+
+    return value ?? fallback;
+
+  }catch(error){
+
+    return fallback;
+
   }
-  return "https://covers.openlibrary.org/b/isbn/"
-    + book.isbn
-    + "-"
-    + size
-    + ".jpg";
+
 }
+
+
+function saveJSON(key,value){
+
+  localStorage.setItem(key,JSON.stringify(value));
+
+}
+
+
+function getBook(id){
+
+  return books.find(book => Number(book.id) === Number(id));
+
+}
+
+
+function isSaved(id){
+
+  return savedBooks.includes(Number(id));
+
+}
+
+
+function isRead(id){
+
+  return readBooks.includes(Number(id));
+
+}
+
+
 function escapeHTML(value){
+
   return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
 }
+
+
 function toast(message){
-  const el=document.getElementById("toast");
-  el.textContent=message;
+
+  const el = document.getElementById("toast");
+
+  el.textContent = message;
+
   el.classList.add("show");
-  clearTimeout(window.toastTimer);
-  window.toastTimer=setTimeout(()=>{
+
+  clearTimeout(window.__toastTimer);
+
+  window.__toastTimer = setTimeout(()=>{
     el.classList.remove("show");
   },1800);
+
 }
-function isSaved(id){
-  return savedBooks.includes(Number(id));
+
+
+/* ============================================================
+   BOOK DATA
+   ============================================================ */
+
+/*
+  Content is original Burmese explanation
+  and not copied book text
+*/
+
+const books = [
+
+/* ============================================================
+   1 ATOMIC HABITS
+   ============================================================ */
+
+{
+  id:1,
+  title:"Atomic Habits",
+  author:"James Clear",
+  category:"Personal Growth",
+  time:"20+ min",
+  description:"သေးငယ်တဲ့အလေ့အကျင့်တွေကနေ ရေရှည်အပြောင်းအလဲကြီးတွေ တည်ဆောက်နည်း",
+  overall:`
+Atomic Habits ရဲ့ အဓိကအယူအဆက ဘဝကိုပြောင်းလဲဖို့ အကြီးစားဆုံးဖြတ်ချက်တစ်ခုတည်း မလိုအပ်ဘူးဆိုတာပါ
+
+နေ့တိုင်းလုပ်နေတဲ့ အလေ့အကျင့်သေးသေးလေးတွေက အချိန်ကြာလာတဲ့အခါ ကိုယ့်ရဲ့ကျန်းမာရေး၊ အလုပ်အကိုင်၊ ငွေကြေး၊ ဆက်ဆံရေးနဲ့ ကိုယ်ရည်ကိုယ်သွေးအထိ သက်ရောက်လာနိုင်ပါတယ်
+
+ရလဒ်တစ်ခုကို လိုချင်ရုံနဲ့ ရလဒ်မရနိုင်ပါဘူး
+
+အဲဒီရလဒ်ကို ဖြစ်ပေါ်စေမယ့် နေ့စဉ်လုပ်ဆောင်ချက်နဲ့ system ကို တည်ဆောက်ဖို့လိုပါတယ်
+
+ဒီစာအုပ်ကို ဖတ်တဲ့အခါ habit တစ်ခုချင်းစီကို ကိုယ့်ဘဝနဲ့ချိတ်ဆက်ပြီး စဉ်းစားနိုင်ပါတယ်
+
+စာဖတ်ခြင်း၊ ကျန်းမာရေး၊ ငွေကြေး၊ career၊ business၊ relationship နဲ့ personal growth အားလုံးမှာ ဒီအယူအဆတွေကို အသုံးချနိုင်ပါတယ်
+`,
+  takeaways:[
+    "သေးငယ်တဲ့အပြောင်းအလဲတွေကို အချိန်ကြာကြာ ဆက်လုပ်ပါ",
+    "Goal တစ်ခုတည်းထက် system ကို တည်ဆောက်ပါ",
+    "ကိုယ်ဖြစ်ချင်တဲ့ identity ကို အခြေခံပြီး habit တည်ဆောက်ပါ",
+    "ကောင်းတဲ့ habit ကို မြင်သာ၊ ဆွဲဆောင်မှုရှိ၊ လွယ်ကူပြီး ကျေနပ်စရာဖြစ်အောင်လုပ်ပါ",
+    "မကောင်းတဲ့ habit တွေအတွက် trigger နဲ့ environment ကို ပြောင်းပါ",
+    "တိုးတက်မှုကို တိုင်းတာပြီး system ကို ပြန်ပြင်ပါ"
+  ],
+  chapters:[
+
+    {
+      title:"သေးငယ်တဲ့အပြောင်းအလဲ၊ ကြီးမားတဲ့ရလဒ်",
+      overview:"နေ့စဉ်လုပ်ဆောင်ချက်သေးသေးလေးတွေဟာ အချိန်ကြာလာတဲ့အခါ စုပေါင်းအကျိုးသက်ရောက်မှု ဖြစ်လာနိုင်ပုံ",
+      concept:"ဘဝမှာ ကြီးမားတဲ့ရလဒ်တွေဟာ တစ်ရက်တည်းနဲ့ ဖြစ်လာတာမဟုတ်ဘဲ သေးငယ်တဲ့လုပ်ဆောင်ချက်တွေ စုပေါင်းလာတာကနေ ဖြစ်လာနိုင်ပါတယ်",
+      detail:`
+လူတစ်ယောက်က ကိုယ့်ဘဝကိုပြောင်းချင်တဲ့အခါ အများအားဖြင့် အပြောင်းအလဲကြီးတစ်ခုကို ရှာတတ်ပါတယ်
+
+တစ်လအတွင်း ကိုယ်အလေးချိန်အများကြီးလျှော့ချင်တယ်
+
+တစ်နှစ်အတွင်း ငွေအများကြီးစုချင်တယ်
+
+လအနည်းငယ်အတွင်း skill အသစ်တစ်ခု ကျွမ်းကျင်ချင်တယ်
+
+လုပ်ငန်းရဲ့ sales ကို ချက်ချင်းတက်စေချင်တယ်
+
+ဒီလိုရလဒ်တွေကို လိုချင်တာက မမှားပါဘူး
+
+ဒါပေမယ့် ရလဒ်ကိုပဲ အာရုံစိုက်ပြီး နေ့စဉ်လုပ်ဆောင်မှုကို မတည်ဆောက်ထားရင် motivation ကျသွားတဲ့အချိန်မှာ အစီအစဉ်လည်း ရပ်သွားနိုင်ပါတယ်
+
+သေးငယ်တဲ့ habit တွေရဲ့ အားသာချက်ကတော့ စတင်ရလွယ်တာပါ
+
+တစ်နေ့ 100 pages ဖတ်ဖို့ ခက်နိုင်ပေမယ့် 5 pages ဖတ်ဖို့ လွယ်နိုင်ပါတယ်
+
+တစ်နေ့ 2 hours exercise လုပ်ဖို့ ခက်နိုင်ပေမယ့် 10 minutes လမ်းလျှောက်ဖို့ လွယ်နိုင်ပါတယ်
+
+အရေးကြီးတာက ပထမဆုံးနေ့မှာ ဘယ်လောက်များများလုပ်နိုင်သလဲ မဟုတ်ဘဲ နောက်နေ့မှာ ပြန်လုပ်နိုင်သလားဆိုတာပါ
+
+Habit တစ်ခုဟာ အချိန်ကြာလာတဲ့အခါ ကိုယ့်ရဲ့ normal behavior တစ်ခုဖြစ်လာနိုင်ပါတယ်
+
+အဲဒီအချိန်မှာ motivation အများကြီးမလိုတော့ဘဲ system က ကိုယ့်ကို ဆက်လက်လုပ်ဆောင်စေနိုင်ပါတယ်
+`,
+      life:`
+ဥပမာ စာဖတ်ချင်တဲ့သူတစ်ယောက်ဟာ နေ့တိုင်း 5 pages ဖတ်မယ်လို့ စတင်နိုင်ပါတယ်
+
+ပထမအပတ်မှာ သိသာတဲ့ပြောင်းလဲမှု မမြင်ရနိုင်ပါဘူး
+
+ဒါပေမယ့် လအနည်းငယ်ကြာလာတဲ့အခါ ဖတ်ပြီးသားအကြောင်းအရာတွေ စုပေါင်းလာပါမယ်
+
+စာအုပ်တစ်အုပ်ကနေ ရလာတဲ့အတွေးက နောက်စာအုပ်တစ်အုပ်ကို နားလည်ဖို့ ကူညီနိုင်ပါတယ်
+
+ဒီလိုနဲ့ knowledge တွေ တစ်ခုနဲ့တစ်ခု ချိတ်ဆက်လာနိုင်ပါတယ်
+`,
+      business:`
+လုပ်ငန်းတစ်ခုမှာ customer complaint တွေကို နေ့တိုင်းပြန်စစ်တာ၊ sales data ကို ပုံမှန်ကြည့်တာ၊ staff feedback စုတာတွေဟာ သေးငယ်တဲ့လုပ်ဆောင်ချက်တွေပါ
+
+တစ်ရက်တည်းနဲ့ business ကို မပြောင်းနိုင်ပေမယ့် အဲဒီ data တွေကို စုပေါင်းပြီး process ကို ပြန်ပြင်သွားရင် ရေရှည် performance တိုးတက်အောင် ကူညီနိုင်ပါတယ်
+`,
+      career:`
+Career တိုးတက်ချင်သူတစ်ယောက်ဟာ တစ်နေ့တည်းနဲ့ skill အများကြီး သင်ယူဖို့မလိုပါဘူး
+
+နေ့တိုင်း 20 မိနစ်ကို communication, presentation, industry knowledge ဒါမှမဟုတ် technical skill တစ်ခုအတွက် အသုံးပြုနိုင်ပါတယ်
+
+အချိန်ကြာလာတဲ့အခါ skill တစ်ခုချင်းစီက professional capability အဖြစ် ပေါင်းစည်းလာနိုင်ပါတယ်
+`,
+      money:`
+ငွေကြေးမှာလည်း ဝင်ငွေရတိုင်း အရင်ဆုံး စုငွေခွဲထားခြင်း၊ နေ့စဉ်အသုံးစရိတ်မှတ်ခြင်း၊ အပတ်စဉ် spending review လုပ်ခြင်းတွေက habit အဖြစ် တည်ဆောက်နိုင်ပါတယ်
+
+အရေးကြီးတာက တစ်ကြိမ်တည်း ငွေအများကြီးစုတာထက် ငွေကြေးစီမံခန့်ခွဲတဲ့အကျင့် ဖြစ်လာဖို့ပါ
+`,
+      relationship:`
+Relationship တစ်ခုမှာလည်း တစ်နှစ်တစ်ကြိမ် အကြီးစားလုပ်ရပ်ထက် နေ့စဉ်နားထောင်ပေးခြင်း၊ ကျေးဇူးတင်ကြောင်းပြောခြင်း၊ အချိန်ပေးခြင်းလို အရာတွေက ယုံကြည်မှုကို တဖြည်းဖြည်းတည်ဆောက်နိုင်ပါတယ်
+`,
+      action:`
+ဒီနေ့မှာ ကိုယ့်ဘဝမှာ ပြောင်းချင်တဲ့အရာတစ်ခုရွေးပါ
+
+အဲဒီအရာကို အလွန်သေးငယ်တဲ့ version အဖြစ်ပြောင်းပါ
+
+စာဖတ်ခြင်းဆိုရင် 5 pages
+
+Exercise ဆိုရင် 10 minutes
+
+Learning ဆိုရင် 15 minutes
+
+Money ဆိုရင် ဝင်ငွေရတိုင်း သတ်မှတ်ပမာဏခွဲထားခြင်း
+
+အဓိကက perfect ဖြစ်ဖို့မဟုတ်ဘဲ ဆက်လုပ်နိုင်ဖို့ပါ
+`,
+      key:"သေးငယ်တဲ့လုပ်ဆောင်ချက်ကို အရေးမကြီးဘူးလို့ မထင်ပါနဲ့ — အချိန်ကြာလာတဲ့အခါ အဲဒီလုပ်ဆောင်ချက်တွေက ဘဝရဲ့ရလဒ်ကို တဖြည်းဖြည်းဖန်တီးလာနိုင်ပါတယ်"
+    },
+
+    {
+      title:"Identity နဲ့ Habit",
+      overview:"ရလဒ်တစ်ခုရဖို့ထက် ကိုယ်ဘယ်လိုလူဖြစ်ချင်သလဲကို အခြေခံပြီး habit တည်ဆောက်ခြင်း",
+      concept:"Goal က ကိုယ်ရချင်တဲ့ရလဒ်ကို ပြောပြီး identity က ကိုယ်ဘယ်လိုလူဖြစ်ချင်သလဲကို သတ်မှတ်ပေးပါတယ်",
+      detail:`
+Habit ပြောင်းချင်တဲ့အခါ “ငါဘာရချင်လဲ” ဆိုတာကိုပဲ မစဉ်းစားဘဲ “ငါဘယ်လိုလူဖြစ်ချင်လဲ” ဆိုတာကိုပါ စဉ်းစားနိုင်ပါတယ်
+
+ဥပမာ စာအုပ် 20 အုပ်ဖတ်မယ်ဆိုတာ goal တစ်ခုပါ
+
+“ငါဟာ စာဖတ်တဲ့လူတစ်ယောက်” ဆိုတာ identity ဖြစ်ပါတယ်
+
+Goal ပြည့်သွားတဲ့အခါ project တစ်ခု ပြီးသွားနိုင်ပါတယ်
+
+Identity ကတော့ နေ့စဉ်ဆုံးဖြတ်ချက်တွေနဲ့ ဆက်လက်တည်ရှိနိုင်ပါတယ်
+
+ကိုယ့်ကိုယ်ကို ဘယ်လိုမြင်သလဲဆိုတာက ကိုယ်လုပ်မယ့်အရာတွေကို သက်ရောက်စေနိုင်ပါတယ်
+
+ဒါကြောင့် habit တစ်ခုစတင်တဲ့အခါ အဲဒီ habit က ကိုယ့်ရဲ့ identity ကို ဘယ်လိုထောက်ခံပေးသလဲဆိုတာ စဉ်းစားပါ
+`,
+      life:`
+“English တတ်ချင်တယ်” လို့ပဲစဉ်းစားမယ့်အစား “ငါဟာ နေ့တိုင်း English လေ့လာတဲ့လူ” လို့ ကိုယ့်ကိုယ်ကို သတ်မှတ်နိုင်ပါတယ်
+
+အဲဒီ identity ကို သက်သေပြဖို့ တစ်နေ့ 15 မိနစ် လေ့လာနိုင်ပါတယ်
+`,
+      business:`
+Business owner တစ်ယောက်က “ငါ business ကြီးတစ်ခုလုပ်မယ်” ဆိုတာထက် “ငါဟာ customer ကိုတန်ဖိုးပေးတဲ့ business owner ဖြစ်မယ်” လို့ identity တည်ဆောက်နိုင်ပါတယ်
+
+အဲဒီအခါ customer feedback ကို အနှောင့်အယှက်အဖြစ် မမြင်ဘဲ business တိုးတက်ဖို့ information အဖြစ် အသုံးချနိုင်ပါတယ်
+`,
+      career:`
+“Manager ဖြစ်ချင်တယ်” ဆိုတာ ရာထူးကိုပြောတာပါ
+
+“လူတွေကိုတိုးတက်အောင် ကူညီပေးနိုင်တဲ့ leader ဖြစ်မယ်” ဆိုတာ identity ကိုပြောတာပါ
+
+ဒီ identity နဲ့ကိုက်ညီအောင် နားထောင်ခြင်း၊ feedback ပေးခြင်း၊ တာဝန်ယူခြင်းတွေကို habit အဖြစ် တည်ဆောက်နိုင်ပါတယ်
+`,
+      money:`
+“ချမ်းသာချင်တယ်” ဆိုတာ goal ဖြစ်ပါတယ်
+
+“ငါဟာ ငွေကိုစနစ်တကျစီမံတဲ့လူ” ဆိုတဲ့ identity ကို တည်ဆောက်ပြီး အသုံးစရိတ်မှတ်ခြင်း၊ စုဆောင်းခြင်းနဲ့ budget review ကို နေ့စဉ်အကျင့်အဖြစ် လုပ်နိုင်ပါတယ်
+`,
+      relationship:`
+“Relationship ကောင်းချင်တယ်” ဆိုတာထက် “ငါဟာ အခြားသူကို လေးစားစွာနားထောင်တဲ့လူ” ဆိုတဲ့ identity ကို တည်ဆောက်နိုင်ပါတယ်
+
+အဲဒီ identity ကို သက်သေပြဖို့ တစ်ဖက်လူပြောနေချိန်မှာ အလျင်စလိုပြန်မပြောဘဲ အရင်နားထောင်တာက စတင်နိုင်တဲ့ action တစ်ခုပါ
+`,
+      action:`
+စာရွက်တစ်ရွက်ပေါ်မှာ ကိုယ်ဖြစ်ချင်တဲ့လူအမျိုးအစား 3 ခုရေးပါ
+
+ပြီးရင် identity တစ်ခုစီအတွက် နေ့စဉ်လုပ်နိုင်တဲ့ habit တစ်ခုရွေးပါ
+
+ဒီနေ့ အဲဒီ identity ကို သက်သေပြမယ့် action တစ်ခုလုပ်ပါ
+`,
+      key:"နေ့တိုင်းလုပ်တဲ့လုပ်ရပ်တွေဟာ ကိုယ်ဘယ်လိုလူဖြစ်လာနေသလဲဆိုတာကို တဖြည်းဖြည်းသတ်မှတ်ပေးနေပါတယ်"
+    },
+
+    {
+      title:"Habit တည်ဆောက်ခြင်းရဲ့ အခြေခံစနစ်",
+      overview:"Habit ဖြစ်လာစေတဲ့ cycle ကို နားလည်ပြီး system အဖြစ်တည်ဆောက်ခြင်း",
+      concept:"Habit တွေဟာ trigger, desire, action နဲ့ satisfaction တို့နဲ့ ဆက်စပ်ပြီး ထပ်ခါထပ်ခါဖြစ်လာနိုင်ပါတယ်",
+      detail:`
+Habit တစ်ခုကို ပြောင်းချင်ရင် အပြုအမူကိုပဲ အတင်းပြောင်းဖို့ ကြိုးစားတာထက် အဲဒီအပြုအမူကို ဖြစ်စေတဲ့ အခြေအနေကို နားလည်ဖို့လိုပါတယ်
+
+ဥပမာ ဖုန်း notification မြင်တယ်
+
+ဘာ message လဲဆိုပြီး စိတ်ဝင်စားတယ်
+
+ဖုန်းဖွင့်တယ်
+
+အသစ်တစ်ခုတွေ့တဲ့အခါ ချက်ချင်းတုံ့ပြန်မှုရတယ်
+
+ဒီလို cycle တစ်ခုက ထပ်ခါထပ်ခါဖြစ်လာရင် habit ဖြစ်လာနိုင်ပါတယ်
+
+အလားတူ ကောင်းတဲ့ habit ကိုလည်း cycle တစ်ခုအဖြစ် ဒီဇိုင်းလုပ်နိုင်ပါတယ်
+`,
+      life:`
+စာဖတ်ချင်ရင် စာအုပ်ကို အလွယ်တကူမြင်ရတဲ့နေရာမှာထားပါ
+
+မြင်ရခြင်းက trigger ဖြစ်လာနိုင်ပါတယ်
+
+5 pages နဲ့စပါ
+
+ဖတ်ပြီးတိုင်း tracker မှာ အမှတ်ခြစ်ပါ
+
+ဒီလိုနဲ့ စာဖတ် habit ကို ပိုမိုလွယ်ကူအောင် တည်ဆောက်နိုင်ပါတယ်
+`,
+      business:`
+လုပ်ငန်းတစ်ခုမှာ daily sales review ကို မနက်တိုင်းတစ်ချိန်တည်းမှာ လုပ်မယ်ဆိုရင် အချိန်က trigger ဖြစ်လာနိုင်ပါတယ်
+
+Data review → problem finding → action → result tracking ဆိုတဲ့ system တစ်ခုဖြစ်လာနိုင်ပါတယ်
+`,
+      career:`
+အလုပ်တိုးတက်ချင်ရင် နေ့တိုင်းအလုပ်ပြီးတဲ့အချိန်မှာ 5 မိနစ် reflection လုပ်တဲ့ habit တစ်ခုတည်ဆောက်နိုင်ပါတယ်
+
+အချိန်တစ်ခုတည်း၊ လုပ်ဆောင်ချက်တစ်ခုတည်းနဲ့ စနစ်တကျသွားရင် ပိုလွယ်ပါတယ်
+`,
+      money:`
+အသုံးစရိတ်မှတ်ချင်ရင် ညတိုင်း အိပ်ရာမဝင်ခင် 3 မိနစ် review လုပ်ပါ
+
+အချိန်တစ်ခုနဲ့ habit ကို ချိတ်ထားတာက သတိရလွယ်စေနိုင်ပါတယ်
+`,
+      relationship:`
+မိသားစုနဲ့ အချိန်ပေးချင်ရင် ညစာစားချိန်ကို phone-free time အဖြစ် သတ်မှတ်နိုင်ပါတယ်
+
+Environment နဲ့ routine ကို ပြောင်းတာက relationship habit ကို ထောက်ပံ့နိုင်ပါတယ်
+`,
+      action:`
+ကိုယ်တည်ဆောက်ချင်တဲ့ habit တစ်ခုရွေးပါ
+
+အဲဒီ habit ကို ဘာက trigger လုပ်မလဲ သတ်မှတ်ပါ
+
+ပြီးရင် လုပ်ရတာလွယ်အောင် ပြင်ဆင်ပါ
+
+နောက်ဆုံးမှာ လုပ်ပြီးတဲ့အခါ progress ကို မြင်နိုင်အောင် မှတ်တမ်းတင်ပါ
+`,
+      key:"Habit ကို ပြောင်းချင်ရင် action တစ်ခုတည်းကို မကြည့်ဘဲ အဲဒီ action ကို ဖြစ်ပေါ်စေတဲ့ system တစ်ခုလုံးကို ကြည့်ပါ"
+    },
+
+    {
+      title:"Make It Obvious",
+      overview:"လုပ်ချင်တဲ့ habit ကို မမေ့အောင် trigger တွေကို မြင်သာစွာဖန်တီးခြင်း",
+      concept:"မြင်သာတဲ့ signal တွေက habit အသစ်တစ်ခုကို စတင်ဖို့ သတိပေးနိုင်ပါတယ်",
+      detail:`
+Habit အသစ်တစ်ခုကို စတင်တဲ့အခါ “မှတ်ထားမယ်” လို့ပဲ မယုံကြည်သင့်ပါဘူး
+
+ပတ်ဝန်းကျင်ထဲမှာ trigger တစ်ခု ထည့်ထားတာက ပိုအသုံးဝင်နိုင်ပါတယ်
+
+စာဖတ်ချင်ရင် စာအုပ်ကို စားပွဲပေါ်ထားပါ
+
+မနက် exercise လုပ်ချင်ရင် အားကစားအဝတ်ကို ညကတည်းက ပြင်ထားပါ
+
+ရေသောက်ချင်ရင် ရေဘူးကို အမြဲမြင်ရတဲ့နေရာမှာထားပါ
+
+အဓိကက ကိုယ်လုပ်ချင်တဲ့အရာကို မျက်စိရှေ့မှာရှိနေအောင် environment ကို ဒီဇိုင်းလုပ်ခြင်းပါ
+`,
+      life:"စာဖတ်ဖို့ စာအုပ်ကို အိပ်ရာဘေးမှာထားပြီး ဖုန်းကို အခြားနေရာမှာထားပါ",
+      business:"နေ့စဉ် KPI review လုပ်ဖို့ dashboard ကို အလုပ်စတင်တဲ့နေရာမှာ အလွယ်တကူဖွင့်နိုင်အောင်ထားပါ",
+      career:"နေ့တိုင်းလေ့လာမယ့် lesson ကို calendar မှာ ကြိုတင်ထည့်ထားပါ",
+      money:"အသုံးစရိတ်မှတ်ဖို့ app သို့မဟုတ် note ကို phone home screen မှာထားပါ",
+      relationship:"မိသားစုအချိန်ကို calendar ထဲမှာ ကြိုတင်သတ်မှတ်ထားပါ",
+      action:"ဒီနေ့ ကိုယ်တည်ဆောက်ချင်တဲ့ habit တစ်ခုအတွက် trigger တစ်ခုကို မျက်စိရှေ့မှာ ထားပါ",
+      key:"Willpower ကိုပဲ မယုံကြည်ဘဲ ပတ်ဝန်းကျင်ကို ကိုယ့်အကျိုးအတွက် ဒီဇိုင်းလုပ်ပါ"
+    },
+
+    {
+      title:"Make It Attractive",
+      overview:"Habit ကို လုပ်ချင်စိတ်ပိုလာအောင် ဆွဲဆောင်မှုရှိစွာ တည်ဆောက်ခြင်း",
+      concept:"လုပ်ချင်တဲ့အရာကို ကိုယ်နှစ်သက်တဲ့အရာနဲ့ ချိတ်ဆက်ထားနိုင်ရင် စတင်ဖို့ ပိုလွယ်လာနိုင်ပါတယ်",
+      detail:`
+Habit တစ်ခုဟာ အကျိုးရှိတယ်ဆိုတာ သိရုံနဲ့ အမြဲလုပ်ဖြစ်မှာမဟုတ်ပါဘူး
+
+လုပ်ချင်စိတ်လည်း လိုပါတယ်
+
+ဒါကြောင့် မဖြစ်မနေလိုက်နာရမယ့်အရာအဖြစ်သာ မမြင်ဘဲ ကိုယ်နှစ်သက်တဲ့အရာနဲ့ ချိတ်ဆက်နိုင်ပါတယ်
+
+ဥပမာ လမ်းလျှောက်ရင်း podcast နားထောင်ခြင်း
+
+စာဖတ်ပြီးရင် ကြိုက်တဲ့ coffee သောက်ခြင်း
+
+လေ့လာပြီးရင် tracker မှာ progress မြင်ရခြင်း
+
+ဒီလို positive association တွေက habit ကို ပိုစိတ်ဝင်စားစရာ ဖြစ်စေနိုင်ပါတယ်
+`,
+      life:"လမ်းလျှောက်ချိန်မှာ ကိုယ်ကြိုက်တဲ့ podcast နားထောင်ပြီး exercise habit ကို ပိုဆွဲဆောင်မှုရှိအောင်လုပ်နိုင်ပါတယ်",
+      business:"Staff training ကို lecture တစ်ခုတည်းမဟုတ်ဘဲ case discussion နဲ့ challenge ပုံစံထည့်ပြီး စိတ်ဝင်စားစရာဖြစ်အောင်လုပ်နိုင်ပါတယ်",
+      career:"Learning session ကို ကိုယ်စိတ်ဝင်စားတဲ့ topic နဲ့ စတင်ပြီး difficult topic ကို နောက်ပိုင်းဆက်သွားနိုင်ပါတယ်",
+      money:"ငွေစုတာကို restriction လို့မမြင်ဘဲ ရည်မှန်းချက်တစ်ခုရဖို့ progress tracking အဖြစ်မြင်နိုင်ပါတယ်",
+      relationship:"မိသားစုအတွက် အတူလုပ်ရတာကိုယ်ကြိုက်တဲ့ activity တစ်ခုကို ပုံမှန် routine အဖြစ်လုပ်နိုင်ပါတယ်",
+      action:"ကိုယ်တည်ဆောက်ချင်တဲ့ habit တစ်ခုနဲ့ ကိုယ်နှစ်သက်တဲ့ activity တစ်ခုကို ချိတ်ပါ",
+      key:"ကောင်းတဲ့ habit ကို လုပ်ရမယ့်တာဝန်တစ်ခုအဖြစ်ပဲ မမြင်ဘဲ လုပ်ချင်စရာဖြစ်အောင် ဒီဇိုင်းလုပ်ပါ"
+    },
+
+    {
+      title:"Make It Easy",
+      overview:"Habit ကို စတင်ဖို့နဲ့ ထပ်ခါထပ်ခါလုပ်ဖို့ friction လျှော့ချခြင်း",
+      concept:"လုပ်ရတာလွယ်လေ ပုံမှန်လုပ်ဖြစ်ဖို့ အခွင့်အရေးပိုများလာနိုင်ပါတယ်",
+      detail:`
+လူတွေက တစ်ခါတလေ habit မလုပ်နိုင်တာကို motivation မရှိလို့လို့ ထင်တတ်ပါတယ်
+
+တကယ်တော့ လုပ်ရတာခက်ခဲလွန်းတာလည်း အကြောင်းရင်းတစ်ခု ဖြစ်နိုင်ပါတယ်
+
+စာဖတ်ဖို့ စာအုပ်ရှာရတယ်
+
+Exercise လုပ်ဖို့ ပစ္စည်းတွေရှာရတယ်
+
+Learning လုပ်ဖို့ setup အများကြီးပြင်ရတယ်
+
+ဒီလို friction တွေများလာရင် စတင်ဖို့ခက်လာနိုင်ပါတယ်
+
+ဒါကြောင့် ကိုယ်လုပ်ချင်တဲ့ habit အတွက် အဆင့်တွေကို လျှော့ချပါ
+`,
+      life:"ညအိပ်ခါနီး စာအုပ်ကို အိပ်ရာဘေးမှာထားထားရင် မနက်စာဖတ်ဖို့ ပိုလွယ်နိုင်ပါတယ်",
+      business:"နေ့စဉ် report ရေးဖို့ form တစ်ခုကို standard template အဖြစ်ပြင်ထားရင် reporting time လျှော့နိုင်ပါတယ်",
+      career:"နေ့စဉ်လေ့လာမယ့် resources တွေကို folder တစ်ခုထဲ စုထားပါ",
+      money:"အသုံးစရိတ်မှတ်ဖို့ spreadsheet ကို အဆင်သင့် template လုပ်ထားပါ",
+      relationship:"မိသားစုနဲ့ဆက်သွယ်ဖို့ သတ်မှတ်ထားတဲ့နေ့မှာ reminder ထားပါ",
+      action:"ကိုယ်လုပ်ချင်တဲ့ habit ရဲ့ အဆင့်တစ်ဆင့်ကို ဒီနေ့ ဖယ်ရှားပါ",
+      key:"Habit ကို ပိုမိုလွယ်ကူအောင်လုပ်ခြင်းက consistency ကို ထောက်ပံ့ပေးနိုင်ပါတယ်"
+    },
+
+    {
+      title:"Make It Satisfying",
+      overview:"လုပ်ပြီးတဲ့အခါ progress ကို ခံစားနိုင်အောင် feedback တည်ဆောက်ခြင်း",
+      concept:"ချက်ချင်းမြင်ရတဲ့ progress နဲ့ satisfaction က habit ကို ဆက်လုပ်ဖို့ အားပေးနိုင်ပါတယ်",
+      detail:`
+လူတွေဟာ ရေရှည်အကျိုးအတွက် လုပ်နေရပေမယ့် ချက်ချင်းရတဲ့ feedback ကိုလည်း အာရုံစိုက်တတ်ပါတယ်
+
+ဒါကြောင့် habit တစ်ခုမှာ progress ကို မြင်နိုင်အောင် ပြုလုပ်ပါ
+
+Calendar မှာ ✓ ခြစ်ခြင်း
+
+Habit tracker သုံးခြင်း
+
+နေ့စဉ်အမှတ်ပေးခြင်း
+
+ပြီးမြောက်တဲ့အရေအတွက်ကို ကြည့်ခြင်း
+
+ဒီလို feedback တွေက ကိုယ်လုပ်နေတာကို မြင်သာစေနိုင်ပါတယ်
+`,
+      life:"နေ့တိုင်းစာဖတ်ပြီး calendar မှာ ✓ ထည့်ပါ",
+      business:"Daily target နဲ့ actual ကို တစ်နေရာတည်းမှာ ပြပြီး progress ကို team မြင်နိုင်အောင်လုပ်ပါ",
+      career:"Learning hours ကို အပတ်စဉ်မှတ်တမ်းတင်ပြီး ကိုယ့်တိုးတက်မှုကို ပြန်ကြည့်ပါ",
+      money:"စုဆောင်းငွေကို chart တစ်ခုနဲ့ ပြပြီး target နဲ့ actual ကို နှိုင်းယှဉ်ပါ",
+      relationship:"မိသားစုအတွက် quality time ရတဲ့နေ့တွေကို calendar မှာ မှတ်ထားနိုင်ပါတယ်",
+      action:"ဒီနေ့လုပ်တဲ့ habit အတွက် visible tracker တစ်ခုစတင်ပါ",
+      key:"လုပ်ပြီးတဲ့အရာကို မြင်နိုင်ရင် ဆက်လုပ်ဖို့ motivation ပိုရနိုင်ပါတယ်"
+    },
+
+    {
+      title:"Environment Design",
+      overview:"Willpower တစ်ခုတည်းအပေါ်မမှီခိုဘဲ ပတ်ဝန်းကျင်ကို ပြောင်းလဲခြင်း",
+      concept:"ကိုယ့်ပတ်ဝန်းကျင်မှာ ဘာတွေရှိနေသလဲဆိုတာက ကိုယ့်ရဲ့အပြုအမူကို သက်ရောက်စေနိုင်ပါတယ်",
+      detail:`
+တစ်ချို့အချိန်တွေမှာ ကိုယ့်ကိုယ်ကို ထိန်းချုပ်ဖို့ကြိုးစားတာထက် ပတ်ဝန်းကျင်ကို ပြောင်းတာက ပိုလွယ်ပါတယ်
+
+ဖုန်းကို အလုပ်စားပွဲပေါ်မှာထားရင် notification တစ်ခုချင်းစီက အာရုံကို ဆွဲနိုင်ပါတယ်
+
+ဖုန်းကို အခြားနေရာမှာထားရင် အဲဒီအာရုံပျက်စရာကို လျှော့နိုင်ပါတယ်
+
+အလားတူ စာအုပ်ကို မြင်သာတဲ့နေရာမှာထားရင် စာဖတ်ဖို့ သတိရနိုင်ပါတယ်
+`,
+      life:"အိပ်ရာဘေးမှာ phone အစား စာအုပ်ထားပါ",
+      business:"အလုပ်စတင်တဲ့အချိန်မှာ distraction မဖြစ်အောင် notification များကိုပိတ်ထားပါ",
+      career:"Learning workspace ကို သီးသန့်ထားပါ",
+      money:"Impulse buying ဖြစ်စေတဲ့ shopping notification တွေကို လျှော့ပါ",
+      relationship:"အတူရှိချိန်မှာ phone-free zone သတ်မှတ်နိုင်ပါတယ်",
+      action:"ကောင်းတဲ့ habit ကို လွယ်စေမယ့် environment တစ်ခု ပြောင်းပါ",
+      key:"ကိုယ့်ကိုယ်ကို အမြဲတမ်းတိုက်ခိုက်နေရတာထက် ပတ်ဝန်းကျင်ကို ပြောင်းပြီး မှန်ကန်တဲ့အပြုအမူကို လွယ်အောင်လုပ်ပါ"
+    },
+
+    {
+      title:"မကောင်းတဲ့ Habit တွေကို ဖြတ်တောက်ခြင်း",
+      overview:"မလိုချင်တဲ့အလေ့အကျင့်တွေကို trigger နဲ့ environment ပြောင်းလဲပြီး အားနည်းစေခြင်း",
+      concept:"Bad habit ကို ဖျက်ဖို့ အပြုအမူတစ်ခုတည်းကို အတင်းရပ်ဖို့ထက် trigger နဲ့ friction ကို ပြောင်းနိုင်ပါတယ်",
+      detail:`
+မကောင်းတဲ့ habit တစ်ခုကို ပြောင်းချင်တဲ့အခါ “မလုပ်တော့ဘူး” လို့ပြောရုံနဲ့ အမြဲတမ်းအောင်မြင်မယ်လို့ မဆိုနိုင်ပါဘူး
+
+ဘာကြောင့် အဲဒီအရာကို လုပ်ဖြစ်နေတာလဲဆိုတာ သိဖို့လိုပါတယ်
+
+အချိန်တစ်ခုမှာ ဖြစ်သလား
+
+နေရာတစ်ခုမှာ ဖြစ်သလား
+
+လူတစ်ယောက်နဲ့ရှိချိန်မှာ ဖြစ်သလား
+
+စိတ်ဖိစီးနေချိန်မှာ ဖြစ်သလား
+
+Trigger ကို သိလာရင် environment ကို ပြောင်းနိုင်ပါတယ်
+`,
+      life:"ညအိပ်ခါနီး phone အလွန်သုံးနေတယ်ဆိုရင် phone ကို အိပ်ရာနားမှာမထားဘဲ အခြားနေရာမှာ charge လုပ်နိုင်ပါတယ်",
+      business:"Meeting မလိုအပ်ဘဲဖြစ်နေတယ်ဆိုရင် meeting မစခင် agenda လိုအပ်မလိုအပ် စစ်တဲ့ rule ထည့်နိုင်ပါတယ်",
+      career:"အလုပ်လုပ်နေချိန် social media ဖွင့်တတ်ရင် work session အတွင်း website blocker သုံးနိုင်ပါတယ်",
+      money:"Impulse purchase ဖြစ်စေတဲ့ shopping app notification တွေကို ပိတ်နိုင်ပါတယ်",
+      relationship:"စိတ်တိုတဲ့အချိန် ချက်ချင်းပြန်ပြောတတ်ရင် အရင် 5 minutes break ယူတဲ့ rule ထားနိုင်ပါတယ်",
+      action:"မကောင်းတဲ့ habit တစ်ခုရွေးပြီး trigger တစ်ခုကို ဖော်ထုတ်ပါ",
+      key:"Bad habit ကို ဖျက်ဖို့ willpower တစ်ခုတည်းမဟုတ်ဘဲ trigger နဲ့ environment ကို ပြောင်းပါ"
+    },
+
+    {
+      title:"ရေရှည်တိုးတက်မှု",
+      overview:"Habit ကို တည်ဆောက်ပြီးနောက် ဆက်လက်တိုင်းတာ၊ ပြင်ဆင်ပြီး တိုးတက်အောင်လုပ်ခြင်း",
+      concept:"Habit system တစ်ခုဟာ တစ်ကြိမ်တည်ဆောက်ပြီး အမြဲတမ်းအတူတူထားရတာမဟုတ်ဘဲ ကိုယ့်အခြေအနေနဲ့အညီ ပြန်ပြင်နိုင်ပါတယ်",
+      detail:`
+Habit တစ်ခုတည်ဆောက်ပြီးပြီဆိုရင် အဲဒီအတိုင်းပဲ အမြဲလုပ်နေဖို့မလိုပါဘူး
+
+ကိုယ့်ဘဝအခြေအနေ ပြောင်းနိုင်ပါတယ်
+
+အလုပ်အချိန်ပြောင်းနိုင်ပါတယ်
+
+ကျန်းမာရေးအခြေအနေပြောင်းနိုင်ပါတယ်
+
+ရည်မှန်းချက်ပြောင်းနိုင်ပါတယ်
+
+ဒါကြောင့် system ကို ပုံမှန်ပြန်သုံးသပ်ဖို့လိုပါတယ်
+
+ဘာအလုပ်ဖြစ်လဲ
+
+ဘာအလုပ်မဖြစ်လဲ
+
+ဘယ်နေရာမှာ friction ရှိလဲ
+
+ဘာကိုပိုလွယ်အောင်လုပ်နိုင်လဲ
+
+ဒီမေးခွန်းတွေကို ပြန်ကြည့်ပါ
+`,
+      life:"တစ်လတစ်ကြိမ် ကိုယ့် habit တွေကို ပြန်စစ်ပြီး ဆက်ထားမယ့် habit၊ ပြင်မယ့် habit၊ ဖျက်မယ့် habit ခွဲပါ",
+      business:"Monthly review မှာ process တစ်ခုချင်းစီရဲ့ result ကို ကြည့်ပြီး system ကို update လုပ်ပါ",
+      career:"သင်ယူမှု plan ကို quarter တစ်ကြိမ် ပြန်သုံးသပ်ပါ",
+      money:"လစဉ် budget ကို actual spending နဲ့ ပြန်နှိုင်းယှဉ်ပြီး ပြင်ပါ",
+      relationship:"မိသားစုအချိန်နဲ့ communication routine ကို အခြေအနေအလိုက် ပြန်ညှိပါ",
+      action:"ဒီလအတွင်း ကိုယ့် habit system ကို တစ်ကြိမ် review လုပ်ပါ",
+      key:"Consistency ဆိုတာ အမြဲတမ်းတစ်ပုံစံတည်းလုပ်ခြင်းမဟုတ်ဘဲ လိုအပ်တဲ့အခါ system ကို ပြန်ပြင်ပြီး ဆက်လက်တိုးတက်နိုင်ခြင်းပါ"
+    }
+
+  ]
+},
+
+/* ============================================================
+   OTHER BOOKS
+   ============================================================ */
+
+{
+ id:2,
+ title:"The Psychology of Money",
+ author:"Morgan Housel",
+ category:"Money",
+ time:"20+ min",
+ description:"ငွေကြေးနဲ့ လူ့အပြုအမူကြားက ဆက်နွယ်မှုကို နားလည်ခြင်း",
+ chapters:[
+  {title:"Money နဲ့ Behavior",overview:"ငွေကြေးဆုံးဖြတ်ချက်တွေဟာ သင်္ချာတင်မဟုတ်ဘဲ လူ့အတွေ့အကြုံနဲ့ အပြုအမူပေါ် မူတည်နိုင်ပုံ"},
+  {title:"Luck & Risk",overview:"အောင်မြင်မှုနဲ့ ဆုံးရှုံးမှုတွေမှာ ကံကောင်းခြင်းနဲ့ အန္တရာယ်ရဲ့ အခန်းကဏ္ဍ"},
+  {title:"Enough",overview:"ပိုရဖို့အတွက် အမြဲတမ်းအန္တရာယ်ပိုယူခြင်းကို ပြန်စဉ်းစားခြင်း"},
+  {title:"Compounding",overview:"အချိန်က ငွေကြေးတိုးတက်မှုအတွက် အရေးကြီးတဲ့အချက်ဖြစ်ပုံ"},
+  {title:"Getting Wealthy",overview:"ဝင်ငွေရခြင်းနဲ့ wealth တည်ဆောက်ခြင်းရဲ့ ကွာခြားချက်"},
+  {title:"Keeping Wealth",overview:"ရရှိထားတဲ့ wealth ကို ထိန်းသိမ်းဖို့ resilience နဲ့ margin of safety"},
+  {title:"Freedom",overview:"ငွေရဲ့တန်ဖိုးကို ကိုယ်ပိုင်အချိန်နဲ့ ရွေးချယ်ခွင့်အဖြစ် ကြည့်ခြင်း"},
+  {title:"Room for Error",overview:"မမျှော်လင့်ထားတဲ့အခြေအနေတွေအတွက် buffer ထားခြင်း"},
+  {title:"Long-Term Thinking",overview:"ရေရှည်အမြင်နဲ့ ဆုံးဖြတ်ချက်ချခြင်း"},
+  {title:"Personal Money Philosophy",overview:"ကိုယ့်အခြေအနေနဲ့ ကိုက်ညီတဲ့ ငွေကြေးစနစ်တည်ဆောက်ခြင်း"}
+ ]
+},
+
+{
+ id:3,
+ title:"Deep Work",
+ author:"Cal Newport",
+ category:"Productivity",
+ time:"20+ min",
+ description:"အာရုံစူးစိုက်ပြီး အရေးကြီးတဲ့အလုပ်တွေကို နက်နက်ရှိုင်းရှိုင်းလုပ်နည်း",
+ chapters:[
+  {title:"Deep Work ရဲ့တန်ဖိုး",overview:"အာရုံစူးစိုက်နိုင်စွမ်းက knowledge work မှာ ဘာကြောင့်အရေးကြီးသလဲ"},
+  {title:"Distraction ရဲ့ကုန်ကျစရိတ်",overview:"အာရုံပျက်ခြင်းက အလုပ်အရည်အသွေးနဲ့ အချိန်ကို သက်ရောက်စေနိုင်ပုံ"},
+  {title:"Work Deeply",overview:"Deep work session ကို စနစ်တကျတည်ဆောက်ခြင်း"},
+  {title:"Ritual",overview:"အလုပ်စတင်ဖို့ ကြိုတင်သတ်မှတ်ထားတဲ့ routine"},
+  {title:"Shutdown Routine",overview:"အလုပ်ပြီးတဲ့အခါ စိတ်ကိုအလုပ်ကနေ ခွဲထုတ်ခြင်း"},
+  {title:"Digital Minimalism",overview:"Digital tools တွေကို ရည်ရွယ်ချက်ရှိရှိအသုံးပြုခြင်း"},
+  {title:"Attention Training",overview:"အာရုံစူးစိုက်နိုင်စွမ်းကို လေ့ကျင့်ခြင်း"},
+  {title:"Busy Culture",overview:"အလုပ်များနေခြင်းနဲ့ တကယ်တန်ဖိုးရှိတဲ့အလုပ်ကြားက ကွာခြားချက်"},
+  {title:"High-Value Output",overview:"အရေးကြီးတဲ့ output ကို ဦးစားပေးခြင်း"},
+  {title:"Deep Work System",overview:"နေ့စဉ်နဲ့ အပတ်စဉ်အလုပ်စနစ်တည်ဆောက်ခြင်း"}
+ ]
+},
+
+{
+ id:4,
+ title:"The 7 Habits of Highly Effective People",
+ author:"Stephen R. Covey",
+ category:"Leadership",
+ time:"20+ min",
+ description:"ကိုယ်ပိုင်ထိရောက်မှုနဲ့ လူမှုဆက်ဆံရေးအတွက် အခြေခံအလေ့အကျင့်များ",
+ chapters:[
+  {title:"Be Proactive",overview:"ကိုယ့်ရဲ့တုံ့ပြန်မှုနဲ့ ရွေးချယ်မှုကို တာဝန်ယူခြင်း"},
+  {title:"Begin With the End",overview:"လိုချင်တဲ့ဘဝရလဒ်ကို အရင်သတ်မှတ်ခြင်း"},
+  {title:"Put First Things First",overview:"အရေးကြီးတာကို အရေးပေါ်အရာထက် ဦးစားပေးခြင်း"},
+  {title:"Think Win-Win",overview:"နှစ်ဖက်စလုံးအတွက် တန်ဖိုးရှိတဲ့ဖြေရှင်းချက်ရှာခြင်း"},
+  {title:"Seek First to Understand",overview:"နားလည်ဖို့အရင်နားထောင်ခြင်း"},
+  {title:"Synergy",overview:"ကွဲပြားတဲ့အမြင်တွေကို ပေါင်းစပ်အသုံးချခြင်း"},
+  {title:"Renewal",overview:"ကိုယ့်ကိုယ်ကို ရေရှည်ပြန်လည်အားဖြည့်ခြင်း"},
+  {title:"Principles",overview:"ဆုံးဖြတ်ချက်တွေကို တန်ဖိုးနဲ့ principle ပေါ်အခြေခံခြင်း"},
+  {title:"Personal Effectiveness",overview:"ကိုယ်ပိုင် system ကို တည်ဆောက်ခြင်း"},
+  {title:"Leadership Application",overview:"အယူအဆတွေကို နေ့စဉ်ဘဝနဲ့ အလုပ်မှာ အသုံးချခြင်း"}
+ ]
+},
+
+{
+ id:5,
+ title:"Start With Why",
+ author:"Simon Sinek",
+ category:"Leadership",
+ time:"20+ min",
+ description:"လူတွေဘာကြောင့် ကိုယ့်ရဲ့အလုပ်ကို ယုံကြည်ပြီး လိုက်ပါလာသလဲဆိုတာ နားလည်ခြင်း",
+ chapters:[
+  {title:"Why",overview:"လုပ်ရပ်ရဲ့နောက်က ရည်ရွယ်ချက်"},
+  {title:"How",overview:"တန်ဖိုးကို ဖန်တီးတဲ့နည်းလမ်း"},
+  {title:"What",overview:"ဖောက်သည်မြင်တွေ့ရတဲ့ product နဲ့ service"},
+  {title:"Trust",overview:"ရည်ရွယ်ချက်နဲ့ လုပ်ရပ်ကိုက်ညီမှု"},
+  {title:"Communication",overview:"Message ကို meaning နဲ့ချိတ်ဆက်ခြင်း"},
+  {title:"Leadership",overview:"လူတွေကို direction တစ်ခုတည်းမှာ စုစည်းခြင်း"},
+  {title:"Culture",overview:"Shared belief က organization ကို သက်ရောက်စေပုံ"},
+  {title:"Decision Making",overview:"Why ကိုအခြေခံပြီး ရွေးချယ်ခြင်း"},
+  {title:"Customer Loyalty",overview:"Product ထက် belief နဲ့ဆက်သွယ်ခြင်း"},
+  {title:"Personal Why",overview:"ကိုယ့် career နဲ့ဘဝအတွက် purpose ရှာခြင်း"}
+ ]
+},
+
+{
+ id:6,
+ title:"The ONE Thing",
+ author:"Gary Keller",
+ category:"Productivity",
+ time:"20+ min",
+ description:"အရေးကြီးဆုံးအရာတစ်ခုကို ရှာဖွေပြီး အာရုံစူးစိုက်ခြင်း",
+ chapters:[
+  {title:"The Focusing Question",overview:"အရေးကြီးဆုံးအရာကို မေးမြန်းခြင်း"},
+  {title:"Priority",overview:"အလုပ်များစွာထဲက အဓိကအရာကို ရွေးခြင်း"},
+  {title:"Multitasking Myth",overview:"အလုပ်များစွာကို တစ်ပြိုင်နက်လုပ်ခြင်းရဲ့ အကန့်အသတ်"},
+  {title:"Time Blocking",overview:"အရေးကြီးတဲ့အလုပ်အတွက် အချိန်ကို ကြိုတင်ကာကွယ်ခြင်း"},
+  {title:"Goal Setting",overview:"ရေရှည် goal ကို နေ့စဉ် action နဲ့ ချိတ်ခြင်း"},
+  {title:"Habit",overview:"အရေးကြီးတဲ့အလုပ်ကို routine ဖြစ်အောင်လုပ်ခြင်း"},
+  {title:"Energy",overview:"အာရုံနဲ့ စွမ်းအင်ကို ဦးစားပေးခြင်း"},
+  {title:"Distraction",overview:"အရေးမကြီးတဲ့အရာတွေကို ဖယ်ရှားခြင်း"},
+  {title:"Consistency",overview:"အဓိကအရာကို ထပ်ခါထပ်ခါလုပ်ခြင်း"},
+  {title:"Personal System",overview:"ကိုယ့်ရဲ့ ONE Thing system တည်ဆောက်ခြင်း"}
+ ]
+},
+
+{
+ id:7,
+ title:"Essentialism",
+ author:"Greg McKeown",
+ category:"Productivity",
+ time:"20+ min",
+ description:"အရေးကြီးဆုံးအရာတွေကိုသာ ရွေးချယ်ပြီး မလိုအပ်တာတွေကို ဖယ်ရှားခြင်း",
+ chapters:[
+  {title:"Less But Better",overview:"အများကြီးလုပ်ခြင်းထက် အရေးကြီးတာကိုရွေးခြင်း"},
+  {title:"Choice",overview:"ကိုယ်တိုင်ရွေးချယ်နိုင်တဲ့စွမ်းအား"},
+  {title:"Discern",overview:"အရေးကြီးတာနဲ့ မအရေးကြီးတာ ခွဲခြားခြင်း"},
+  {title:"Trade-Offs",overview:"ရွေးချယ်မှုတိုင်းမှာ အခြားအရာတစ်ခုကို စွန့်လွှတ်ရပုံ"},
+  {title:"Boundaries",overview:"ကိုယ့်အချိန်နဲ့အာရုံကို ကာကွယ်ခြင်း"},
+  {title:"Eliminate",overview:"မလိုအပ်တဲ့တာဝန်တွေ ဖယ်ရှားခြင်း"},
+  {title:"Buffer",overview:"မမျှော်လင့်ထားတဲ့အရာတွေအတွက် အချိန်ချန်ထားခြင်း"},
+  {title:"Execution",overview:"အရေးကြီးတဲ့အလုပ်ကို လွယ်ကူအောင်လုပ်ခြင်း"},
+  {title:"Routine",overview:"Essential routine တည်ဆောက်ခြင်း"},
+  {title:"Essential Life",overview:"ရိုးရှင်းပြီး တန်ဖိုးရှိတဲ့ဘဝတည်ဆောက်ခြင်း"}
+ ]
+},
+
+{
+ id:8,
+ title:"Mindset",
+ author:"Carol S. Dweck",
+ category:"Personal Growth",
+ time:"20+ min",
+ description:"ကိုယ့်ရဲ့စွမ်းရည်နဲ့ တိုးတက်နိုင်စွမ်းအပေါ်ထားတဲ့ အမြင်",
+ chapters:[
+  {title:"Fixed vs Growth",overview:"စွမ်းရည်ကို တည်ငြိမ်တယ်လို့မြင်ခြင်းနဲ့ တိုးတက်နိုင်တယ်လို့မြင်ခြင်း"},
+  {title:"Failure",overview:"အမှားကို identity မဟုတ်ဘဲ feedback အဖြစ်မြင်ခြင်း"},
+  {title:"Effort",overview:"ကြိုးစားမှုရဲ့ အခန်းကဏ္ဍ"},
+  {title:"Learning",overview:"မသိသေးတာကို လေ့လာနိုင်တဲ့အခွင့်အရေးအဖြစ်မြင်ခြင်း"},
+  {title:"Feedback",overview:"ဝေဖန်ချက်ကို တိုးတက်မှုအတွက်အသုံးချခြင်း"},
+  {title:"Leadership Mindset",overview:"Team ရဲ့စွမ်းရည်ကို တိုးတက်အောင်ကူညီခြင်း"},
+  {title:"Relationships",overview:"ဆက်ဆံရေးထဲမှာ growth mindset အသုံးချခြင်း"},
+  {title:"Challenge",overview:"ခက်ခဲမှုကို လေ့လာစရာအဖြစ်မြင်ခြင်း"},
+  {title:"Persistence",overview:"အခက်အခဲတွေကြားမှာ ဆက်လက်လုပ်ဆောင်ခြင်း"},
+  {title:"Growth System",overview:"နေ့စဉ်တိုးတက်မှုအတွက် system တည်ဆောက်ခြင်း"}
+ ]
+},
+
+{
+ id:9,
+ title:"How to Win Friends and Influence People",
+ author:"Dale Carnegie",
+ category:"Communication",
+ time:"20+ min",
+ description:"လူတွေနဲ့ ဆက်ဆံရေးကောင်းတည်ဆောက်ပြီး ဆက်သွယ်ပြောဆိုနည်း",
+ chapters:[
+  {title:"Criticism",overview:"ဝေဖန်ခြင်းရဲ့ သက်ရောက်မှု"},
+  {title:"Appreciation",overview:"ရိုးသားတဲ့အသိအမှတ်ပြုမှု"},
+  {title:"Interest in Others",overview:"အခြားသူကို စိတ်ဝင်စားပြီး နားထောင်ခြင်း"},
+  {title:"Listening",overview:"စကားပြောတာထက် နားထောင်ခြင်း"},
+  {title:"Names",overview:"လူတစ်ယောက်ရဲ့အမည်ကို မှတ်သားခြင်း"},
+  {title:"Disagreement",overview:"မတူညီတဲ့အမြင်ကို လေးစားခြင်း"},
+  {title:"Influence",overview:"အတင်းအကျပ်မဟုတ်ဘဲ အခြားသူကို ပါဝင်လာစေခြင်း"},
+  {title:"Leadership",overview:"အမှားပြင်ပေးရာမှာ လူကိုမထိခိုက်စေခြင်း"},
+  {title:"Conflict",overview:"ပဋိပက္ခကို ဆက်ဆံရေးမပျက်ဘဲ ဖြေရှင်းခြင်း"},
+  {title:"Daily Communication",overview:"နေ့စဉ်ဆက်သွယ်ရေးမှာ အသုံးချခြင်း"}
+ ]
+},
+
+{
+ id:10,
+ title:"The Lean Startup",
+ author:"Eric Ries",
+ category:"Business",
+ time:"20+ min",
+ description:"မသေချာမှုများတဲ့ business environment မှာ လျင်မြန်စွာစမ်းသပ်ပြီး သင်ယူခြင်း",
+ chapters:[
+  {title:"Entrepreneurial Thinking",overview:"Startup ကို experiment အဖြစ်မြင်ခြင်း"},
+  {title:"Validated Learning",overview:"ယူဆချက်ထက် data နဲ့ သင်ယူခြင်း"},
+  {title:"MVP",overview:"အနည်းဆုံးစမ်းသပ်နိုင်တဲ့ product တည်ဆောက်ခြင်း"},
+  {title:"Build Measure Learn",overview:"တည်ဆောက်၊ တိုင်းတာ၊ သင်ယူ cycle"},
+  {title:"Metrics",overview:"တကယ်အသုံးဝင်တဲ့ metric ကို ရွေးခြင်း"},
+  {title:"Pivot",overview:"အယူအဆမမှန်တဲ့အခါ လမ်းကြောင်းပြောင်းခြင်း"},
+  {title:"Experiment",overview:"စမ်းသပ်မှုကို စနစ်တကျလုပ်ခြင်း"},
+  {title:"Customer Feedback",overview:"ဖောက်သည် feedback ကို အသုံးချခြင်း"},
+  {title:"Growth",overview:"တိုးတက်မှုကို စမ်းသပ်ပြီး တည်ဆောက်ခြင်း"},
+  {title:"SME Application",overview:"သေးငယ်တဲ့လုပ်ငန်းမှာ Lean principles အသုံးချခြင်း"}
+ ]
+},
+
+{
+ id:11,
+ title:"The 48 Laws of Power",
+ author:"Robert Greene",
+ category:"Strategy",
+ time:"20+ min",
+ description:"Power dynamics နဲ့ လူမှုဆက်ဆံရေးထဲက influence patterns တွေကို နားလည်ခြင်း",
+ chapters:[
+  {title:"Power Dynamics",overview:"အဖွဲ့အစည်းနဲ့ လူမှုဆက်ဆံရေးထဲက အာဏာဆိုင်ရာ dynamics"},
+  {title:"Status & Ego",overview:"အခြားသူရဲ့ status နဲ့ ego ကို နားလည်ခြင်း"},
+  {title:"Intentions",overview:"ရည်ရွယ်ချက်နဲ့ လုပ်ဆောင်ချက်ကို ခွဲခြားကြည့်ခြင်း"},
+  {title:"Reputation",overview:"ယုံကြည်မှုနဲ့ reputation ရဲ့တန်ဖိုး"},
+  {title:"Attention",overview:"အာရုံစိုက်မှုရဲ့ အခန်းကဏ္ဍ"},
+  {title:"Influence",overview:"Influence ကို ethical perspective နဲ့ နားလည်ခြင်း"},
+  {title:"Timing",overview:"အချိန်ကိုက်ဆုံးဖြတ်ချက်ချခြင်း"},
+  {title:"Adaptation",overview:"အခြေအနေပြောင်းရင် နည်းလမ်းပြောင်းနိုင်ခြင်း"},
+  {title:"Observation",overview:"လူနဲ့အခြေအနေကို မျှတစွာလေ့လာခြင်း"},
+  {title:"Practical Awareness",overview:"နေ့စဉ်ဘဝမှာ power dynamics ကို သတိထားခြင်း"}
+ ]
+},
+
+{
+ id:12,
+ title:"The Power of Now",
+ author:"Eckhart Tolle",
+ category:"Personal Growth",
+ time:"20+ min",
+ description:"လက်ရှိအချိန်ကို သတိရှိစွာနေထိုင်ခြင်း",
+ chapters:[
+  {title:"Present Moment",overview:"လက်ရှိအချိန်ရဲ့တန်ဖိုး"},
+  {title:"Observing Thoughts",overview:"ကိုယ့်အတွေးကို ကိုယ်ပြန်သတိထားခြင်း"},
+  {title:"Ego",overview:"ကိုယ့်ကိုယ်ကို အတွေးတွေနဲ့ အလွန်အကျွံချိတ်ဆက်ခြင်း"},
+  {title:"Pain",overview:"အတွင်းစိတ်မသက်သာမှုကို သတိထားခြင်း"},
+  {title:"Acceptance",overview:"လက်ရှိအခြေအနေကို နားလည်ပြီး တုံ့ပြန်ခြင်း"},
+  {title:"Psychological Time",overview:"အတိတ်နဲ့အနာဂတ်အပေါ် အလွန်အကျွံနေခြင်း"},
+  {title:"Relationships",overview:"ဆက်ဆံရေးမှာ presence အသုံးချခြင်း"},
+  {title:"Body Awareness",overview:"ကိုယ်ခန္ဓာအာရုံခံစားမှုကို သတိထားခြင်း"},
+  {title:"Surrender",overview:"မပြောင်းလဲနိုင်တာကို လက်ခံပြီး လုပ်နိုင်တာကိုလုပ်ခြင်း"},
+  {title:"Daily Practice",overview:"နေ့စဉ်ဘဝမှာ presence လေ့ကျင့်ခြင်း"}
+ ]
+},
+
+{
+ id:13,
+ title:"Think and Grow Rich",
+ author:"Napoleon Hill",
+ category:"Money",
+ time:"20+ min",
+ description:"ရည်မှန်းချက်၊ ယုံကြည်မှု၊ စီမံကိန်းနဲ့ လုပ်ဆောင်ချက်ကို ချိတ်ဆက်ခြင်း",
+ chapters:[
+  {title:"Desire",overview:"ရှင်းလင်းတဲ့ရည်မှန်းချက်တည်ဆောက်ခြင်း"},
+  {title:"Faith",overview:"ကိုယ့်ရဲ့အလားအလာအပေါ် ယုံကြည်ခြင်း"},
+  {title:"Autosuggestion",overview:"ကိုယ့်အတွေးနဲ့ self-talk ကို စနစ်တကျအသုံးချခြင်း"},
+  {title:"Knowledge",overview:"လိုအပ်တဲ့ specialized knowledge ရှာဖွေခြင်း"},
+  {title:"Imagination",overview:"အကြံဉာဏ်နဲ့ ဖြစ်နိုင်ခြေတွေဖန်တီးခြင်း"},
+  {title:"Planning",overview:"ရည်မှန်းချက်ကို plan အဖြစ်ပြောင်းခြင်း"},
+  {title:"Persistence",overview:"အခက်အခဲကြားမှာ ဆက်လုပ်ခြင်း"},
+  {title:"Mastermind",overview:"အခြားသူတွေရဲ့ knowledge ကို ပေါင်းစပ်အသုံးချခြင်း"},
+  {title:"Decision",overview:"ဆုံးဖြတ်ချက်ချနိုင်စွမ်း"},
+  {title:"Action",overview:"အတွေးကို လက်တွေ့လုပ်ဆောင်ချက်အဖြစ်ပြောင်းခြင်း"}
+ ]
+},
+
+{
+ id:14,
+ title:"Rich Dad Poor Dad",
+ author:"Robert Kiyosaki",
+ category:"Money",
+ time:"20+ min",
+ description:"ငွေကြေးပညာနဲ့ asset, cash flow အမြင်ကို နားလည်ခြင်း",
+ chapters:[
+  {title:"Financial Education",overview:"ငွေကြေးကို နားလည်ဖို့လိုအပ်တဲ့အကြောင်း"},
+  {title:"Assets & Liabilities",overview:"ဝင်ငွေဖန်တီးနိုင်တဲ့အရာနဲ့ ကုန်ကျစေတဲ့အရာ ခွဲခြားခြင်း"},
+  {title:"Cash Flow",overview:"ငွေဝင်ငွေထွက်ကို နားလည်ခြင်း"},
+  {title:"Pay Yourself",overview:"စုဆောင်းခြင်းနဲ့ ငွေကြေးစည်းကမ်း"},
+  {title:"Work to Learn",overview:"အလုပ်ကနေ skill ရယူခြင်း"},
+  {title:"Business Thinking",overview:"ဝန်ထမ်းအမြင်ထက် လုပ်ငန်းစနစ်ကို နားလည်ခြင်း"},
+  {title:"Risk",overview:"အန္တရာယ်ကို နားလည်ပြီး ဆုံးဖြတ်ခြင်း"},
+  {title:"Opportunity",overview:"အခွင့်အရေးကို သုံးသပ်ခြင်း"},
+  {title:"Financial Intelligence",overview:"ငွေကြေးဆုံးဖြတ်ချက်အတွက် knowledge"},
+  {title:"Personal Plan",overview:"ကိုယ့်အခြေအနေနဲ့ကိုက်ညီတဲ့ money system တည်ဆောက်ခြင်း"}
+ ]
+},
+
+{
+ id:15,
+ title:"The Millionaire Fastlane",
+ author:"MJ DeMarco",
+ category:"Business",
+ time:"20+ min",
+ description:"Business ownership, control, scale နဲ့ value creation အမြင်",
+ chapters:[
+  {title:"Fastlane Mindset",overview:"အလုပ်နဲ့ wealth တည်ဆောက်မှုအပေါ် အမြင်"},
+  {title:"Control",overview:"ကိုယ့်ရဲ့အချိန်နဲ့ business system ကို ထိန်းချုပ်နိုင်ခြင်း"},
+  {title:"Scale",overview:"တစ်ယောက်ချင်းစီကိုသာ အားမကိုးဘဲ scale လုပ်နိုင်ခြင်း"},
+  {title:"Time",overview:"အချိန်ရဲ့တန်ဖိုး"},
+  {title:"Need",overview:"ဈေးကွက်ရဲ့လိုအပ်ချက်ကို ဖြေရှင်းခြင်း"},
+  {title:"Entry",overview:"ပြိုင်ဆိုင်မှုနဲ့ ဝင်ရောက်မှုအခက်အခဲ"},
+  {title:"Market",overview:"ဈေးကွက်အရွယ်အစားနဲ့ customer"},
+  {title:"Execution",overview:"Idea ထက် execution ရဲ့အရေးပါမှု"},
+  {title:"Wealth Equation",overview:"Value, scale နဲ့ system ကို ချိတ်ဆက်ခြင်း"},
+  {title:"Business Action",overview:"အယူအဆကို လက်တွေ့လုပ်ငန်းအဖြစ်ပြောင်းခြင်း"}
+ ]
+},
+
+{
+ id:16,
+ title:"Good to Great",
+ author:"Jim Collins",
+ category:"Business",
+ time:"20+ min",
+ description:"လုပ်ငန်းတစ်ခုက ကောင်းမွန်မှုကနေ ထူးချွန်မှုအထိ တိုးတက်လာစေတဲ့အခြေခံအယူအဆများ",
+ chapters:[
+  {title:"Level 5 Leadership",overview:"ကိုယ်ပိုင်အောင်မြင်မှုထက် organization ကို ဦးစားပေးတဲ့ leadership"},
+  {title:"First Who Then What",overview:"လူမှန်ကို အရင်ရွေးပြီး direction သတ်မှတ်ခြင်း"},
+  {title:"Brutal Facts",overview:"အခြေအနေမှန်ကို မရှောင်ဘဲ ရင်ဆိုင်ခြင်း"},
+  {title:"Hedgehog Concept",overview:"အဓိကအားသာချက်ကို ရှင်းလင်းစွာသတ်မှတ်ခြင်း"},
+  {title:"Culture of Discipline",overview:"စည်းကမ်းနဲ့ လွတ်လပ်မှုကို ချိန်ညှိခြင်း"},
+  {title:"Technology",overview:"Technology ကို accelerator အဖြစ်အသုံးချခြင်း"},
+  {title:"Flywheel",overview:"သေးငယ်တဲ့အားထုတ်မှုတွေ စုပေါင်းပြီး momentum ဖြစ်လာခြင်း"},
+  {title:"Momentum",overview:"တဖြည်းဖြည်းတိုးတက်မှုကို ဆက်လက်ထိန်းသိမ်းခြင်း"},
+  {title:"Stop Doing",overview:"မလိုအပ်တဲ့အရာတွေကို ရပ်တန့်ခြင်း"},
+  {title:"Management Application",overview:"အယူအဆတွေကို organization ထဲမှာ အသုံးချခြင်း"}
+ ]
+},
+
+{
+ id:17,
+ title:"Built to Last",
+ author:"Jim Collins & Jerry I. Porras",
+ category:"Business",
+ time:"20+ min",
+ description:"ရေရှည်တည်တံ့တဲ့ visionary company တည်ဆောက်မှုအပေါ် လေ့လာခြင်း",
+ chapters:[
+  {title:"Visionary Companies",overview:"ရေရှည်အမြင်ရှိတဲ့ organization ရဲ့ လက္ခဏာ"},
+  {title:"Core Ideology",overview:"အခြေခံတန်ဖိုးနဲ့ ယုံကြည်ချက်"},
+  {title:"Preserve Core",overview:"အဓိကတန်ဖိုးကို ထိန်းသိမ်းခြင်း"},
+  {title:"Stimulate Progress",overview:"တိုးတက်မှုအတွက် ပြောင်းလဲခြင်း"},
+  {title:"Big Goals",overview:"ကြီးမားတဲ့ ရည်မှန်းချက်ထားခြင်း"},
+  {title:"Culture",overview:"Organization culture တည်ဆောက်ခြင်း"},
+  {title:"Experiment",overview:"စမ်းသပ်ပြီး သင်ယူခြင်း"},
+  {title:"Homegrown Management",overview:"အတွင်းပိုင်း leadership ဖွံ့ဖြိုးခြင်း"},
+  {title:"Alignment",overview:"System နဲ့ culture ကို ညီညွတ်အောင်လုပ်ခြင်း"},
+  {title:"Enduring Business",overview:"တစ်ခေတ်တည်းမဟုတ်ဘဲ ရေရှည်တည်တံ့ခြင်း"}
+ ]
+},
+
+{
+ id:18,
+ title:"Blue Ocean Strategy",
+ author:"W. Chan Kim & Renée Mauborgne",
+ category:"Strategy",
+ time:"20+ min",
+ description:"ပြိုင်ဆိုင်မှုကို တိုက်ရိုက်လိုက်မယ့်အစား တန်ဖိုးအသစ်ဖန်တီးခြင်း",
+ chapters:[
+  {title:"Red & Blue Oceans",overview:"ပြိုင်ဆိုင်မှုရှိတဲ့ဈေးကွက်နဲ့ အခွင့်အလမ်းအသစ်ဈေးကွက်"},
+  {title:"Value Innovation",overview:"Customer value နဲ့ cost ကို တစ်ပြိုင်နက်စဉ်းစားခြင်း"},
+  {title:"Strategy Canvas",overview:"ပြိုင်ဘက်တွေကို အမြင်ရှင်းလင်းစွာ နှိုင်းယှဉ်ခြင်း"},
+  {title:"Eliminate",overview:"မလိုအပ်တဲ့အရာတွေ ဖယ်ရှားခြင်း"},
+  {title:"Reduce",overview:"ပိုလွန်နေတဲ့အရာတွေ လျှော့ချခြင်း"},
+  {title:"Raise",overview:"Customer အတွက် အရေးကြီးတာ မြှင့်တင်ခြင်း"},
+  {title:"Create",overview:"အသစ်ဖန်တီးရမယ့်တန်ဖိုး"},
+  {title:"Buyer Utility",overview:"Customer experience တစ်ခုလုံးကိုကြည့်ခြင်း"},
+  {title:"Execution",overview:"Strategy ကို organization ထဲမှာ အကောင်အထည်ဖော်ခြင်း"},
+  {title:"SME Application",overview:"အသေးစားလုပ်ငန်းမှာ value innovation အသုံးချခြင်း"}
+ ]
+},
+
+{
+ id:19,
+ title:"Zero to One",
+ author:"Peter Thiel",
+ category:"Startup",
+ time:"20+ min",
+ description:"ရှိပြီးသားအရာကို ထပ်လုပ်တာထက် အသစ်တန်ဖိုးဖန်တီးခြင်း",
+ chapters:[
+  {title:"Zero to One",overview:"Copying နဲ့ innovation ကြားက ကွာခြားချက်"},
+  {title:"Monopoly",overview:"ပြိုင်ဆိုင်မှုထက် unique position"},
+  {title:"Definite Optimism",overview:"အနာဂတ်ကို ရည်ရွယ်ချက်ရှိရှိ တည်ဆောက်ခြင်း"},
+  {title:"Secrets",overview:"အခြားသူတွေမမြင်သေးတဲ့ အခွင့်အရေးရှာခြင်း"},
+  {title:"Founders",overview:"Founder နဲ့ company direction"},
+  {title:"Distribution",overview:"Product ကောင်းရုံနဲ့မလုံလောက်ဘဲ ဖြန့်ချိရေးအရေးပါပုံ"},
+  {title:"Seven Questions",overview:"Business တစ်ခုကို စစ်ဆေးတဲ့ မေးခွန်းများ"},
+  {title:"Durable Advantage",overview:"ရေရှည်ကာကွယ်နိုင်တဲ့ အားသာချက်"},
+  {title:"Startup Culture",overview:"Team နဲ့ company culture"},
+  {title:"Business Application",overview:"အယူအဆတွေကို လက်တွေ့အသုံးချခြင်း"}
+ ]
+},
+
+{
+ id:20,
+ title:"The Hard Thing About Hard Things",
+ author:"Ben Horowitz",
+ category:"Management",
+ time:"20+ min",
+ description:"ခက်ခဲတဲ့ business decision တွေကို ကိုင်တွယ်ရတဲ့ management reality",
+ chapters:[
+  {title:"No Easy Answers",overview:"Business မှာ ရိုးရှင်းတဲ့ဖြေရှင်းချက်မရှိတဲ့အခြေအနေ"},
+  {title:"CEO Job",overview:"CEO ရဲ့ အဓိကတာဝန်"},
+  {title:"Wartime & Peacetime",overview:"အခြေအနေအလိုက် leadership style ပြောင်းခြင်း"},
+  {title:"Difficult Conversations",overview:"ခက်ခဲတဲ့စကားဝိုင်းတွေကို တာဝန်ယူစွာပြောခြင်း"},
+  {title:"Layoffs",overview:"Organization restructuring ရဲ့ ခက်ခဲမှု"},
+  {title:"Management Debt",overview:"နောက်ကျကျန်ခဲ့တဲ့ management ပြဿနာ"},
+  {title:"One-on-Ones",overview:"Manager နဲ့ team member ဆက်သွယ်မှု"},
+  {title:"Scaling",overview:"လုပ်ငန်းကြီးလာတဲ့အခါ management ပြောင်းလဲခြင်း"},
+  {title:"Culture",overview:"အပြုအမူနဲ့ culture တည်ဆောက်ခြင်း"},
+  {title:"Decision Making",overview:"မသေချာမှုကြားမှာ ဆုံးဖြတ်ခြင်း"}
+ ]
+},
+
+{
+ id:21,
+ title:"Never Split the Difference",
+ author:"Chris Voss",
+ category:"Communication",
+ time:"20+ min",
+ description:"Negotiation မှာ နားထောင်ခြင်း၊ empathy နဲ့ မေးခွန်းကောင်းတွေ အသုံးချခြင်း",
+ chapters:[
+  {title:"Tactical Empathy",overview:"တစ်ဖက်လူရဲ့အမြင်ကို နားလည်အောင်ကြိုးစားခြင်း"},
+  {title:"Mirroring",overview:"အရေးကြီးတဲ့စကားကို ပြန်လည်အသုံးပြုခြင်း"},
+  {title:"Labeling",overview:"တစ်ဖက်လူရဲ့ခံစားချက်ကို နာမည်တပ်ပြီး အသိအမှတ်ပြုခြင်း"},
+  {title:"Calibrated Questions",overview:"အဖြေရှာဖို့ အဖွင့်မေးခွန်းများ"},
+  {title:"No-Oriented Questions",overview:"ဖိအားလျှော့ပြီး ဆုံးဖြတ်ခွင့်ပေးခြင်း"},
+  {title:"Accusations Audit",overview:"ဖြစ်နိုင်တဲ့အပျက်သဘောကို ကြိုတင်စဉ်းစားခြင်း"},
+  {title:"Tone",overview:"အသံနဲ့ communication style"},
+  {title:"Loss Aversion",overview:"လူတွေက ဆုံးရှုံးမှုကို ဘယ်လိုခံစားတတ်သလဲ"},
+  {title:"Black Swans",overview:"မမြင်ရသေးတဲ့ information ရှာဖွေခြင်း"},
+  {title:"Negotiation Plan",overview:"ကြိုတင်ပြင်ဆင်ပြီး ဆွေးနွေးခြင်း"}
+ ]
+},
+
+{
+ id:22,
+ title:"Influence",
+ author:"Robert B. Cialdini",
+ category:"Communication",
+ time:"20+ min",
+ description:"လူတွေဘာကြောင့် အချို့သော persuasion cue တွေကို တုံ့ပြန်ကြသလဲ",
+ chapters:[
+  {title:"Reciprocity",overview:"ပြန်လည်ပေးဆပ်ချင်စိတ်"},
+  {title:"Commitment",overview:"ကိုယ့်ဆုံးဖြတ်ချက်နဲ့ ကိုက်ညီချင်စိတ်"},
+  {title:"Social Proof",overview:"အခြားသူတွေရဲ့အပြုအမူကို အညွှန်းအဖြစ်အသုံးပြုခြင်း"},
+  {title:"Liking",overview:"နှစ်သက်မှုနဲ့ influence"},
+  {title:"Authority",overview:"ကျွမ်းကျင်သူအပေါ် ယုံကြည်မှု"},
+  {title:"Scarcity",overview:"ရှားပါးမှုက တန်ဖိုးအမြင်ကို သက်ရောက်စေပုံ"},
+  {title:"Unity",overview:"အုပ်စုတူညီမှုနဲ့ belonging"},
+  {title:"Ethical Persuasion",overview:"မလှည့်စားဘဲ persuasion အသုံးချခြင်း"},
+  {title:"Defense",overview:"မလိုလားအပ်တဲ့ influence ကို သတိထားခြင်း"},
+  {title:"Sales & Management",overview:"အလုပ်မှာ influence principle အသုံးချခြင်း"}
+ ]
+},
+
+{
+ id:23,
+ title:"The 5 AM Club",
+ author:"Robin Sharma",
+ category:"Productivity",
+ time:"20+ min",
+ description:"မနက်ခင်း routine နဲ့ personal growth ကို စနစ်တကျတည်ဆောက်ခြင်း",
+ chapters:[
+  {title:"Victory Hour",overview:"နေ့အစကို ရည်ရွယ်ချက်ရှိရှိအသုံးချခြင်း"},
+  {title:"20/20/20",overview:"လှုပ်ရှားမှု၊ reflection နဲ့ learning ကို ပေါင်းစပ်ခြင်း"},
+  {title:"Mindset",overview:"နေ့စဉ်အတွေးအမြင်"},
+  {title:"Exercise",overview:"ကိုယ်ခန္ဓာကို အားဖြည့်ခြင်း"},
+  {title:"Reflection",overview:"ကိုယ့်အခြေအနေကို ပြန်ကြည့်ခြင်း"},
+  {title:"Learning",overview:"နေ့စဉ် knowledge တိုးခြင်း"},
+  {title:"Focus",overview:"အရေးကြီးတဲ့အလုပ်ကို အာရုံစူးစိုက်ခြင်း"},
+  {title:"Distractions",overview:"မနက်ပိုင်း distraction ကို လျှော့ခြင်း"},
+  {title:"Routine",overview:"မနက်ခင်း system တည်ဆောက်ခြင်း"},
+  {title:"Sustainable Change",overview:"ကိုယ့်အခြေအနေအလိုက် routine ကို ပြန်ညှိခြင်း"}
+ ]
+},
+
+{
+ id:24,
+ title:"The Compound Effect",
+ author:"Darren Hardy",
+ category:"Personal Growth",
+ time:"20+ min",
+ description:"သေးငယ်တဲ့ရွေးချယ်မှုတွေကို consistency နဲ့ စုပေါင်းအကျိုးသက်ရောက်မှုဖြစ်အောင်လုပ်ခြင်း",
+ chapters:[
+  {title:"Small Choices",overview:"နေ့စဉ်ရွေးချယ်မှုရဲ့တန်ဖိုး"},
+  {title:"Habits",overview:"အလေ့အကျင့်နဲ့ ရလဒ်"},
+  {title:"Momentum",overview:"ဆက်တိုက်လုပ်ဆောင်မှုက momentum ဖြစ်လာခြင်း"},
+  {title:"Tracking",overview:"ကိုယ့်အပြုအမူကို တိုင်းတာခြင်း"},
+  {title:"Influence",overview:"ပတ်ဝန်းကျင်နဲ့ လူတွေရဲ့ သက်ရောက်မှု"},
+  {title:"Environment",overview:"ကိုယ့်အတွက်ကောင်းတဲ့ environment တည်ဆောက်ခြင်း"},
+  {title:"Goals",overview:"ရည်မှန်းချက်နဲ့ daily action ချိတ်ခြင်း"},
+  {title:"Consistency",overview:"တည်ငြိမ်တဲ့လုပ်ဆောင်မှု"},
+  {title:"Recovery",overview:"ပျက်ကွက်တဲ့အခါ ပြန်စတင်ခြင်း"},
+  {title:"Compounding System",overview:"ရေရှည်တိုးတက်မှု system"}
+ ]
+},
+
+{
+ id:25,
+ title:"Make Time",
+ author:"Jake Knapp & John Zeratsky",
+ category:"Productivity",
+ time:"20+ min",
+ description:"အချိန်ကို ပိုထိရောက်စွာအသုံးချပြီး အာရုံကို ကာကွယ်ခြင်း",
+ chapters:[
+  {title:"Highlight",overview:"နေ့စဉ်အဓိကအရာတစ်ခုရွေးခြင်း"},
+  {title:"Laser",overview:"အာရုံစူးစိုက်မှုကို ကာကွယ်ခြင်း"},
+  {title:"Energize",overview:"ကိုယ်ခန္ဓာနဲ့ စွမ်းအင်ကို စီမံခြင်း"},
+  {title:"Reflect",overview:"နေ့စဉ်စမ်းသပ်ပြီး ပြန်သုံးသပ်ခြင်း"},
+  {title:"Phone Design",overview:"ဖုန်းကို ကိုယ့်အတွက်အသုံးဝင်အောင်ပြင်ခြင်း"},
+  {title:"Notifications",overview:"အနှောင့်အယှက်ကို လျှော့ခြင်း"},
+  {title:"Defaults",overview:"ပုံမှန် setting တွေက အပြုအမူကို သက်ရောက်စေပုံ"},
+  {title:"Energy Management",overview:"အချိန်တင်မဟုတ်ဘဲ energy ကို စီမံခြင်း"},
+  {title:"Daily Reset",overview:"နေ့ကုန်မှာ ပြန်သုံးသပ်ခြင်း"},
+  {title:"Weekly System",overview:"အပတ်စဉ် time system တည်ဆောက်ခြင်း"}
+ ]
+},
+
+{
+ id:26,
+ title:"Eat That Frog!",
+ author:"Brian Tracy",
+ category:"Productivity",
+ time:"20+ min",
+ description:"အရေးကြီးဆုံးအလုပ်ကို အရင်ဆုံးလုပ်ပြီး procrastination လျှော့ခြင်း",
+ chapters:[
+  {title:"Biggest Task",overview:"အခက်ဆုံးနဲ့ အရေးကြီးဆုံးအလုပ်ကို ရွေးခြင်း"},
+  {title:"ABCDE",overview:"အလုပ်တွေကို priority ခွဲခြားခြင်း"},
+  {title:"80/20",overview:"အကျိုးအမြတ်အများဆုံးအလုပ်ကို ရှာခြင်း"},
+  {title:"Planning",overview:"နေ့စဉ် plan ရေးခြင်း"},
+  {title:"Single Handling",overview:"အလုပ်တစ်ခုကို တစ်ကြိမ်တည်း အာရုံစိုက်ခြင်း"},
+  {title:"Key Result Areas",overview:"အလုပ်တာဝန်ရဲ့ အဓိကရလဒ်တွေ"},
+  {title:"Procrastination",overview:"နောက်ဆုတ်ခြင်းကို ကိုင်တွယ်ခြင်း"},
+  {title:"Focus",overview:"အာရုံစူးစိုက်မှုထိန်းခြင်း"},
+  {title:"Discipline",overview:"စိတ်ပါမပါ လုပ်နိုင်တဲ့စည်းကမ်း"},
+  {title:"Daily Workflow",overview:"နေ့စဉ်အလုပ်စနစ်"}
+ ]
+},
+
+{
+ id:27,
+ title:"The Power of Habit",
+ author:"Charles Duhigg",
+ category:"Personal Growth",
+ time:"20+ min",
+ description:"Habit loop နဲ့ အလေ့အကျင့်ပြောင်းလဲမှုကို နားလည်ခြင်း",
+ chapters:[
+  {title:"Cue Routine Reward",overview:"Habit loop ရဲ့ အခြေခံဖွဲ့စည်းပုံ"},
+  {title:"Craving",overview:"Habit ကို ထပ်လုပ်ချင်စေတဲ့ anticipation"},
+  {title:"Keystone Habits",overview:"အခြားအရာတွေကိုပါ သက်ရောက်စေနိုင်တဲ့ habit"},
+  {title:"Organizations",overview:"အဖွဲ့အစည်းထဲမှာ habit တွေ ဘယ်လိုဖြစ်လာသလဲ"},
+  {title:"Changing Routines",overview:"Trigger ကိုထားပြီး routine ပြောင်းခြင်း"},
+  {title:"Willpower",overview:"Self-control နဲ့ routine"},
+  {title:"Marketing Cues",overview:"Customer behavior နဲ့ habit"},
+  {title:"Social Habits",overview:"အုပ်စုနဲ့ ဆက်ဆံရေးထဲက habit"},
+  {title:"Responsibility",overview:"ကိုယ့်အပြုအမူကို သတိထားခြင်း"},
+  {title:"Habit Design",overview:"ကိုယ်တိုင် habit system ဖန်တီးခြင်း"}
+ ]
+},
+
+{
+ id:28,
+ title:"Rework",
+ author:"Jason Fried & David Heinemeier Hansson",
+ category:"Business",
+ time:"20+ min",
+ description:"Business ကို ရိုးရှင်းစွာစတင်ပြီး မလိုအပ်တာတွေကို ဖယ်ရှားခြင်း",
+ chapters:[
+  {title:"Less Is More",overview:"မလိုအပ်တဲ့အရာကို မထည့်ခြင်း"},
+  {title:"Small Teams",overview:"သေးငယ်တဲ့ team ရဲ့ အားသာချက်"},
+  {title:"Start Now",overview:"ပြီးပြည့်စုံတဲ့အချိန်ကို မစောင့်ဘဲ စတင်ခြင်း"},
+  {title:"Constraints",overview:"အကန့်အသတ်တွေကို အသုံးချခြင်း"},
+  {title:"Meetings",overview:"Meeting လိုအပ်မှုကို ပြန်စဉ်းစားခြင်း"},
+  {title:"Hiring",overview:"လိုအပ်တဲ့အချိန်မှာ လိုအပ်တဲ့လူကိုရွေးခြင်း"},
+  {title:"Marketing",overview:"Product နဲ့ marketing ကို ပေါင်းစပ်ခြင်း"},
+  {title:"Product",overview:"Customer အတွက် တကယ်အသုံးဝင်တာ တည်ဆောက်ခြင်း"},
+  {title:"Competition",overview:"ပြိုင်ဘက်ကို အလွန်အကျွံမလိုက်ခြင်း"},
+  {title:"Sustainable Business",overview:"ရေရှည်ခံနိုင်တဲ့ business model"}
+ ]
+},
+
+{
+ id:29,
+ title:"Shoe Dog",
+ author:"Phil Knight",
+ category:"Business",
+ time:"20+ min",
+ description:"Nike တည်ဆောက်မှုနောက်က uncertainty, persistence နဲ့ entrepreneurship",
+ chapters:[
+  {title:"The Beginning",overview:"စတင်ချိန်က အယူအဆနဲ့ မသေချာမှု"},
+  {title:"Uncertainty",overview:"မသေချာတဲ့အခြေအနေမှာ ဆက်လုပ်ခြင်း"},
+  {title:"Customer",overview:"Customer နဲ့ product အကြား ဆက်စပ်မှု"},
+  {title:"Brand",overview:"Brand identity တည်ဆောက်ခြင်း"},
+  {title:"Distribution",overview:"ဖြန့်ချိရေးရဲ့ အရေးပါမှု"},
+  {title:"Persistence",overview:"အခက်အခဲတွေကြားမှာ ဆက်လက်လုပ်ခြင်း"},
+  {title:"Finance",overview:"Cash flow နဲ့ business growth"},
+  {title:"Partnerships",overview:"လူတွေနဲ့ ပူးပေါင်းပြီး တိုးတက်ခြင်း"},
+  {title:"Culture",overview:"Team culture နဲ့ shared purpose"},
+  {title:"Entrepreneurial Lessons",overview:"ဇာတ်လမ်းကနေ လက်တွေ့သင်ခန်းစာထုတ်ယူခြင်း"}
+ ]
+},
+
+{
+ id:30,
+ title:"The Personal MBA",
+ author:"Josh Kaufman",
+ category:"Business",
+ time:"20+ min",
+ description:"Business ရဲ့ အခြေခံ system တွေကို တစ်စုတစ်စည်းတည်း နားလည်ခြင်း",
+ chapters:[
+  {title:"Value Creation",overview:"Customer အတွက် တန်ဖိုးဖန်တီးခြင်း"},
+  {title:"Marketing",overview:"Customer ကို ရှာဖွေပြီး ဆက်သွယ်ခြင်း"},
+  {title:"Sales",overview:"Value ကို customer decision နဲ့ ချိတ်ခြင်း"},
+  {title:"Value Delivery",overview:"ကတိပေးထားတဲ့တန်ဖိုးကို ပေးပို့ခြင်း"},
+  {title:"Finance",overview:"Revenue, cost, profit နဲ့ cash flow"},
+  {title:"Systems",overview:"Business ကို system အဖြစ်မြင်ခြင်း"},
+  {title:"People",overview:"လူတွေနဲ့ အလုပ်လုပ်ခြင်း"},
+  {title:"Operations",overview:"နေ့စဉ်လုပ်ငန်းစဉ်တွေကို စီမံခြင်း"},
+  {title:"Decision Making",overview:"Business decision တွေကို စနစ်တကျချခြင်း"},
+  {title:"Business Model",overview:"Business အားလုံးကို system တစ်ခုအဖြစ်ချိတ်ဆက်ခြင်း"}
+ ]
 }
-function isRead(id){
-  return readBooks.includes(Number(id));
+
+];
+
+
+/* ============================================================
+   GENERIC CHAPTER ENRICHMENT
+   ============================================================ */
+
+function enrichBook(book){
+
+  book.chapters = (book.chapters || []).map((chapter,index)=>{
+
+    if(chapter.detail){
+      return chapter;
+    }
+
+    return {
+      ...chapter,
+
+      concept:
+        chapter.overview +
+        " ဒီအခန်းရဲ့အဓိကရည်ရွယ်ချက်က အယူအဆကို လက်တွေ့ဘဝမှာ နားလည်ပြီး အသုံးချနိုင်အောင် စဉ်းစားပေးဖို့ ဖြစ်ပါတယ်",
+
+      detail:
+        chapter.overview +
+        `
+
+ဒီအယူအဆကို စာအုပ်ထဲမှာ သီးခြားအကြောင်းအရာတစ်ခုအနေနဲ့သာ မမြင်ဘဲ ကိုယ့်ရဲ့နေ့စဉ်ဆုံးဖြတ်ချက်တွေနဲ့ ချိတ်ဆက်ပြီး စဉ်းစားနိုင်ပါတယ်
+
+လူတစ်ယောက်ရဲ့ ရလဒ်ဟာ ဆုံးဖြတ်ချက်တစ်ခုတည်းနဲ့ မဖြစ်ပေါ်ဘဲ ဆုံးဖြတ်ချက်အသေးစားတွေ၊ အလေ့အကျင့်တွေ၊ ပတ်ဝန်းကျင်နဲ့ အချိန်ကြာလာတဲ့အကျိုးသက်ရောက်မှုတွေ ပေါင်းစပ်ပြီး ဖြစ်လာနိုင်ပါတယ်
+
+ဒါကြောင့် ဒီ chapter ကို ဖတ်တဲ့အခါ “ဒီအယူအဆကို ငါ့ဘဝမှာ ဘယ်နေရာမှာတွေ့နေရလဲ” ဆိုတာကို မေးကြည့်ပါ
+
+နောက်တစ်ဆင့်မှာ “ဒီအယူအဆကို အသုံးချမယ်ဆိုရင် ငါ့ရဲ့လုပ်ဆောင်ချက်မှာ ဘာတစ်ခု ပြောင်းလဲနိုင်လဲ” ဆိုတာကို သတ်မှတ်ပါ
+
+အယူအဆကို သိရုံနဲ့ မပြီးပါဘူး
+
+အသုံးချနိုင်တဲ့အဆင့်အထိ ပြောင်းလဲမှ reading ရဲ့တန်ဖိုး ပိုမြင့်လာနိုင်ပါတယ်`,
+
+      life:
+        `နေ့စဉ်ဘဝမှာ ဒီအယူအဆကို အသုံးချဖို့ ကိုယ့်ရဲ့အလေ့အကျင့်တစ်ခုကို ရွေးပြီး စောင့်ကြည့်ပါ
+
+အဲဒီအလေ့အကျင့်က ဘာကြောင့်ဖြစ်လာတာလဲ
+
+ဘယ်အချိန်မှာ ပိုဖြစ်တတ်လဲ
+
+ဘာအကျိုးရလဒ်ရလို့ ထပ်လုပ်ဖြစ်တာလဲ
+
+ဒီလိုမေးခွန်းတွေနဲ့ ကိုယ့်အပြုအမူကို ပြန်ကြည့်နိုင်ပါတယ်`,
+
+      business:
+        `Business မှာ ဒီအယူအဆကို customer, product, process, team ဒါမှမဟုတ် financial decision တစ်ခုနဲ့ ချိတ်ပြီး စဉ်းစားနိုင်ပါတယ်
+
+အရေးကြီးတာက အယူအဆကို သိထားရုံမဟုတ်ဘဲ measurable action တစ်ခုအဖြစ် ပြောင်းနိုင်ဖို့ပါ`,
+
+      career:
+        `Career မှာ ဒီအယူအဆကို ကိုယ့်ရဲ့ skill development, communication, time management ဒါမှမဟုတ် decision making နဲ့ ချိတ်ဆက်နိုင်ပါတယ်
+
+တစ်ပတ်အတွင်း တစ်ခုတည်းသော behavior ကို ပြောင်းပြီး result ကို ပြန်ကြည့်ပါ`,
+
+      money:
+        `ငွေကြေးမှာ ဒီအယူအဆကို spending, saving, earning ဒါမှမဟုတ် risk decision တစ်ခုနဲ့ ချိတ်ဆက်စဉ်းစားနိုင်ပါတယ်
+
+ကိုယ့်အခြေအနေ၊ ဝင်ငွေ၊ တာဝန်နဲ့ risk tolerance ကို ထည့်သွင်းစဉ်းစားပြီး အသုံးချသင့်ပါတယ်`,
+
+      relationship:
+        `ဆက်ဆံရေးမှာ ဒီအယူအဆကို နားထောင်ခြင်း၊ ဆက်သွယ်ခြင်း၊ ယုံကြည်မှုတည်ဆောက်ခြင်းနဲ့ conflict ဖြေရှင်းခြင်းတို့မှာ အသုံးချနိုင်ပါတယ်`,
+
+      action:
+        `ဒီနေ့ ဒီအခန်းရဲ့အယူအဆကို အသုံးချပြီး လုပ်ဆောင်ချက်တစ်ခုတည်းကို ရွေးပါ
+
+ပြီးရင် 7 ရက်အတွင်း ဘာပြောင်းလဲလာသလဲဆိုတာ မှတ်တမ်းတင်ပါ
+
+ရလဒ်က မျှော်မှန်းထားသလို မဖြစ်ရင် ကိုယ့်ကိုယ်ကို အပြစ်တင်မယ့်အစား system ကို ပြန်ပြင်ပါ`,
+
+      key:
+        chapter.overview + " ကို ကိုယ့်ရဲ့နေ့စဉ်ဆုံးဖြတ်ချက်တစ်ခုနဲ့ ချိတ်ပြီး လက်တွေ့အသုံးချကြည့်ပါ"
+    };
+
+  });
+
+  return book;
+
 }
-function saveProgress(){
-  saveJSON(STORAGE.progress,progressData);
-}
-function getProgress(id){
-  return Number(progressData[id] || 0);
-}
-function coverHTML(book,size="L"){
-  const url=coverURL(book,size);
-  return `
-    <img
-      src="${url}"
-      alt="${escapeHTML(book.title)} cover"
-      loading="lazy"
-      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-    >
-    <div class="cover-fallback" style="display:none">
-      ${escapeHTML(book.title)}
-    </div>
-  `;
-}
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+
+
+books.forEach(enrichBook);
+
+
+/* ============================================================
+   PAGE NAVIGATION
+   ============================================================ */
+
 function showPage(page){
+
   document.querySelectorAll(".page").forEach(el=>{
     el.classList.remove("active");
   });
-  const target=document.getElementById(page+"Page");
+
+  const target = document.getElementById(page+"Page");
+
   if(target){
     target.classList.add("active");
   }
-  document.querySelectorAll(".nav-btn").forEach(el=>{
-    el.classList.remove("active");
+
+  document.querySelectorAll(".nav-btn").forEach(btn=>{
+    btn.classList.toggle(
+      "active",
+      btn.dataset.page === page
+    );
   });
-  const nav=document.getElementById("nav-"+page);
-  if(nav){
-    nav.classList.add("active");
-  }
+
+  if(page==="home") renderHome();
+  if(page==="explore") renderExplore();
+  if(page==="library") renderLibrary();
+  if(page==="profile") updateProfile();
+
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
-  if(page==="explore"){
-    renderExplore();
-  }
-  if(page==="library"){
-    renderLibrary();
-  }
-  if(page==="profile"){
-    updateProfile();
-  }
+
 }
-function focusSearch(){
-  showPage("explore");
-  setTimeout(()=>{
-    document.getElementById("searchInput")?.focus();
-  },250);
-}
-/* =========================================================
+
+
+/* ============================================================
    BOOK CARD
-   ========================================================= */
+   ============================================================ */
+
 function bookCard(book){
-  const saved=isSaved(book.id);
+
+  const saved = isSaved(book.id);
+
   return `
-    <article class="book-card" onclick="openDetail(${book.id})">
-      <div class="cover-wrap">
-        ${coverHTML(book,"M")}
-        <button
-          class="save-mini"
-          onclick="event.stopPropagation();toggleSave(${book.id})"
-          aria-label="save"
-        >
-          ${saved ? "♥" : "♡"}
-        </button>
-      </div>
-      <div class="book-info">
-        <div class="book-title">
+    <article
+      class="book-card"
+      onclick="openBook(${book.id})"
+    >
+
+      <div class="cover">
+
+        <div class="cover-category">
+          ${escapeHTML(book.category)}
+        </div>
+
+        <div class="cover-title">
           ${escapeHTML(book.title)}
         </div>
-        <div class="book-author">
+
+        <div class="cover-author">
           ${escapeHTML(book.author)}
         </div>
-        <div class="book-meta">
-          <span class="tag">${escapeHTML(book.category)}</span>
-          <span>${book.time}</span>
-        </div>
+
       </div>
+
+      <div class="book-meta">
+
+        <h3>
+          ${escapeHTML(book.title)}
+          ${saved ? " ♡" : ""}
+        </h3>
+
+        <p>
+          ${escapeHTML(book.author)} · ${book.chapters.length} chapters
+        </p>
+
+      </div>
+
     </article>
   `;
+
 }
-/* =========================================================
-   FEATURED
-   ========================================================= */
-function renderFeatured(){
-  const book=books[0];
-  document.getElementById("featured").innerHTML=`
-    <div class="feature-card">
-      <div class="feature-cover">
-        ${coverHTML(book,"L")}
+
+
+/* ============================================================
+   HOME
+   ============================================================ */
+
+function renderHome(){
+
+  const featured = document.getElementById("featured");
+
+  const first = books[0];
+
+  featured.innerHTML = `
+    <div class="featured">
+
+      <div class="cover">
+
+        <div class="cover-category">
+          ${escapeHTML(first.category)}
+        </div>
+
+        <div class="cover-title">
+          ${escapeHTML(first.title)}
+        </div>
+
+        <div class="cover-author">
+          ${escapeHTML(first.author)}
+        </div>
+
       </div>
-      <div class="feature-content">
-        <div class="eyebrow">Featured Reading</div>
-        <h2>${escapeHTML(book.title)}</h2>
-        <p>
-          ${escapeHTML(book.overall)}
-        </p>
-        <button class="primary-btn" onclick="openDetail(${book.id})">
-          စာအုပ်ဖတ်မယ် →
+
+      <div class="featured-content">
+
+        <span class="tag">FEATURED · ${first.time}</span>
+
+        <h2>${escapeHTML(first.title)}</h2>
+
+        <p>${escapeHTML(first.description)}</p>
+
+        <button
+          class="primary"
+          onclick="openBook(${first.id})"
+        >
+          Read Summary →
         </button>
+
       </div>
+
     </div>
   `;
+
+
+  const categories = [...new Set(
+    books.map(book=>book.category)
+  )];
+
+
+  document.getElementById("homeCategories").innerHTML =
+    categories.slice(0,8).map(category=>`
+      <button
+        class="category"
+        onclick="filterCategory('${escapeHTML(category)}')"
+      >
+        ${escapeHTML(category)}
+      </button>
+    `).join("");
+
+
+  document.getElementById("homeBooks").innerHTML =
+    books.slice(0,8).map(bookCard).join("");
+
+
+  renderContinue();
+
 }
-/* =========================================================
-   CATEGORIES
-   ========================================================= */
-function categories(){
-  return ["All",...new Set(books.map(b=>b.category))];
-}
-function renderCategories(containerId){
-  const container=document.getElementById(containerId);
-  container.innerHTML=categories().map(cat=>`
-    <button
-      class="category-btn ${selectedCategory===cat?"active":""}"
-      onclick="filterCategory('${escapeHTML(cat)}')"
-    >
-      ${escapeHTML(cat)}
-    </button>
-  `).join("");
-}
-function filterCategory(category){
-  selectedCategory=category;
-  renderCategories("homeCategories");
-  renderCategories("exploreCategories");
-  showPage("explore");
-}
-/* =========================================================
-   HOME
-   ========================================================= */
-function renderHomeBooks(){
-  const list=books.slice(0,8);
-  document.getElementById("homeBooks").innerHTML=
-    list.map(bookCard).join("");
-}
+
+
 function renderContinue(){
-  const ids=Object.keys(progressData)
-    .map(Number)
-    .filter(id=>progressData[id]>0 && progressData[id]<100);
-  const section=document.getElementById("continueSection");
-  if(!ids.length){
-    section.classList.add("hidden");
+
+  const section = document.getElementById("continueSection");
+
+  const entries = Object.entries(progressData)
+    .sort((a,b)=>Number(b[1])-Number(a[1]));
+
+  if(!entries.length){
+
+    section.innerHTML = `
+      <div class="section-head">
+        <h2 class="section-title">Start Reading</h2>
+      </div>
+
+      <div class="continue-card">
+
+        <div class="book-mini-cover">
+          ATOMIC<br>HABITS
+        </div>
+
+        <div class="continue-info">
+
+          <h3>Atomic Habits</h3>
+
+          <p>
+            ပထမဆုံးစာအုပ်ကို စတင်ဖတ်ပါ
+          </p>
+
+          <div class="progress">
+            <i style="width:0%"></i>
+          </div>
+
+        </div>
+
+        <button
+          class="primary"
+          onclick="openBook(1)"
+        >
+          Start
+        </button>
+
+      </div>
+    `;
+
     return;
   }
-  const book=getBook(ids[0]);
-  if(!book){
-    section.classList.add("hidden");
-    return;
-  }
-  section.classList.remove("hidden");
-  const progress=getProgress(book.id);
-  document.getElementById("continueCard").innerHTML=`
+
+
+  const [id,pct] = entries[0];
+
+  const book = getBook(id);
+
+  if(!book) return;
+
+  section.innerHTML = `
+    <div class="section-head">
+      <h2 class="section-title">Continue Reading</h2>
+    </div>
+
     <div
       class="continue-card"
-      onclick="startReader(${book.id},${Math.max(0,Math.min(book.chapters.length-1,Math.floor(progress/10)))})"
+      onclick="openBook(${book.id})"
     >
-      <div class="continue-cover">
-        ${coverHTML(book,"S")}
+
+      <div class="book-mini-cover">
+        ${escapeHTML(book.title)}
       </div>
-      <div class="continue-content">
-        <small>ဆက်ဖတ်နေသောစာအုပ်</small>
-        <strong>${escapeHTML(book.title)}</strong>
-        <div class="progress-track">
-          <div
-            class="progress-fill"
-            style="width:${progress}%"
-          ></div>
+
+      <div class="continue-info">
+
+        <h3>${escapeHTML(book.title)}</h3>
+
+        <p>${Math.round(Number(pct))}% completed</p>
+
+        <div class="progress">
+          <i style="width:${Math.min(100,Number(pct))}%"></i>
         </div>
-        <small>${progress}% ပြီးဆုံး</small>
+
       </div>
-      <span>→</span>
+
+      <button
+        class="primary"
+        onclick="event.stopPropagation();openBook(${book.id})"
+      >
+        Continue
+      </button>
+
     </div>
   `;
+
 }
-/* =========================================================
+
+
+/* ============================================================
    EXPLORE
-   ========================================================= */
+   ============================================================ */
+
+let activeCategory = "All";
+
 function renderExplore(){
-  const query=(document.getElementById("searchInput")?.value || "")
-    .trim()
-    .toLowerCase();
-  let filtered=books.filter(book=>{
-    const matchesCategory=
-      selectedCategory==="All" ||
-      book.category===selectedCategory;
-    const matchesQuery=
-      !query ||
-      book.title.toLowerCase().includes(query) ||
-      book.author.toLowerCase().includes(query) ||
-      book.category.toLowerCase().includes(query);
-    return matchesCategory && matchesQuery;
+
+  const search =
+    (document.getElementById("exploreSearch")?.value || "")
+      .toLowerCase()
+      .trim();
+
+  const categories = [
+    "All",
+    ...new Set(books.map(book=>book.category))
+  ];
+
+
+  document.getElementById("exploreCategories").innerHTML =
+    categories.map(category=>`
+
+      <button
+        class="category ${activeCategory===category ? "active":""}"
+        onclick="setCategory('${escapeHTML(category)}')"
+      >
+        ${escapeHTML(category)}
+      </button>
+
+    `).join("");
+
+
+  let list = books.filter(book=>{
+
+    const matchesCategory =
+      activeCategory==="All" ||
+      book.category===activeCategory;
+
+    const haystack = [
+      book.title,
+      book.author,
+      book.category,
+      book.description
+    ].join(" ").toLowerCase();
+
+    const matchesSearch =
+      !search || haystack.includes(search);
+
+    return matchesCategory && matchesSearch;
+
   });
-  const container=document.getElementById("exploreBooks");
-  if(!filtered.length){
-    container.innerHTML=`
-      <div class="empty" style="grid-column:1/-1">
-        ရှာဖွေထားတဲ့စာအုပ် မတွေ့ပါ
-      </div>
-    `;
-    return;
-  }
-  container.innerHTML=filtered.map(bookCard).join("");
+
+
+  document.getElementById("exploreBooks").innerHTML =
+    list.length
+      ? list.map(bookCard).join("")
+      : `<div class="empty">စာအုပ်မတွေ့ပါ</div>`;
+
 }
-/* =========================================================
+
+
+function setCategory(category){
+
+  activeCategory = category;
+
+  renderExplore();
+
+}
+
+
+function filterCategory(category){
+
+  activeCategory = category;
+
+  showPage("explore");
+
+}
+
+
+/* ============================================================
+   GLOBAL SEARCH
+   ============================================================ */
+
+function globalSearch(value){
+
+  if(!value.trim()) return;
+
+  showPage("explore");
+
+  const input = document.getElementById("exploreSearch");
+
+  if(input){
+    input.value = value;
+  }
+
+  renderExplore();
+
+}
+
+
+/* ============================================================
    LIBRARY
-   ========================================================= */
+   ============================================================ */
+
 function renderLibrary(){
-  const list=books.filter(book=>isSaved(book.id));
-  const container=document.getElementById("savedBooks");
+
+  const list = books.filter(book=>isSaved(book.id));
+
+  const container = document.getElementById("libraryBooks");
+
   if(!list.length){
-    container.innerHTML=`
-      <div class="empty" style="grid-column:1/-1">
-        သိမ်းထားတဲ့စာအုပ် မရှိသေးပါ
-        <br><br>
-        Explore ထဲက ♡ ကိုနှိပ်ပြီး သိမ်းနိုင်ပါတယ်
+
+    container.innerHTML = `
+      <div class="empty">
+
+        <div style="font-size:38px;margin-bottom:10px">♡</div>
+
+        <h3>Library မရှိသေးပါ</h3>
+
+        <p>
+          စိတ်ဝင်စားတဲ့စာအုပ်တွေကို bookmark လုပ်ပြီး
+          ဒီနေရာမှာ သိမ်းထားနိုင်ပါတယ်
+        </p>
+
+        <button
+          class="primary"
+          onclick="showPage('explore')"
+        >
+          Explore Books
+        </button>
+
       </div>
     `;
+
     return;
   }
-  container.innerHTML=list.map(bookCard).join("");
+
+
+  container.innerHTML = `
+    <div class="book-grid">
+      ${list.map(bookCard).join("")}
+    </div>
+  `;
+
 }
-/* =========================================================
+
+
+/* ============================================================
    PROFILE
-   ========================================================= */
+   ============================================================ */
+
 function updateProfile(){
-  const completed=readBooks.length;
-  const saved=savedBooks.length;
-  let totalProgress=0;
-  books.forEach(book=>{
-    totalProgress+=getProgress(book.id);
-  });
-  const average=
-    books.length
-      ? Math.round(totalProgress/books.length)
-      : 0;
-  document.getElementById("profileRead").textContent=completed;
-  document.getElementById("profileSaved").textContent=saved;
-  document.getElementById("profileProgress").textContent=average+"%";
-  document.getElementById("readCount").textContent=completed;
+
+  document.getElementById("profileRead").textContent =
+    readBooks.length;
+
+  document.getElementById("profileSaved").textContent =
+    savedBooks.length;
+
+  const total = Object.values(progressData);
+
+  const average = total.length
+    ? Math.round(
+        total.reduce((a,b)=>a+Number(b),0) /
+        total.length
+      )
+    : 0;
+
+  document.getElementById("profileProgress").textContent =
+    average + "%";
+
 }
-/* =========================================================
+
+
+/* ============================================================
    DETAIL
-   ========================================================= */
-function openDetail(id){
-  const book=getBook(id);
-  if(!book)return;
-  currentBookId=book.id;
-  const saved=isSaved(book.id);
-  document.getElementById("detailContent").innerHTML=`
-    <div class="detail-hero">
+   ============================================================ */
+
+function openBook(id){
+
+  const book = getBook(id);
+
+  if(!book) return;
+
+  currentBookId = book.id;
+
+  const saved = isSaved(book.id);
+
+  const chapters = book.chapters || [];
+
+  document.getElementById("detailContent").innerHTML = `
+
+    <div class="detail-head">
+
       <div class="detail-cover">
-        ${coverHTML(book,"L")}
+
+        <div class="cover">
+
+          <div class="cover-category">
+            ${escapeHTML(book.category)}
+          </div>
+
+          <div class="cover-title">
+            ${escapeHTML(book.title)}
+          </div>
+
+          <div class="cover-author">
+            ${escapeHTML(book.author)}
+          </div>
+
+        </div>
+
       </div>
+
+
       <div class="detail-info">
-        <h2>${escapeHTML(book.title)}</h2>
-        <p>
+
+        <div class="eyebrow">
+          ${escapeHTML(book.category)}
+        </div>
+
+        <h1>${escapeHTML(book.title)}</h1>
+
+        <div class="author">
           ${escapeHTML(book.author)}
-          <br>
-          ${escapeHTML(book.category)} • ${book.time}
+        </div>
+
+        <p>
+          ${escapeHTML(book.description)}
         </p>
+
         <div class="detail-actions">
+
           <button
-            class="primary-btn"
+            class="primary"
             onclick="startReader(${book.id},0)"
           >
-            ဖတ်မယ်
+            📖 Start Reading
           </button>
+
           <button
-            class="secondary-btn"
-            onclick="toggleCurrentSave()"
+            class="secondary"
+            onclick="toggleSave(${book.id})"
           >
-            ${saved?"♥ Saved":"♡ Save"}
+            ${saved ? "♥ Saved" : "♡ Save"}
           </button>
+
         </div>
+
       </div>
+
     </div>
-    <div class="detail-section">
+
+
+    <div class="info-box">
+
       <h3>Overall</h3>
-      <div class="overall-box">
-        ${escapeHTML(book.overall)}
-      </div>
+
+      <p>
+        ${escapeHTML(
+          book.overall ||
+          book.description +
+          " ဒီစာအုပ်ရဲ့ အဓိကအယူအဆတွေကို
+          chapter အလိုက် လေ့လာနိုင်ပါတယ်"
+        )}
+      </p>
+
     </div>
-    <div class="detail-section">
+
+
+    <div class="info-box">
+
       <h3>Chapter Overview</h3>
+
       <div class="chapter-list">
-        ${book.chapters.map((chapter,index)=>`
+
+        ${chapters.map((chapter,index)=>`
+
           <button
             class="chapter-item"
             onclick="startReader(${book.id},${index})"
           >
-            <strong>
-              ${index+1}. ${escapeHTML(chapter[0])}
-            </strong>
-            <span>
-              ${escapeHTML(chapter[1])}
+
+            <span class="chapter-num">
+              ${index+1}
             </span>
+
+            <span>
+
+              <h4>
+                ${escapeHTML(chapter.title)}
+              </h4>
+
+              <p>
+                ${escapeHTML(chapter.overview)}
+              </p>
+
+            </span>
+
           </button>
+
         `).join("")}
+
       </div>
+
     </div>
+
+
+    <div class="info-box">
+
+      <h3>📌 Reading Experience</h3>
+
+      <p>
+        Overall → Chapter Overview → Detailed Reading
+        ပုံစံနဲ့ ဖတ်နိုင်ပါတယ်
+
+        Chapter တစ်ခုချင်းစီမှာ အဓိကအယူအဆ၊
+        အသေးစိတ်ရှင်းလင်းချက်၊
+        Life Example၊
+        Business Example၊
+        Career Example၊
+        Money Example၊
+        Relationship Example၊
+        Action Steps နဲ့ Key Lesson ပါဝင်ပါတယ်
+      </p>
+
+    </div>
+
   `;
-  document.getElementById("detailOverlay").classList.add("open");
-  document.body.style.overflow="hidden";
+
+  document.getElementById("detailOverlay")
+    .classList.add("open");
+
 }
+
+
 function closeDetail(){
-  document.getElementById("detailOverlay").classList.remove("open");
-  if(!document.getElementById("reader").classList.contains("open")){
-    document.body.style.overflow="";
-  }
+
+  document.getElementById("detailOverlay")
+    .classList.remove("open");
+
 }
-function overlayBackground(event){
-  if(event.target.id==="detailOverlay"){
-    closeDetail();
-  }
-}
-function toggleCurrentSave(){
-  if(currentBookId){
-    toggleSave(currentBookId);
-    openDetail(currentBookId);
-  }
-}
+
+
+/* ============================================================
+   SAVE
+   ============================================================ */
+
 function toggleSave(id){
-  id=Number(id);
+
+  id = Number(id);
+
   if(savedBooks.includes(id)){
-    savedBooks=savedBooks.filter(x=>x!==id);
+
+    savedBooks =
+      savedBooks.filter(x=>x!==id);
+
     toast("Library မှ ဖယ်လိုက်ပါပြီ");
+
   }else{
+
     savedBooks.push(id);
-    toast("Library ထဲ သိမ်းပြီးပါပြီ");
+
+    toast("Library ထဲ သိမ်းလိုက်ပါပြီ");
+
   }
+
   saveJSON(STORAGE.saved,savedBooks);
-  renderHomeBooks();
-  renderExplore();
+
+  if(currentBookId===id){
+    openBook(id);
+  }
+
+  renderHome();
   renderLibrary();
   updateProfile();
-  if(currentBookId===id){
-    updateReaderSaveButton();
-  }
+
 }
-/* =========================================================
+
+
+function toggleReaderSave(){
+
+  if(!currentBookId) return;
+
+  toggleSave(currentBookId);
+
+  updateReaderBookmark();
+
+}
+
+
+function updateReaderBookmark(){
+
+  const btn =
+    document.getElementById("readerBookmark");
+
+  if(!btn) return;
+
+  btn.textContent =
+    isSaved(currentBookId) ? "♥" : "♡";
+
+}
+
+
+/* ============================================================
    READER
-   ========================================================= */
-function startReader(id,chapter=0){
-  const book=getBook(id);
-  if(!book)return;
-  currentBookId=book.id;
-  currentChapter=Math.max(
-    0,
-    Math.min(book.chapters.length-1,Number(chapter)||0)
-  );
+   ============================================================ */
+
+function startReader(bookId,chapterIndex=0){
+
+  const book = getBook(bookId);
+
+  if(!book) return;
+
+  currentBookId = Number(bookId);
+
+  currentChapter = Number(chapterIndex) || 0;
+
   closeDetail();
-  const reader=document.getElementById("reader");
-  reader.classList.add("open");
+
+  document.getElementById("reader")
+    .classList.add("open");
+
   document.body.style.overflow="hidden";
-  document.getElementById("readerBookTitle").textContent=book.title;
-  document.getElementById("chapterSelect").innerHTML=
-    book.chapters.map((item,index)=>`
-      <option value="${index}">
-        ${index+1}. ${item[0]}
-      </option>
-    `).join("");
-  document.getElementById("chapterSelect").value=currentChapter;
-  updateReaderSaveButton();
-  renderReader();
-  reader.classList.toggle(
-    "dark",
-    localStorage.getItem(STORAGE.theme)==="dark"
-  );
-  setTimeout(()=>{
-    document.getElementById("readerBody").scrollTop=0;
-  },20);
+
+  document.getElementById("readerBookTitle")
+    .textContent = book.title;
+
+  buildChapterSelect(book);
+
+  renderReader(book);
+
+  document.getElementById("readerBody").scrollTop = 0;
+
+  updateReaderBookmark();
+
+  updateReaderProgress();
+
 }
-function renderReader(){
-  const book=getBook(currentBookId);
-  if(!book)return;
-  const chapter=book.chapters[currentChapter];
-  const chapterTitle=chapter[0];
-  const chapterSummary=chapter[1];
-  document.getElementById("readerChapterTitle").textContent=
-    "အခန်း "+(currentChapter+1)+" / "+book.chapters.length;
-  document.getElementById("chapterSelect").value=currentChapter;
-  document.getElementById("readerContent").style.fontSize=currentFont+"px";
-  document.getElementById("readerContent").innerHTML=`
-    <div class="reader-cover">
-      ${coverHTML(book,"L")}
+
+
+function closeReader(){
+
+  document.getElementById("reader")
+    .classList.remove("open");
+
+  document.body.style.overflow="";
+
+  updateProgressFromReader();
+
+}
+
+
+function buildChapterSelect(book){
+
+  const select =
+    document.getElementById("chapterSelect");
+
+  select.innerHTML =
+    book.chapters.map((chapter,index)=>`
+
+      <option value="${index}">
+        ${index+1}. ${escapeHTML(chapter.title)}
+      </option>
+
+    `).join("");
+
+  select.value = currentChapter;
+
+}
+
+
+function jumpChapter(index){
+
+  currentChapter = Number(index) || 0;
+
+  const book = getBook(currentBookId);
+
+  if(!book) return;
+
+  renderReader(book);
+
+  document.getElementById("readerBody").scrollTop=0;
+
+  updateReaderProgress();
+
+}
+
+
+function renderReader(book){
+
+  const chapter =
+    book.chapters[currentChapter];
+
+  if(!chapter) return;
+
+  document.getElementById("readerChapterTitle")
+    .textContent =
+      `Chapter ${currentChapter+1} · ${chapter.title}`;
+
+  document.getElementById("chapterSelect")
+    .value=currentChapter;
+
+
+  const html = `
+
+    <div class="reader-category">
+      ${escapeHTML(book.category)}
     </div>
+
     <h1>${escapeHTML(book.title)}</h1>
+
     <div class="reader-author">
       ${escapeHTML(book.author)}
-      · ${escapeHTML(book.category)}
     </div>
-    <h2>
-      ${currentChapter+1}. ${escapeHTML(chapterTitle)}
-    </h2>
-    <h3>အဓိကအယူအဆ</h3>
-    <p>
-      ${escapeHTML(chapterSummary)}
-    </p>
-    <h3>အသေးစိတ်ရှင်းလင်းချက်</h3>
-    <p>
-      ဒီအခန်းရဲ့ အဓိကအချက်ကို နားလည်ဖို့
-      ရလဒ်တစ်ခုတည်းကို မကြည့်ဘဲ အဲဒီရလဒ်ကို ဖြစ်စေတဲ့
-      အတွေးအခေါ်၊ အပြုအမူနဲ့ လုပ်ဆောင်ပုံကို အတူတကွ
-      စဉ်းစားဖို့လိုပါတယ်
-    </p>
-    <p>
-      လက်တွေ့ဘဝမှာ အယူအဆတစ်ခုကို သိရုံနဲ့ ပြောင်းလဲမှုမဖြစ်ပါဘူး
-      နေ့စဉ်လုပ်ဆောင်ချက်ထဲ ထည့်သွင်းပြီး ထပ်ခါထပ်ခါ
-      အသုံးချတဲ့အခါမှ အလေ့အကျင့်နဲ့ system အဖြစ် ပြောင်းလဲလာနိုင်ပါတယ်
-    </p>
-    <p>
-      ဒါကြောင့် ဒီအခန်းကို ဖတ်တဲ့အခါ
-      “ဒါကို ငါ့ဘဝမှာ ဘယ်နေရာမှာ အသုံးချနိုင်မလဲ”
-      ဆိုတဲ့မေးခွန်းကို အမြဲတမ်းတွဲပြီး စဉ်းစားပါ
-    </p>
-    <div class="example">
-      <strong>💡 လက်တွေ့ဥပမာ</strong>
-      <p style="margin:0">
-        Manager တစ်ယောက်က ဒီအယူအဆကို Team Management ထဲမှာ
-        အသုံးချမယ်ဆိုရင် စကားပြောပြီး အမိန့်ပေးတာတစ်ခုတည်းမလုပ်ဘဲ
-        နေ့စဉ်လုပ်ငန်းစဉ်၊ review နဲ့ feedback system ကို တည်ဆောက်နိုင်ပါတယ်
+
+
+    <section class="reader-section">
+
+      <h2>
+        Chapter ${currentChapter+1}
+        — ${escapeHTML(chapter.title)}
+      </h2>
+
+
+      <div class="reader-label">
+        အဓိကအယူအဆ
+      </div>
+
+      <p>
+        ${escapeHTML(chapter.concept)}
       </p>
-    </div>
-    <div class="example">
-      <strong>💼 Business Example</strong>
-      <p style="margin:0">
-        လုပ်ငန်းတစ်ခုမှာ ရလဒ်မကောင်းတဲ့အခါ
-        လူတစ်ယောက်ကို အပြစ်တင်မယ့်အစား process ဘယ်နေရာမှာ
-        အားနည်းနေသလဲ၊ information ဘယ်နေရာမှာပျောက်နေသလဲ၊
-        measurement ဘယ်လိုတိုးတက်နိုင်သလဲဆိုတာကို စစ်ဆေးနိုင်ပါတယ်
-      </p>
-    </div>
-    <div class="example">
-      <strong>📈 Sales / Management Application</strong>
-      <p style="margin:0">
-        Sales Manager အနေနဲ့ Target, Actual, Gap ကို ကြည့်ရုံနဲ့မပြီးဘဲ
-        Daily Calls, Productive Calls, Orders, Average Order Value,
-        Collection နဲ့ Follow-up စတဲ့ leading activities တွေကိုပါ
-        တိုင်းတာပြီး execution ကို စီမံနိုင်ပါတယ်
-      </p>
-    </div>
-    <h3>လက်တွေ့အသုံးချနည်း</h3>
-    <p>
-      ဒီအခန်းထဲက အယူအဆတစ်ခုကို ရွေးပြီး
-      ကိုယ့်ရဲ့ လက်ရှိအလုပ်ထဲက ပြဿနာတစ်ခုနဲ့ ချိတ်ဆက်ပါ
-      ပြီးရင် ယနေ့အတွင်း လုပ်နိုင်တဲ့ action တစ်ခုအဖြစ်
-      ပြောင်းလဲပါ
-    </p>
-    <div class="action">
-      <strong>🎯 ဒီနေ့လုပ်ရန်</strong>
-      <p style="margin:0">
-        1. လက်ရှိပြဿနာတစ်ခု ရွေးပါ<br>
-        2. ဒီအခန်းနဲ့ ဆက်စပ်တဲ့အချက်တစ်ခု ရွေးပါ<br>
-        3. Action တစ်ခု သတ်မှတ်ပါ<br>
-        4. ဒီနေ့လုပ်ပါ<br>
-        5. ရလဒ်ကို မှတ်ထားပါ
-      </p>
-    </div>
-    <div class="key">
-      <strong>⭐ Key Lesson</strong>
-      <p style="margin:0">
-        သိထားခြင်းထက် လက်တွေ့အသုံးချခြင်းက ပိုတန်ဖိုးရှိပါတယ်
-        စာအုပ်ထဲက အယူအဆကို ကိုယ့်ဘဝရဲ့ system တစ်ခုအဖြစ်
-        ပြောင်းလဲနိုင်တဲ့အခါမှ တကယ့်တန်ဖိုးကို ရရှိလာနိုင်ပါတယ်
-      </p>
-    </div>
-  `;
-  const progress=
-    Math.round(((currentChapter+1)/book.chapters.length)*100);
-  progressData[book.id]=progress;
-  if(progress>=100 && !readBooks.includes(book.id)){
-    readBooks.push(book.id);
-    saveJSON(STORAGE.read,readBooks);
-  }
-  saveProgress();
-  document.getElementById("readerProgressBar").style.width=
-    progress+"%";
-  document.getElementById("readerBody").scrollTop=0;
-  updateProfile();
-  renderContinue();
-}
-function changeChapter(value){
-  currentChapter=Number(value)||0;
-  renderReader();
-}
-function previousChapter(){
-  if(currentChapter<=0){
-    toast("ပထမအခန်းရောက်နေပါပြီ");
-    return;
-  }
-  currentChapter--;
-  renderReader();
-}
-function nextChapter(){
-  const book=getBook(currentBookId);
-  if(!book)return;
-  if(currentChapter>=book.chapters.length-1){
-    toast("စာအုပ်ပြီးဆုံးပါပြီ");
-    progressData[book.id]=100;
-    if(!readBooks.includes(book.id)){
-      readBooks.push(book.id);
+
+
+      <div class="reader-label">
+        အသေးစိတ်ရှင်းလင်းချက်
+      </div>
+
+      ${paragraphs(chapter.detail)}
+
+
+      ${exampleBlock(
+        "🌱 လက်တွေ့ဘဝဥပမာ",
+        chapter.life
+      )}
+
+
+      ${exampleBlock(
+        "💼 Business Example",
+        chapter.business
+      )}
+
+
+      ${exampleBlock(
+        "🎯 Career Example",
+        chapter.career
+      )}
+
+
+      ${exampleBlock(
+        "💰 Money Example",
+        chapter.money
+      )}
+
+
+      ${exampleBlock(
+        "🤝 Family & Relationship Example",
+        chapter.relationship
+      )}
+
+
+      <div class="action-box">
+
+        <strong>🎯 လက်တွေ့လုပ်ဆောင်ရန်</strong>
+
+        <p>
+          ${escapeHTML(chapter.action)}
+        </p>
+
+      </div>
+
+
+      <div class="key-box">
+
+        <strong>Key Lesson</strong>
+
+        <p>
+          ${escapeHTML(chapter.key)}
+        </p>
+
+      </div>
+
+    </section>
+
+
+    ${currentChapter===book.chapters.length-1
+      ? finalTakeaways(book)
+      : ""
     }
+
+  `;
+
+  document.getElementById("readerContent")
+    .innerHTML=html;
+
+
+  markRead(book.id);
+
+}
+
+
+function paragraphs(text){
+
+  if(!text) return "";
+
+  return String(text)
+    .split(/\n\s*\n/)
+    .map(p=>`
+      <p>${escapeHTML(p.trim())}</p>
+    `)
+    .join("");
+
+}
+
+
+function exampleBlock(title,text){
+
+  if(!text) return "";
+
+  return `
+
+    <div class="example">
+
+      <strong>${title}</strong>
+
+      <p>
+        ${escapeHTML(text)}
+      </p>
+
+    </div>
+
+  `;
+
+}
+
+
+function finalTakeaways(book){
+
+  const list =
+    book.takeaways?.length
+      ? book.takeaways
+      : [
+          "အဓိကအယူအဆကို နားလည်ပါ",
+          "ကိုယ့်ဘဝနဲ့ ချိတ်ဆက်စဉ်းစားပါ",
+          "Action တစ်ခုအဖြစ် ပြောင်းပါ",
+          "ရလဒ်ကို တိုင်းတာပါ",
+          "လိုအပ်ရင် system ကို ပြန်ပြင်ပါ"
+        ];
+
+  return `
+
+    <section class="reader-section">
+
+      <h2>Final Takeaways</h2>
+
+      <div class="info-box">
+
+        ${list.map((item,index)=>`
+
+          <p style="margin-bottom:12px">
+            <strong>${index+1}.</strong>
+            ${escapeHTML(item)}
+          </p>
+
+        `).join("")}
+
+      </div>
+
+
+      <div class="action-box">
+
+        <strong>30-Day Action Plan</strong>
+
+        <p>
+          ဒီစာအုပ်ထဲက အယူအဆအားလုံးကို
+          တစ်ခါတည်းအသုံးချဖို့ မကြိုးစားပါနဲ့
+
+          အရေးကြီးဆုံးအယူအဆတစ်ခုရွေးပြီး
+          30 ရက်အတွင်း နေ့စဉ်လုပ်ဆောင်ချက်အဖြစ်
+          ပြောင်းလဲအသုံးချကြည့်ပါ
+        </p>
+
+      </div>
+
+    </section>
+
+  `;
+
+}
+
+
+/* ============================================================
+   READ / PROGRESS
+   ============================================================ */
+
+function markRead(id){
+
+  id=Number(id);
+
+  if(!readBooks.includes(id)){
+
+    readBooks.push(id);
+
     saveJSON(STORAGE.read,readBooks);
-    saveProgress();
-    updateProfile();
-    renderContinue();
-    return;
+
   }
-  currentChapter++;
-  renderReader();
-}
-function closeReader(){
-  document.getElementById("reader").classList.remove("open");
-  document.body.style.overflow="";
-  renderContinue();
+
   updateProfile();
+
 }
-function toggleReaderSave(){
-  if(!currentBookId)return;
-  toggleSave(currentBookId);
+
+
+function updateReaderProgress(){
+
+  const body =
+    document.getElementById("readerBody");
+
+  if(!body) return;
+
+  const max =
+    body.scrollHeight - body.clientHeight;
+
+  const pct =
+    max>0
+      ? (body.scrollTop/max)*100
+      : 100;
+
+  document.getElementById("readerProgress")
+    .style.width =
+      Math.max(0,Math.min(100,pct))+"%";
+
 }
-function updateReaderSaveButton(){
-  const btn=document.getElementById("readerSave");
-  if(!currentBookId)return;
-  btn.textContent=isSaved(currentBookId) ? "♥" : "♡";
-}
-function toggleReaderTheme(){
-  const reader=document.getElementById("reader");
-  const dark=reader.classList.toggle("dark");
-  localStorage.setItem(
-    STORAGE.theme,
-    dark ? "dark" : "light"
+
+
+function updateProgressFromReader(){
+
+  const body =
+    document.getElementById("readerBody");
+
+  if(!body || !currentBookId) return;
+
+  const max =
+    body.scrollHeight-body.clientHeight;
+
+  const pct =
+    max>0
+      ? Math.round((body.scrollTop/max)*100)
+      : 100;
+
+  progressData[currentBookId] =
+    Math.max(
+      Number(progressData[currentBookId]||0),
+      pct
+    );
+
+  saveJSON(
+    STORAGE.progress,
+    progressData
   );
+
+  renderContinue();
+
 }
-function changeFont(delta){
-  currentFont+=delta;
-  if(currentFont<14)currentFont=14;
-  if(currentFont>22)currentFont=22;
-  localStorage.setItem(
-    STORAGE.font,
-    String(currentFont)
-  );
-  document.getElementById("readerContent").style.fontSize=
-    currentFont+"px";
+
+
+function nextChapter(){
+
+  const book=getBook(currentBookId);
+
+  if(!book) return;
+
+  if(currentChapter < book.chapters.length-1){
+
+    currentChapter++;
+
+    renderReader(book);
+
+    document.getElementById("readerBody").scrollTop=0;
+
+    updateReaderProgress();
+
+  }else{
+
+    progressData[currentBookId]=100;
+
+    saveJSON(STORAGE.progress,progressData);
+
+    toast("စာအုပ်ပြီးပါပြီ 🎉");
+
+  }
+
 }
-/* =========================================================
-   INITIAL RENDER
-   ========================================================= */
+
+
+function previousChapter(){
+
+  const book=getBook(currentBookId);
+
+  if(!book) return;
+
+  if(currentChapter>0){
+
+    currentChapter--;
+
+    renderReader(book);
+
+    document.getElementById("readerBody").scrollTop=0;
+
+    updateReaderProgress();
+
+  }
+
+}
+
+
+/* ============================================================
+   INIT
+   ============================================================ */
+
 function init(){
-  document.getElementById("bookCount").textContent=books.length;
-  renderFeatured();
-  renderHomeBooks();
-  renderCategories("homeCategories");
-  renderCategories("exploreCategories");
+
+  renderHome();
+
   renderExplore();
+
   renderLibrary();
-  renderContinue();
+
   updateProfile();
-  const savedTheme=
-    localStorage.getItem(STORAGE.theme);
-  if(savedTheme==="dark"){
-    document.getElementById("reader").classList.add("dark");
-  }
+
 }
-init();
+
+
+document.addEventListener(
+  "DOMContentLoaded",
+  init
+);
+
+
+/* Close overlay by outside tap */
+
+document.getElementById("detailOverlay")
+  .addEventListener("click",function(event){
+
+    if(event.target===this){
+      closeDetail();
+    }
+
+  });
+
+
+/* Escape key */
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key==="Escape"){
+
+    closeDetail();
+
+    closeReader();
+
+  }
+
+});
+
 </script>
+
 </body>
 </html>
